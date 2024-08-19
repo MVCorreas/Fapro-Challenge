@@ -1,69 +1,73 @@
-'use client'
+"use client";
 
-import { useSession } from '../components/Providers'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { useForm } from 'react-hook-form'
-import toast from 'react-hot-toast'
-import axios from 'axios'
-import Link from 'next/link'
-import { useEffect } from 'react'
+import { useSession } from "../components/Providers";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import axios from "axios";
+import Link from "next/link";
+import { useEffect } from "react";
 
 export const RegisterForm = () => {
   const { data: session } = useSession() || {};
-  const router = useRouter()
-  const params = useSearchParams()
-  const callbackUrl = params.get('callbackUrl') || '/'
+  const router = useRouter();
+  const params = useSearchParams();
+  const callbackUrl = params.get("callbackUrl") || "/";
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm()
+  } = useForm();
 
   useEffect(() => {
     if (session && session.user) {
-      router.push(callbackUrl)
+      router.push(callbackUrl);
     }
-  }, [callbackUrl, router, session])
+  }, [callbackUrl, router, session]);
 
   const onSubmit = async (data) => {
     const { firstName, lastName, email, password, repeatPassword } = data;
-  
-    // Ensure passwords match
+
     if (password !== repeatPassword) {
-      toast.error('Passwords do not match');
+      toast.error("Passwords do not match");
       return;
     }
-  
+
     try {
-      // Construct the payload with the correct field names
       const payload = {
-        first_name: firstName,    // Adjusted to match API requirement
-        last_name: lastName,      // Adjusted to match API requirement
+        first_name: firstName,
+        last_name: lastName,
         email,
         password,
-        repeat_password: repeatPassword,  // Adjusted to match API requirement
+        repeat_password: repeatPassword,
       };
-  
-      const response = await axios.post('https://api-fapro-itw.fapro.dev/v1/authentication/register', payload, {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      // Log the full response
+
+      const response = await axios.post(
+        "https://api-fapro-itw.fapro.dev/v1/authentication/register",
+        payload,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
       console.log("Registration response:", response);
-  
-      toast.success('User registered successfully!')
-      router.push('/signin') // Redirect to sign-in page or other page
+
+      toast.success("User registered successfully!");
+      router.push("/signin");
     } catch (error) {
-      // Log the error response for debugging
-      console.error('Registration error:', error.response?.data || error.message)
-      toast.error(error.response?.data?.context?.message || 'Error registering user')
+      console.error(
+        "Registration error:",
+        error.response?.data || error.message
+      );
+      toast.error(
+        error.response?.data?.context?.message || "Error registering user"
+      );
     }
-  }
-  
+  };
 
   return (
     <div className="max-w-sm mx-auto card bg-base-300 my-4">
@@ -71,11 +75,13 @@ export const RegisterForm = () => {
         <h1 className="card-title">Register</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="my-2">
-            <label className="label" htmlFor="firstName">First Name</label>
+            <label className="label" htmlFor="firstName">
+              First Name
+            </label>
             <input
               type="text"
               id="firstName"
-              {...register('firstName', { required: 'First Name is required' })}
+              {...register("firstName", { required: "First Name is required" })}
               className="input input-bordered w-full max-w-sm"
             />
             {errors.firstName && (
@@ -83,11 +89,13 @@ export const RegisterForm = () => {
             )}
           </div>
           <div className="my-2">
-            <label className="label" htmlFor="lastName">Last Name</label>
+            <label className="label" htmlFor="lastName">
+              Last Name
+            </label>
             <input
               type="text"
               id="lastName"
-              {...register('lastName', { required: 'Last Name is required' })}
+              {...register("lastName", { required: "Last Name is required" })}
               className="input input-bordered w-full max-w-sm"
             />
             {errors.lastName && (
@@ -95,15 +103,17 @@ export const RegisterForm = () => {
             )}
           </div>
           <div className="my-2">
-            <label className="label" htmlFor="email">Email</label>
+            <label className="label" htmlFor="email">
+              Email
+            </label>
             <input
               type="email"
               id="email"
-              {...register('email', {
-                required: 'Email is required',
+              {...register("email", {
+                required: "Email is required",
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: 'Email is invalid',
+                  message: "Email is invalid",
                 },
               })}
               className="input input-bordered w-full max-w-sm"
@@ -113,15 +123,17 @@ export const RegisterForm = () => {
             )}
           </div>
           <div className="my-2">
-            <label className="label" htmlFor="password">Password</label>
+            <label className="label" htmlFor="password">
+              Password
+            </label>
             <input
               type="password"
               id="password"
-              {...register('password', {
-                required: 'Password is required',
+              {...register("password", {
+                required: "Password is required",
                 minLength: {
                   value: 8,
-                  message: 'Password must be at least 8 characters long',
+                  message: "Password must be at least 8 characters long",
                 },
               })}
               className="input input-bordered w-full max-w-sm"
@@ -131,12 +143,14 @@ export const RegisterForm = () => {
             )}
           </div>
           <div className="my-2">
-            <label className="label" htmlFor="repeatPassword">Confirm Password</label>
+            <label className="label" htmlFor="repeatPassword">
+              Confirm Password
+            </label>
             <input
               type="password"
               id="repeatPassword"
-              {...register('repeatPassword', {
-                required: 'Confirm Password is required',
+              {...register("repeatPassword", {
+                required: "Confirm Password is required",
               })}
               className="input input-bordered w-full max-w-sm"
             />
@@ -160,12 +174,12 @@ export const RegisterForm = () => {
 
         <div className="divider"> </div>
         <div>
-          Already have an account?{' '}
+          Already have an account?{" "}
           <Link className="link" href={`/signin?callbackUrl=${callbackUrl}`}>
             Login
           </Link>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

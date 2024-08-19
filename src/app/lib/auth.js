@@ -1,6 +1,3 @@
-// lib/auth.js
-
-// Function to create a user
 export const createUser = async (email, password) => {
   try {
     const response = await fetch(
@@ -44,9 +41,8 @@ export const loginUser = async (email, password) => {
     }
 
     const data = await response.json();
-    console.log("Login response data:", data); // Check the response structure
+    console.log("Login response data:", data);
 
-    // Extract and store the token correctly
     if (data && data.data && data.data.data && data.data.data.accessToken) {
       localStorage.setItem("token", data.data.data.accessToken);
     } else {
@@ -60,7 +56,6 @@ export const loginUser = async (email, password) => {
   }
 };
 
-// Function to validate a token
 export const validateToken = async (token) => {
   try {
     const response = await fetch(
@@ -86,23 +81,20 @@ export const validateToken = async (token) => {
   }
 };
 
-// Client-side function to get session
 export const getSession = async () => {
-  // Check if we're running on the client side
   if (typeof window !== "undefined") {
-    const token = localStorage.getItem("token"); // Retrieve token from local storage
-
+    const token = localStorage.getItem("token");
     if (!token) {
-      return null; // No token found, return null
+      return null;
     }
 
     try {
-      const session = await validateToken(token); // Validate the token
-      return session; // Return session data if valid
+      const session = await validateToken(token);
+      return session;
     } catch (error) {
       console.error("Error during authentication:", error);
-      return null; // Return null if validation fails
+      return null;
     }
   }
-  return null; // Return null if on the server side
+  return null;
 };

@@ -1,10 +1,9 @@
-// components/Providers.jsx
 "use client";
 
 import { createContext, useContext, useEffect, useState } from 'react';
 import { getSession } from '../lib/auth';
 
-const SessionContext = createContext(null); // Default value of null
+const SessionContext = createContext(null); 
 
 export const SessionProvider = ({ children }) => {
   const [session, setSession] = useState(null);

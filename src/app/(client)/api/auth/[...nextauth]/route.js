@@ -27,7 +27,7 @@ const authOptions = {
           );
 
           const user = await res.json();
-          console.log("Login response:", user); // Debug log
+          console.log("Login response:", user);
 
           if (res.ok && user && user.token) {
             return { ...user, token: user.token };
