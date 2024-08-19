@@ -1,10 +1,11 @@
-import { RegisterForm } from "@/app/components/RegisterForm"
+
+import { SignInForm } from "@/app/components/SignInForm"
 
 export default async function Register() {
     return (
        
 
-<h1>Sign In</h1>
+<SignInForm />
        
     
     )

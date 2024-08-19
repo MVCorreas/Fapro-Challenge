@@ -1,53 +1,69 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { useSession } from 'next-auth/react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import axios from 'axios'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 export const RegisterForm = () => {
-    const router = useRouter()
-    const {
-      register,
-      handleSubmit,
-      formState: { errors, isSubmitting },
-    } = useForm()
-  
-    const onSubmit = async (data) => {
-      const { firstName, lastName, email, password, repeatPassword } = data
-  
-      // Ensure passwords match
-      if (password !== repeatPassword) {
-        toast.error('Passwords do not match')
-        return
-      }
-  
-      try {
-        // Construct the payload with the correct field names
-        const payload = {
-          first_name: firstName,    // Adjusted to match API requirement
-          last_name: lastName,      // Adjusted to match API requirement
-          email,
-          password,
-          repeat_password: repeatPassword,  // Adjusted to match API requirement
-        }
-  
-        const response = await axios.post('https://api-fapro-itw.fapro.dev/v1/authentication/register', payload, {
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-        })
-  
-        toast.success('User registered successfully!')
-        router.push('/signin') // Redirect to sign-in page or other page
-      } catch (error) {
-        // Log the error response for debugging
-        console.error('Registration error:', error.response?.data || error.message)
-        toast.error(error.response?.data?.context?.message || 'Error registering user')
-      }
+  const { data: session } = useSession()
+  const router = useRouter()
+  const params = useSearchParams()
+  const callbackUrl = params.get('callbackUrl') || '/'
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm()
+
+  useEffect(() => {
+    if (session && session.user) {
+      router.push(callbackUrl)
     }
+  }, [callbackUrl, router, session])
+
+  const onSubmit = async (data) => {
+    const { firstName, lastName, email, password, repeatPassword } = data;
+  
+    // Ensure passwords match
+    if (password !== repeatPassword) {
+      toast.error('Passwords do not match');
+      return;
+    }
+  
+    try {
+      // Construct the payload with the correct field names
+      const payload = {
+        first_name: firstName,    // Adjusted to match API requirement
+        last_name: lastName,      // Adjusted to match API requirement
+        email,
+        password,
+        repeat_password: repeatPassword,  // Adjusted to match API requirement
+      };
+  
+      const response = await axios.post('https://api-fapro-itw.fapro.dev/v1/authentication/register', payload, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      // Log the full response
+      console.log("Registration response:", response);
+  
+      toast.success('User registered successfully!')
+      router.push('/signin') // Redirect to sign-in page or other page
+    } catch (error) {
+      // Log the error response for debugging
+      console.error('Registration error:', error.response?.data || error.message)
+      toast.error(error.response?.data?.context?.message || 'Error registering user')
+    }
+  }
+  
 
   return (
     <div className="max-w-sm mx-auto card bg-base-300 my-4">
@@ -55,9 +71,7 @@ export const RegisterForm = () => {
         <h1 className="card-title">Register</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="my-2">
-            <label className="label" htmlFor="firstName">
-              First Name
-            </label>
+            <label className="label" htmlFor="firstName">First Name</label>
             <input
               type="text"
               id="firstName"
@@ -69,9 +83,7 @@ export const RegisterForm = () => {
             )}
           </div>
           <div className="my-2">
-            <label className="label" htmlFor="lastName">
-              Last Name
-            </label>
+            <label className="label" htmlFor="lastName">Last Name</label>
             <input
               type="text"
               id="lastName"
@@ -83,9 +95,7 @@ export const RegisterForm = () => {
             )}
           </div>
           <div className="my-2">
-            <label className="label" htmlFor="email">
-              Email
-            </label>
+            <label className="label" htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
@@ -103,9 +113,7 @@ export const RegisterForm = () => {
             )}
           </div>
           <div className="my-2">
-            <label className="label" htmlFor="password">
-              Password
-            </label>
+            <label className="label" htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
@@ -123,9 +131,7 @@ export const RegisterForm = () => {
             )}
           </div>
           <div className="my-2">
-            <label className="label" htmlFor="repeatPassword">
-              Confirm Password
-            </label>
+            <label className="label" htmlFor="repeatPassword">Confirm Password</label>
             <input
               type="password"
               id="repeatPassword"
@@ -155,7 +161,7 @@ export const RegisterForm = () => {
         <div className="divider"> </div>
         <div>
           Already have an account?{' '}
-          <Link className="link" href="/signin">
+          <Link className="link" href={`/signin?callbackUrl=${callbackUrl}`}>
             Login
           </Link>
         </div>
