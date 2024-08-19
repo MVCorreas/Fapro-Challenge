@@ -1,6 +1,6 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
+import { useSession } from '../components/Providers'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 
 export const RegisterForm = () => {
-  const { data: session } = useSession()
+  const { data: session } = useSession() || {};
   const router = useRouter()
   const params = useSearchParams()
   const callbackUrl = params.get('callbackUrl') || '/'

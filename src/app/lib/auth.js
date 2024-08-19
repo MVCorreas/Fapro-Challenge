@@ -30,7 +30,7 @@ export const createUser = async (email, password) => {
 export const loginUser = async (email, password) => {
   try {
     const response = await fetch(
-      "https://api-fapro-itw.fapro.dev/v1/authentication/login",
+      "https://usermanager-pe.fapro.app/api/v1/token/login/",
       {
         method: "POST",
         headers: {

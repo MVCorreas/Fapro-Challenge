@@ -1,11 +1,11 @@
-import { RegisterForm } from "@/app/components/RegisterForm"
+// Importing RegisterForm
+import { RegisterForm } from "@/app/components/RegisterForm";
 
-export default async function Register() {
-    return (
-       
-
-<RegisterForm />
-       
-    
-    )
-  }
+// Component function should be synchronous
+export default function Register() {
+  return (
+    <div>
+      <RegisterForm />
+    </div>
+  );
+}

@@ -1,15 +1,41 @@
-"use client"
-import { SessionProvider } from 'next-auth/react';
+// components/Providers.jsx
+"use client";
+
+import { createContext, useContext, useEffect, useState } from 'react';
 import { getSession } from '../lib/auth';
 
-export default async function Providers({ children }) {
-  const session = await getSession();
+const SessionContext = createContext(null); // Default value of null
+
+export const SessionProvider = ({ children }) => {
+  const [session, setSession] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSession = async () => {
+      try {
+        const session = await getSession();
+        setSession(session);
+      } catch (error) {
+        console.error('Failed to fetch session:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSession();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <SessionProvider session={session}>
-
-        {children}
-  
-    </SessionProvider>
+    <SessionContext.Provider value={{ data: session }}>
+      {children}
+    </SessionContext.Provider>
   );
-}
+};
+
+export const useSession = () => {
+  return useContext(SessionContext);
+};

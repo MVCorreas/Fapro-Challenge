@@ -4,7 +4,9 @@ import { useForm } from 'react-hook-form';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { signIn } from 'next-auth/react'; // Import signIn from next-auth
+import { signIn } from 'next-auth/react'; 
+import axios from 'axios';
+import toast from 'react-hot-toast'
 
 export const SignInForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
@@ -23,26 +25,39 @@ export const SignInForm = () => {
     },
   });
 
-  const formSubmit = async (form) => {
-    const { email, password } = form;
+  const formSubmit = async (data) => {
+    const { email, password } = data;
+  
     try {
-      const result = await signIn('credentials', {
-        redirect: false,
+      const response = await axios.post('https://usermanager-pe.fapro.app/api/v1/token/login/', {
         email,
         password,
+      }, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
       });
-
-      if (result.ok) {
-        // Authentication successful
-        router.push(callbackUrl);
+  
+      console.log("Login response:", response);
+  
+      if (response.status === 200) {
+        toast.success('Login successful!');
+        router.push('/'); 
       } else {
-        // Handle errors from `signIn`
-        setErrorMessage(result.error || 'Login failed');
+        toast.error('Login failed. Please check your credentials.');
       }
     } catch (error) {
-      setErrorMessage('An error occurred. Please try again.');
+      console.error('Login error:', error.response?.data || error.message);
+  
+      if (error.response?.data?.errors?.[0]?.code === 'invalid_login') {
+        toast.error('No active account found for these credentials.');
+      } else {
+        toast.error(error.response?.data?.message || 'Error logging in');
+      }
     }
   };
+  
 
   return (
     <div className="max-w-sm mx-auto card bg-base-300 my-4">
