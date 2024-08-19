@@ -24,9 +24,9 @@ export const SessionProvider = ({ children }) => {
     fetchSession();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <SessionContext.Provider value={{ data: session }}>
