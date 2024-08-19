@@ -26,7 +26,6 @@ export const createUser = async (email, password) => {
   }
 };
 
-// Function to login a user
 export const loginUser = async (email, password) => {
   try {
     const response = await fetch(
@@ -45,6 +44,15 @@ export const loginUser = async (email, password) => {
     }
 
     const data = await response.json();
+    console.log("Login response data:", data); // Check the response structure
+
+    // Extract and store the token correctly
+    if (data && data.data && data.data.data && data.data.data.accessToken) {
+      localStorage.setItem("token", data.data.data.accessToken);
+    } else {
+      throw new Error("Token not found in response");
+    }
+
     return data;
   } catch (error) {
     console.error("Error logging in:", error);

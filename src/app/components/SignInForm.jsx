@@ -39,13 +39,15 @@ export const SignInForm = () => {
         },
       });
   
-      console.log("Login response:", response);
+      console.log("Login response:", response.data); // Verify the response structure
   
-      if (response.status === 200) {
+      // Extract the token correctly from the response
+      if (response.data && response.data.data && response.data.data.data && response.data.data.data.accessToken) {
+        localStorage.setItem("token", response.data.data.data.accessToken); // Store token
         toast.success('Login successful!');
         router.push('/'); 
       } else {
-        toast.error('Login failed. Please check your credentials.');
+        throw new Error("Token not found in response");
       }
     } catch (error) {
       console.error('Login error:', error.response?.data || error.message);
@@ -57,6 +59,7 @@ export const SignInForm = () => {
       }
     }
   };
+  
   
 
   return (
