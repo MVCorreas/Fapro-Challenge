@@ -12,7 +12,7 @@ const authOptions = {
       async authorize(credentials) {
         try {
           const res = await fetch(
-            "https://usermanager-pe.fapro.app/api/v1/token/login/",
+            "https://api-fapro-itw.fapro.dev/v1/authentication/login",
             {
               method: "POST",
               headers: {

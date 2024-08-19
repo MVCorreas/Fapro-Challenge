@@ -29,7 +29,7 @@ export const SignInForm = () => {
     const { email, password } = data;
   
     try {
-      const response = await axios.post('https://usermanager-pe.fapro.app/api/v1/token/login/', {
+      const response = await axios.post('https://api-fapro-itw.fapro.dev/v1/authentication/login', {
         email,
         password,
       }, {
