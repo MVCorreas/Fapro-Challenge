@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL; // Ensure this is correctly set in your .env file
+const apiUrl = process.env.NEXT_PUBLIC_API_URL; 
 
 export const Dashboard = () => {
   const [entities, setEntities] = useState([]);
+  const [disabledEntities, setDisabledEntities] = useState([]);
   const [error, setError] = useState(null);
   const router = useRouter();
   
-  // Fetch entities from the API
   const fetchEntities = async () => {
     const token = localStorage.getItem('token');
     
@@ -27,13 +27,36 @@ export const Dashboard = () => {
         }
       });
 
-      // Filter entities where is_enabled is true
       const enabledEntities = response.data.data.filter(entity => entity.is_enabled);
       
       setEntities(enabledEntities);
     } catch (error) {
       setError('Error fetching entities');
       console.error('Error fetching entities:', error);
+    }
+  };
+
+  const fetchDisabledEntities = async () => {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      setError('No token found');
+      return;
+    }
+
+    try {
+      const response = await axios.get(`${apiUrl}/api_entities/entities/`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json',
+        },
+      });
+
+      const disabledEntitiesList = response.data.data.filter(entity => !entity.is_enabled);
+      setDisabledEntities(disabledEntitiesList);
+    } catch (error) {
+      setError('Error fetching disabled entities');
+      console.error('Error fetching disabled entities:', error);
     }
   };
 
@@ -74,6 +97,10 @@ export const Dashboard = () => {
     router.push('/create-entity');
   };
 
+  const handleEditEntity = (entityId) => {
+    router.push(`/edit-entity/${entityId}`);
+};
+
   const logOut = () => {
     router.push('/');
   };
@@ -87,6 +114,7 @@ export const Dashboard = () => {
           entities.map((entity) => (
             <li key={entity.id}>
               {entity.business_name}
+              <button className='btn btn-outline btn-sm' onClick={() => handleEditEntity(entity.id)}>Edit</button>
               <button className="btn btn-danger" onClick={() => removeEntity(entity.id)}>Delete</button>
             </li>
           ))
@@ -98,8 +126,25 @@ export const Dashboard = () => {
         <button onClick={handleCreateEntity}>Create Entity</button>
       </div>
       <div className='btn btn-outline btn-sm'>
+        <button onClick={fetchDisabledEntities}>Show Disabled Entities</button>
+      </div>
+      <div className='btn btn-outline btn-sm'>
         <button onClick={logOut}>Log Out</button>
       </div>
+      {disabledEntities.length > 0 && (
+        <div>
+          <h2>Disabled Entities</h2>
+          <ul>
+            {disabledEntities.map((entity) => (
+              <li key={entity.id}>
+                {entity.business_name}
+                <button className='btn btn-outline btn-sm' onClick={() => handleEditEntity(entity.id)}>Edit</button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
+

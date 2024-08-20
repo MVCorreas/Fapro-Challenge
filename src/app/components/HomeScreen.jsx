@@ -16,7 +16,6 @@ return (
  <h1>HOME</h1>
  <button className='btn btn-outline btn-sm' onClick={logIn}>Sign In</button>
  <button className='btn btn-outline btn-sm' onClick={signUp}>Sign Up</button>
- {/* <button className='btn btn-outline btn-sm' onClick={() => router.push('/dashboard')}>Dashboard</button> */}
 
     </div>
    
