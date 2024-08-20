@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL; // Ensure this is correctly set in your .env file
 
-export const MainScreen = () => {
+export const Dashboard = () => {
   const [entities, setEntities] = useState([]);
   const [error, setError] = useState(null);
   const router = useRouter();
@@ -26,8 +26,11 @@ export const MainScreen = () => {
           'Accept': 'application/json',
         }
       });
+
+      // Filter entities where is_enabled is true
+      const enabledEntities = response.data.data.filter(entity => entity.is_enabled);
       
-      setEntities(response.data.data); 
+      setEntities(enabledEntities);
     } catch (error) {
       setError('Error fetching entities');
       console.error('Error fetching entities:', error);
@@ -38,7 +41,7 @@ export const MainScreen = () => {
     fetchEntities();
   }, []);
 
-  const FunRemove = async (id) => {
+  const removeEntity = async (id) => {
     if (window.confirm("Do you want to remove?")) {
       const token = localStorage.getItem('token');
       if (!token) {
@@ -72,7 +75,7 @@ export const MainScreen = () => {
   };
 
   const logOut = () => {
-    router.push('/signin');
+    router.push('/');
   };
   
   return (
@@ -84,7 +87,7 @@ export const MainScreen = () => {
           entities.map((entity) => (
             <li key={entity.id}>
               {entity.business_name}
-              <button className="btn btn-danger" onClick={() => FunRemove(entity.id)}>Delete</button>
+              <button className="btn btn-danger" onClick={() => removeEntity(entity.id)}>Delete</button>
             </li>
           ))
         ) : (

@@ -28,7 +28,7 @@ export const CreateEntity = () => {
       const handleSubmit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
-        
+      
         if (!token) {
           setError('No token found');
           return;
@@ -48,12 +48,16 @@ export const CreateEntity = () => {
           );
       
           setSuccess('Entity created successfully!');
-          router.push('/?created=true'); 
+      
+          const createdEntityId = response.data.id;
+      
+          router.push(`/dashboard?id=${createdEntityId}`);
         } catch (error) {
           setError('Error creating entity');
           console.error('Error creating entity:', error);
         }
       };
+      
       
     
       return (

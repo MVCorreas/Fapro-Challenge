@@ -12,7 +12,7 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 export const SignInForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const params = useSearchParams();
-  const callbackUrl = params.get("callbackUrl") || "/";
+  const callbackUrl = params.get("callbackUrl") || "/dashboard";
   const router = useRouter();
 
   const {
@@ -54,7 +54,7 @@ export const SignInForm = () => {
       ) {
         localStorage.setItem("token", response.data.data.data.accessToken);
         toast.success("Login successful!");
-        router.push("/");
+        router.push("/dashboard");
       } else {
         throw new Error("Token not found in response");
       }
