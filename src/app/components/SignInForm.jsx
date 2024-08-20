@@ -70,7 +70,7 @@ export const SignInForm = () => {
   };
 
   return (
-    <div className="max-w-sm mx-auto card bg-base-300 my-4">
+    <div className="max-w-sm mx-auto card bg-base-300 m-4" style={{backgroundImage: "url('/Background1.jpg')", backgroundPosition:'center', backgroundSize: 'cover'}}>
       <div className="card-body">
         <h1 className="card-title">Sign in</h1>
         {errorMessage && <div className="alert text-error">{errorMessage}</div>}

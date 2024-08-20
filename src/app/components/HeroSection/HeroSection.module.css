@@ -1,0 +1,79 @@
+.section {
+  padding-top: 40px;
+  color: white;
+  font-weight: 900;
+  height: 90vh;
+  box-sizing: border-box;
+  overflow-y: clip;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  background-image: url("/Background.jpg");
+  opacity: 0.6;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: -1;
+}
+
+.heroTitle {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 200;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: slideUp 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroImageWrapper {
+  position: relative;
+  height: 100vh;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #fb8500;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { MainScreen } from "./components/Dashboard";
-import { HomeScreen } from "./components/HomeScreen";
+import { Landing } from "./components/Landing";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <HomeScreen />
+    <main className="h-full flex flex-col">
+      <Landing />
     </main>
   );
 }

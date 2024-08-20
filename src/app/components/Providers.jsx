@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { getSession } from '../lib/auth';
 
-const SessionContext = createContext(null); 
+const SessionContext = createContext(null);
 
 export const SessionProvider = ({ children }) => {
   const [session, setSession] = useState(null);
@@ -12,7 +12,8 @@ export const SessionProvider = ({ children }) => {
   useEffect(() => {
     const fetchSession = async () => {
       try {
-        const session = await getSession();
+        const shouldValidate = window.location.pathname !== '/';
+        const session = await getSession(shouldValidate);
         setSession(session);
       } catch (error) {
         console.error('Failed to fetch session:', error);
@@ -23,10 +24,6 @@ export const SessionProvider = ({ children }) => {
 
     fetchSession();
   }, []);
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
 
   return (
     <SessionContext.Provider value={{ data: session }}>

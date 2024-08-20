@@ -81,8 +81,12 @@ export const validateToken = async (token) => {
   }
 };
 
-export const getSession = async () => {
+export const getSession = async (shouldValidate = true) => {
   if (typeof window !== "undefined") {
+    if (!shouldValidate) {
+      return { user: null };
+    }
+
     const token = localStorage.getItem("token");
     if (!token) {
       return null;

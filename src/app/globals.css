@@ -6,6 +6,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  height: 100%;
+  color: black;
+  margin: 0;
+  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,8 +21,14 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: black;
+ 
   margin: 0;
+  height: 100%;
+  /* background-image: url('/Background2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
 }
 
 @layer utilities {

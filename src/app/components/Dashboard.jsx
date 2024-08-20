@@ -107,7 +107,7 @@ export const Dashboard = () => {
 
   return (
     <div>
-      <h1>Main Screen</h1>
+      <h1>DASHBOARD</h1>
       {error && <div className="error">{error}</div>}
       <ul>
         {entities.length > 0 ? (
