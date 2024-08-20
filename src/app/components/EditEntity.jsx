@@ -14,40 +14,68 @@ export const EditEntity = ({ entityId }) => {
     });
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
     const router = useRouter();
 
     useEffect(() => {
-        // Fetch the entity details when the component loads
         const fetchEntity = async () => {
             const token = localStorage.getItem('token');
             if (!token) {
                 setError('No token found');
                 return;
             }
-
+        
             try {
-                const response = await axios.get(`${apiUrl}/api_entities/entities/${entityId}/`, {
+                const response = await axios.get(`${apiUrl}/api_entities/entities/`, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Accept': 'application/json',
                     },
                 });
-
-                setFormData(response.data);
+        
+                // Log the fetched data
+                console.log('Fetched entities data:', response.data);
+        
+                // Extract the array of entities
+                const entities = response.data.data;
+        
+                // Find the specific entity by entityId
+                const entity = entities.find(item => item.id === parseInt(entityId, 10));
+        
+                if (entity) {
+                    // Set formData with the entity details
+                    setFormData({
+                        business_name: entity.business_name || '',
+                        credential: entity.credential || '',
+                        is_enabled: entity.is_enabled ?? false,
+                    });
+        
+                    // Log the initial state after setting form data
+                    console.log('Initial formData:', entity);
+                } else {
+                    setError('Entity not found');
+                }
             } catch (error) {
                 setError('Error fetching entity details');
                 console.error('Error fetching entity details:', error);
             }
         };
-
+        
         fetchEntity();
     }, [entityId]);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
+        const { name, type, checked, value } = e.target;
+        setFormData(prevFormData => {
+            const updatedFormData = {
+                ...prevFormData,
+                [name]: type === 'checkbox' ? checked : value,
+            };
+
+            // Log the form data when it changes
+            console.log('Updated formData:', updatedFormData);
+
+            return updatedFormData;
         });
     };
 
@@ -110,13 +138,14 @@ export const EditEntity = ({ entityId }) => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="is_enabled">Is Enabled:</label>
+                    <label htmlFor="is_enabled">Active:</label>
                     <input
                         type="checkbox"
                         id="is_enabled"
                         name="is_enabled"
+                        className="toggle"
                         checked={formData.is_enabled}
-                        onChange={() => setFormData({ ...formData, is_enabled: !formData.is_enabled })}
+                        onChange={handleChange}
                     />
                 </div>
                 <button type="submit">Update Entity</button>
