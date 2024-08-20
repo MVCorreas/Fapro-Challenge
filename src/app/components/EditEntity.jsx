@@ -15,7 +15,7 @@ export const EditEntity = ({ entityId }) => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [isLoading, setIsLoading] = useState(true);
-    const [isEditing, setIsEditing] = useState(false); // State to toggle edit mode
+    const [isEditing, setIsEditing] = useState(false); 
     const router = useRouter();
 
     useEffect(() => {

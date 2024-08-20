@@ -100,25 +100,10 @@ export const Dashboard = () => {
     }
   };
 
-  const handleCreateEntity = () => {
-    router.push('/create-entity');
-  };
-
-  const handleEditEntity = (entityId) => {
-    router.push(`/edit-entity/${entityId}`);
-  };
-
-  const logOut = () => {
-    router.push('/');
-  };
-
-  const toggleDisabledEntities = () => {
-    setShowDisabledEntities((prev) => !prev);
-  };
-
-  const handlEntityDetail = (entityId) => {
-    router.push(`/entity/${entityId}`);
-  }
+  const handleCreateEntity = () => router.push('/create-entity');
+  const handleEditEntity = (entityId) => router.push(`/edit-entity/${entityId}`);
+  const logOut = () => router.push('/');
+  const toggleDisabledEntities = () => setShowDisabledEntities(prev => !prev);
 
   return (
     <div>
