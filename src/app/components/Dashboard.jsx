@@ -116,6 +116,10 @@ export const Dashboard = () => {
     setShowDisabledEntities((prev) => !prev);
   };
 
+  const handlEntityDetail = (entityId) => {
+    router.push(`/entity/${entityId}`);
+  }
+
   return (
     <div>
       <h1>Main Screen</h1>
@@ -126,6 +130,7 @@ export const Dashboard = () => {
             <li key={entity.id}>
               {entity.business_name}
               <button className='btn btn-outline btn-sm' onClick={() => handleEditEntity(entity.id)}>Edit</button>
+              <button className='btn btn-outline btn-sm' onClick={() => handlEntityDetail(entity.id)}>Show details</button>
               <button className="btn btn-danger" onClick={() => removeEntity(entity.id)}>Delete</button>
             </li>
           ))
