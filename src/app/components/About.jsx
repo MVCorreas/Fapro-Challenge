@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import useEaseIn from '../../hooks/useEaseIn';
+import useEaseIn from '../hooks/useEaseIn';
 
 export const AboutSection = () => {
   const router = useRouter();
@@ -12,8 +12,8 @@ export const AboutSection = () => {
 
   return (
     <section
-      ref={(el) => (sectionsRef.current[0] = el)}
-      className="opacity-0 translate-y-10 transition-opacity transition-transform duration-1500 ease-out animate-slideUp" 
+    ref={(el) => (sectionsRef.current[0] = el)}
+      className="opacity-0 translate-y-10 animate-slideUp" 
       id="about"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-8">
