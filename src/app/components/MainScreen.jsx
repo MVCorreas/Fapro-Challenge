@@ -1,7 +1,9 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL; // Ensure this is correctly set in your .env file
 
 export const MainScreen = () => {
   const [entities, setEntities] = useState([]);
@@ -18,14 +20,14 @@ export const MainScreen = () => {
     }
     
     try {
-      const response = await axios.get('https://api-fapro-itw.fapro.dev/v1/api_entities/entities/', {
+      const response = await axios.get(`${apiUrl}/api_entities/entities/`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Accept': 'application/json',
         }
       });
       
-      setEntities(response.data.data); // Adjust based on actual response structure
+      setEntities(response.data.data); 
     } catch (error) {
       setError('Error fetching entities');
       console.error('Error fetching entities:', error);
@@ -38,10 +40,14 @@ export const MainScreen = () => {
 
   const FunRemove = async (id) => {
     if (window.confirm("Do you want to remove?")) {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setError('No token found');
+        return;
+      }
+      
       try {
-        const token = localStorage.getItem('token');
-        const response = await fetch(`https://api-fapro-itw.fapro.dev/v1/api_entities/entities/${id}/`, {
-          method: "DELETE",
+        const response = await axios.delete(`${apiUrl}/api_entities/entities/${id}/`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Accept': 'application/json',
@@ -51,26 +57,23 @@ export const MainScreen = () => {
         if (response.status === 204) {
           console.log("Entity deleted successfully");
   
-          // Filter out the deleted entity from the list
           setEntities((prevEntities) => prevEntities.filter((entity) => entity.id !== id));
         } else {
           console.error(`Failed to delete entity, status code: ${response.status}`);
-          const responseBody = await response.json();
-          console.log("Error response:", responseBody);
         }
-      } catch (err) {
-        console.error("Failed to delete entity:", err.message);
+      } catch (error) {
+        console.error("Failed to delete entity:", error.message);
       }
     }
   };
 
   const handleCreateEntity = () => {
     router.push('/create-entity');
-  }
+  };
 
   const logOut = () => {
-    router.push('/signin')
-  }
+    router.push('/signin');
+  };
   
   return (
     <div>
@@ -81,7 +84,7 @@ export const MainScreen = () => {
           entities.map((entity) => (
             <li key={entity.id}>
               {entity.business_name}
-              <button className="btn btn-danger" onClick={()=>{FunRemove(entity.id)}}>Detete</button>
+              <button className="btn btn-danger" onClick={() => FunRemove(entity.id)}>Delete</button>
             </li>
           ))
         ) : (

@@ -8,6 +8,8 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect } from "react";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 export const RegisterForm = () => {
   const { data: session } = useSession() || {};
   const router = useRouter();
@@ -44,7 +46,7 @@ export const RegisterForm = () => {
       };
 
       const response = await axios.post(
-        "https://api-fapro-itw.fapro.dev/v1/authentication/register",
+        `${apiUrl}/authentication/register`,
         payload,
         {
           headers: {

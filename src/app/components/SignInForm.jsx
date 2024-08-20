@@ -7,6 +7,8 @@ import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 export const SignInForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const params = useSearchParams();
@@ -29,7 +31,7 @@ export const SignInForm = () => {
 
     try {
       const response = await axios.post(
-        "https://api-fapro-itw.fapro.dev/v1/authentication/login",
+        `${apiUrl}/authentication/login`,
         {
           email,
           password,

@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 export const CreateEntity = () => {
     const [formData, setFormData] = useState({
         business_name: '',
@@ -34,7 +36,7 @@ export const CreateEntity = () => {
       
         try {
           const response = await axios.post(
-            'https://api-fapro-itw.fapro.dev/v1/api_entities/entities/',
+            `${apiUrl}/api_entities/entities/`,
             formData,
             {
               headers: {

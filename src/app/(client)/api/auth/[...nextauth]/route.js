@@ -1,5 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import axios from "axios";
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const authOptions = {
   providers: [
@@ -11,25 +14,24 @@ const authOptions = {
       },
       async authorize(credentials) {
         try {
-          const res = await fetch(
-            "https://api-fapro-itw.fapro.dev/v1/authentication/login",
+          const res = await axios.post(
+            `${apiUrl}/authentication/login`,
             {
-              method: "POST",
+              email: credentials.email,
+              password: credentials.password,
+            },
+            {
               headers: {
                 accept: "application/json",
                 "content-type": "application/json",
               },
-              body: JSON.stringify({
-                email: credentials.email,
-                password: credentials.password,
-              }),
             }
           );
 
-          const user = await res.json();
+          const user = res.data;
           console.log("Login response:", user);
 
-          if (res.ok && user && user.token) {
+          if (res.status === 200 && user && user.token) {
             return { ...user, token: user.token };
           } else {
             return null;
