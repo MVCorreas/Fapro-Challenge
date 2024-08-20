@@ -19,7 +19,7 @@ module.exports = {
         },
       },
       animation: {
-        slideUp: "slideUp 1.2s ease-out forwards 1.5s",
+        slideUp: "slideUp 1.8s ease-out forwards",
       },
     },
   },

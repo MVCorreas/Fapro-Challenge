@@ -18,7 +18,7 @@ return (
     <div>
               <HeroSection />
               <AboutSection />
-            
+            <InterestsSection/>
 
  {/* <button className='btn btn-outline btn-sm' onClick={logIn}>Sign In</button>
  <button className='btn btn-outline btn-sm' onClick={signUp}>Sign Up</button> */}
