@@ -63,11 +63,13 @@ export const MainScreen = () => {
       }
     }
   };
-  
- 
 
   const handleCreateEntity = () => {
     router.push('/create-entity');
+  }
+
+  const logOut = () => {
+    router.push('/signin')
   }
   
   return (
@@ -88,6 +90,9 @@ export const MainScreen = () => {
       </ul>
       <div className='btn btn-outline btn-sm'>
         <button onClick={handleCreateEntity}>Create Entity</button>
+      </div>
+      <div className='btn btn-outline btn-sm'>
+        <button onClick={logOut}>Log Out</button>
       </div>
     </div>
   );
