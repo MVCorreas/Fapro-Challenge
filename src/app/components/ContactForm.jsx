@@ -6,6 +6,7 @@ import Modal from "./Modal/Modal";
 import useEaseIn from "../hooks/useEaseIn";
 
 export const ContactForm = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
@@ -48,6 +49,7 @@ export const ContactForm = () => {
   const closeModal = () => {
     setShowThanksMessage(false);
 
+    setName("");
     setEmail("");
     setSubject("");
     setMessage("");
@@ -72,15 +74,15 @@ export const ContactForm = () => {
           />
         </div>
         <div className="flex flex-col w-full p-8">
-          <h5 className="text-4xl font-light text-purple-800 mb-4">Let&apos;s Connect</h5>
+          <h5 className="text-4xl font-light text-purple-800 mb-4">Contact Us</h5>
           <p className="text-xl leading-8 mb-4">
-            I would love to hear your story! You can contact me and I will get back to you asap.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit error architecto eveniet corporis vel! 
           </p>
           <div className="w-full p-8 mt-7 bg-purple-50/40 rounded-md">
             {!showThanksMessage ? (
               <form onSubmit={handleSubmit} className="relative z-20">
                 <div className="mb-6">
-                  <label htmlFor="name" className="text-xl text-purple-800 font-bold">Your Name</label>
+                  <label htmlFor="name" className="text-xl text-purple-800 font-bold">Name</label>
                   <input
                     name="name"
                     type="name"
@@ -89,12 +91,12 @@ export const ContactForm = () => {
                     placeholder="Type your name"
                     className="w-full p-4 mt-2 border border-gray-300 rounded-lg text-lg text-gray-600"
                     onChange={(e) => {
-                      setEmail(e.target.value);
+                      setName(e.target.value);
                     }}
                   />
                 </div>
                 <div className="mb-6">
-                  <label htmlFor="email" className="text-xl text-purple-800 font-bold">Your email</label>
+                  <label htmlFor="email" className="text-xl text-purple-800 font-bold">Email</label>
                   <input
                     name="email"
                     type="email"
@@ -117,7 +119,7 @@ export const ContactForm = () => {
                     id="subject"
                     required
                     className={`w-full p-4 mt-2 border ${subjectError ? "border-red-600" : "border-gray-300"} rounded-lg text-lg text-gray-600`}
-                    placeholder="Just saying hi"
+                    placeholder="Topic of conversation"
                     value={subject}
                     onChange={(e) => {
                       setSubject(e.target.value);
@@ -132,7 +134,7 @@ export const ContactForm = () => {
                     id="message"
                     required
                     className={`w-full p-4 mt-2 border ${messageError ? "border-red-600" : "border-gray-300"} rounded-lg text-lg text-gray-600`}
-                    placeholder="..."
+                    placeholder="How can we help you thrive?"
                     value={message}
                     onChange={(e) => {
                       setMessage(e.target.value);
@@ -143,7 +145,7 @@ export const ContactForm = () => {
                 <MainButton name="Submit" onClick={handleSubmit} />
               </form>
             ) : (
-              <Modal message="Thank you for contacting me!" onClose={closeModal} />
+              <Modal message="Thank you for contacting Fapro! We will get back to you asap." onClose={closeModal} />
             )}
           </div>
         </div>
