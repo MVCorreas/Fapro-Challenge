@@ -54,6 +54,7 @@ export const NavBar = () => {
         </div>
         <Image
           src="/Logo.png"
+          alt="logo"
           width={100}
           height={100}
           style={{ borderRadius: "10px" }}

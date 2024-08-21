@@ -23,6 +23,7 @@ export const RegisterScreen = () => {
         <div className="navbar-start flex-1">
           <Image
             src="/Logo.png"
+            alt="logo"
             width={100}
             height={100}
             onClick={navigateHome}
