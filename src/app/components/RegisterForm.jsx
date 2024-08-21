@@ -79,7 +79,7 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div className="max-w-sm mx-auto card bg-base-300 my-4">
+    <div className="max-w-sm mx-auto card bg-white bg-opacity-30 m-4 text-white p-10">
       <div className="card-body">
       <h1 className="card-title text-3xl justify-center">REGISTER</h1>
         {errorMessage && (
