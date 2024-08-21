@@ -48,7 +48,7 @@ export const SolutionsSection = () => {
     <section
       ref={(el) => (sectionsRef.current[1] = el)}
       className="opacity-0 translate-y-10 animate-slideUp mb-20"
-      id="interests"
+      id="solutions"
     >
       <div className="flex flex-col items-center">
         <span className="text-3xl sm:text-5xl lg:text-7xl lg:leading-normal font-bold-700 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-900 via-purple-400 to-amber-600">
