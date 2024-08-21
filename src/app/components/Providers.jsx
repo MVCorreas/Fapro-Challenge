@@ -12,7 +12,10 @@ export const SessionProvider = ({ children }) => {
   useEffect(() => {
     const fetchSession = async () => {
       try {
-        const shouldValidate = window.location.pathname !== '/';
+        // Only validate the token if we are not on '/' or sign-in or register pages
+        const pathname = window.location.pathname;
+        const shouldValidate = pathname !== '/' && pathname !== '/signin' && pathname !== '/register';
+
         const session = await getSession(shouldValidate);
         setSession(session);
       } catch (error) {

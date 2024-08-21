@@ -43,6 +43,7 @@ export const HeroSection = () => {
         <div className="col-span-1 ml-20 w-full mb-[200px]">
           <Image 
             src='/HeroImage1.webp'
+            alt='hero1'
             width={700}
             height={700}
             priority
@@ -54,6 +55,7 @@ export const HeroSection = () => {
         <div className="col-span-2 relative -ml-10 mt-10 z-10">
           <Image 
             src='/HeroImage6.webp'
+            alt='hero1'
             width={300}
             height={300}
             priority
@@ -64,6 +66,7 @@ export const HeroSection = () => {
         <div className="col-span-1 -mt-40 -ml-30">
           <Image 
            src='/HeroImage4.png'
+           alt='hero1'
             width={300}
             height={300}
             priority
@@ -74,6 +77,7 @@ export const HeroSection = () => {
         <div className="col-span-2 ml-20 w-full mb-[100px] -mt-10 z-10">
           <Image 
             src='/HeroImage7.jpg'
+            alt='hero1'
             width={300}
             height={300}
             priority

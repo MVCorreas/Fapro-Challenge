@@ -1,14 +1,14 @@
-export const MainButton = ({name}) => {
+export const MainButton = ({name, onClick}) => {
   return (
-    <button className=" btn w-32 bg-purple-700 hover:bg-violet-400  text-white rounded-md">
+    <button  onClick={onClick} className=" btn w-32 bg-purple-700 hover:bg-violet-400  text-white rounded-md">
       {name}
     </button>
   );
 };
 
-export const OutlinedButton = ({name}) => {
+export const OutlinedButton = ({name, onClick}) => {
   return (
-    <button className=" btn w-32 btn-outline hover:bg-violet-400  text-purple-700 rounded-md">
+    <button  onClick={onClick} className=" btn w-32 btn-outline hover:bg-violet-400  text-purple-700 rounded-md">
       {name}
     </button>
   );

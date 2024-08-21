@@ -36,7 +36,7 @@ export const AboutSection = () => {
         </div>
         <div className="relative w-full h-full">
           <Image
-            src="/Background2.jpg"
+            src="/Background3.jpg"
             alt="aboutImage"
             width={900}
             height={900}
