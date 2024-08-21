@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import styles from './HeroSection.module.css';
+import { MainButton } from '@/app/utility/Buttons';
 
 export const HeroSection = () => {
   const router = useRouter()
@@ -25,15 +26,17 @@ export const HeroSection = () => {
           </span>
         </h1>
         <p className={`${styles.heroSubTitle} font-lighter text-xs m-8`}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </p>
         <br/>
-        <button
+        <div className={styles.heroSubTitle}>
+        <MainButton
           onClick={logIn}
-          className="btn w-32 bg-violet-400 hover:bg-slate-200 text-white rounded-md"
-        >
-          Get Started
-        </button>
+          name='Get Started'
+          
+       />
+        </div>
+       
       </div>
       
       <div className="w-1/2 relative grid grid-cols-3 gap-4 mt-10 z-10">

@@ -1,6 +1,7 @@
 import { useRouter } from "next/navigation";
 import { HamburgerIcon } from "../../../public/Icons";
 import Image from "next/image";
+import { MainButton, OutlinedButton } from "../utility/Buttons";
 
 const navLinks = [
   {
@@ -65,15 +66,18 @@ export const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-4">
-        <button
+        <MainButton
           onClick={logIn}
-          className="btn w-32 bg-violet-400 hover:bg-slate-200 text-white rounded-md"
-        >
-          Sign In
-        </button>
-        <button onClick={signUp} className="btn btn-outline text-violet-800">
-          Sign Up
-        </button>
+          name='Sign In'
+         
+        />
+         
+
+         <OutlinedButton
+          onClick={signUp}
+          name='Sign Up'
+         
+        />
       </div>
     </div>
   );
