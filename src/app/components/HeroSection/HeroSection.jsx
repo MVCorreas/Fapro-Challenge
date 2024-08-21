@@ -44,7 +44,7 @@ export const HeroSection = () => {
         {/* Second Image (Overlapping First) */}
         <div className="col-span-2 relative -ml-10 mt-10 z-10">
           <Image 
-            src='/HeroImage3.png'
+            src='/HeroImage6.webp'
             width={300}
             height={300}
             priority
@@ -55,7 +55,7 @@ export const HeroSection = () => {
         {/* Third Image */}
         <div className="col-span-1 -mt-40 -ml-30">
           <Image 
-            src='/HeroImage2.jpg'
+           src='/HeroImage4.png'
             width={300}
             height={300}
             priority
@@ -64,9 +64,9 @@ export const HeroSection = () => {
         </div>
 
         {/* Fourth Image */}
-        <div className="col-span-2 ml-20 w-full mb-[100px] -mt-20 z-10">
+        <div className="col-span-2 ml-20 w-full mb-[100px] -mt-10 z-10">
           <Image 
-            src='/HeroImage4.png'
+            src='/HeroImage7.jpg'
             width={300}
             height={300}
             priority
