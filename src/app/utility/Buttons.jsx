@@ -13,3 +13,11 @@ export const OutlinedButton = ({name, onClick}) => {
     </button>
   );
 };
+
+export const LightButton = ({name, onClick}) => {
+  return (
+    <button  onClick={onClick} className=" btn w-32 bg-violet-400 hover:bg-violet-700  text-white rounded-md">
+      {name}
+    </button>
+  );
+};

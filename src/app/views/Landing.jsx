@@ -2,8 +2,9 @@
 import { useRouter } from "next/navigation";
 import { HeroSection } from "../components/HeroSection/HeroSection";
 import { AboutSection } from "../components/About";
-import { InterestsSection } from "../components/Interests/Interests";
+import { SolutionsSection } from "../components/Solutions";
 import { NavBar } from "../components/NavBar";
+import { Footer } from "../components/Footer";
 
 export const Landing = () => {
   const router = useRouter();
@@ -13,7 +14,8 @@ export const Landing = () => {
       <NavBar />
       <HeroSection />
       <AboutSection />
-      <InterestsSection />
+      <SolutionsSection />
+      <Footer />
     </div>
   );
 };

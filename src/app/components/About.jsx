@@ -19,7 +19,9 @@ export const AboutSection = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-8">
         <div className="flex flex-col justify-center">
-          <h2 className="text-6xl font-light text-violet-400 mb-4 font-extrabold mb-8" style={{ fontWeight: '500' }}>About Fapro</h2>
+        <span className="text-3xl sm:text-5xl lg:text-7xl lg:leading-normal font-bold-700 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-900 via-purple-400 to-amber-600">
+            ABOUT US
+          </span>
           <div className="text-lg leading-relaxed mb-20 text-black w-[500px]">
            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus corporis ratione quaerat iusto cupiditate illo, deleniti culpa nesciunt sit ducimus molestiae rem doloribus quia similique. Harum recusandae animi ipsam neque.
           </div>
