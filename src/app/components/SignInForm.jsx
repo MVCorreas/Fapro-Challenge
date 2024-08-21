@@ -63,12 +63,13 @@ export const SignInForm = () => {
       console.error("Login error:", error.response?.data || error.message);
 
       if (error.response?.data?.errors?.[0]?.code === "invalid_login") {
-        toast.error("No active account found for these credentials.");
+        setErrorMessage("No active account found for these credentials.");
       } else {
-        toast.error(error.response?.data?.message || "Error logging in");
+        setErrorMessage(error.response?.data?.message || "Error logging in");
       }
     }
   };
+
 
   return (
     <div className="max-w-sm mx-auto card bg-white bg-opacity-30 m-4 text-white p-10">
