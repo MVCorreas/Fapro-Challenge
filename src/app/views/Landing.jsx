@@ -1,9 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { HeroSection } from "./HeroSection/HeroSection";
-import { AboutSection } from "./About";
-import { InterestsSection } from "./Interests/Interests";
-import { NavBar } from "./NavBar";
+import { HeroSection } from "../components/HeroSection/HeroSection";
+import { AboutSection } from "../components/About";
+import { InterestsSection } from "../components/Interests/Interests";
+import { NavBar } from "../components/NavBar";
 
 export const Landing = () => {
   const router = useRouter();
