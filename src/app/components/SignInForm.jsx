@@ -6,6 +6,7 @@ import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { LightButton, MainButton } from "../utility/Buttons";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -70,9 +71,9 @@ export const SignInForm = () => {
   };
 
   return (
-    <div className="max-w-sm mx-auto card bg-base-300 m-4">
+    <div className="max-w-sm mx-auto card bg-white bg-opacity-30 m-4 text-white p-10">
        <div className="card-body">
-       <h1 className="card-title">Sign in</h1>
+       <h1 className="card-title text-3xl justify-center">SIGN IN</h1>
         {errorMessage && <div className="alert text-error">{errorMessage}</div>}
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="my-2">
@@ -105,23 +106,24 @@ export const SignInForm = () => {
               {...register("password", {
                 required: "Password is required",
               })}
-              className="input input-bordered w-full max-w-sm"
+              className="input input-bordered w-full max-w-sm text-black"
             />
             {errors.password?.message && (
               <div className="text-error">{errors.password.message}</div>
             )}
           </div>
-          <div className="my-4">
-            <button
+          <div className="my-4 flex justify-center">
+            <LightButton
               type="submit"
               disabled={isSubmitting}
               className="btn btn-primary w-full"
-            >
+              name='Sign In'
+            />
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
               )}
-              Sign in
-            </button>
+            
+            
           </div>
         </form>
         <div>
