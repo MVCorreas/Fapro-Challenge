@@ -66,8 +66,11 @@ export const SignInForm = () => {
         setErrorMessage("No active account found for these credentials.");
       } else {
         setErrorMessage(error.response?.data?.message || "Error logging in");
+     
+        toast.error(errorMessage);
       }
-    }
+      }
+    
   };
 
 
@@ -114,15 +117,16 @@ export const SignInForm = () => {
             )}
           </div>
           <div className="my-4 flex justify-center">
-            <LightButton
+          <button
               type="submit"
               disabled={isSubmitting}
-              className="btn btn-primary w-full"
-              name='Sign In'
-            />
+              className=" btn w-32 bg-violet-400 hover:bg-violet-700  text-white rounded-md">
+            
               {isSubmitting && (
-                <span className="loading loading-spinner"></span>
+                <span className="loading loading-spinner text-white"></span>
               )}
+              Sign In
+            </button>
             
             
           </div>

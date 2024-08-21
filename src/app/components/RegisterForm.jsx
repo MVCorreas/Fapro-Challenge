@@ -6,11 +6,12 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import axios from "axios";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const RegisterForm = () => {
+  const [errorMessage, setErrorMessage] = useState("");
   const { data: session } = useSession() || {};
   const router = useRouter();
   const params = useSearchParams();
@@ -30,12 +31,12 @@ export const RegisterForm = () => {
 
   const onSubmit = async (data) => {
     const { firstName, lastName, email, password, repeatPassword } = data;
-
+  
     if (password !== repeatPassword) {
       toast.error("Passwords do not match");
       return;
     }
-
+  
     try {
       const payload = {
         first_name: firstName,
@@ -44,7 +45,7 @@ export const RegisterForm = () => {
         password,
         repeat_password: repeatPassword,
       };
-
+  
       const response = await axios.post(
         `${apiUrl}/authentication/register`,
         payload,
@@ -55,26 +56,35 @@ export const RegisterForm = () => {
           },
         }
       );
-
+  
       console.log("Registration response:", response);
-
+  
       toast.success("User registered successfully!");
       router.push("/signin");
     } catch (error) {
-      console.error(
-        "Registration error:",
-        error.response?.data || error.message
-      );
-      toast.error(
-        error.response?.data?.context?.message || "Error registering user"
-      );
+      console.error("Registration error:", error.response?.data || error.message);
+
+      const errorData = error.response?.data;
+      const errorCode = errorData?.errors?.[0]?.code;
+      const errorMessage = errorData?.context?.message || "Error registering user";
+
+      if (errorCode === "user_exists") {
+        setErrorMessage("A user with this email already exists.");
+        toast.error("A user with this email already exists.");
+      } else {
+        setErrorMessage(errorMessage);
+        toast.error(errorMessage);
+      }
     }
   };
 
   return (
     <div className="max-w-sm mx-auto card bg-base-300 my-4">
       <div className="card-body">
-        <h1 className="card-title">Register</h1>
+      <h1 className="card-title text-3xl justify-center">REGISTER</h1>
+        {errorMessage && (
+          <div className="alert alert-error mb-4">{errorMessage}</div>
+        )}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="my-2">
             <label className="label" htmlFor="firstName">
@@ -160,12 +170,12 @@ export const RegisterForm = () => {
               <div className="text-error">{errors.repeatPassword.message}</div>
             )}
           </div>
-          <div className="my-2">
+          <div className="my-4 flex justify-center">
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn btn-primary w-full"
-            >
+              className=" btn w-32 bg-violet-400 hover:bg-violet-700  text-white rounded-md">
+            
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
               )}
