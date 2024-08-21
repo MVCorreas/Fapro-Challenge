@@ -12,20 +12,18 @@ export const HeroSection = () => {
 
   return (
     <section className={styles.section} id="hero">
-      {!imageLoaded && <div className={styles.loader}></div>}
-      <div className={styles.heroImageWrapper}>
-        <Image
-          src="/Background.jpg"
-          alt="Background image"
-          fill
-          sizes='100'
-          className={styles.heroImage}
-          priority={true} 
-          onLoad={handleImageLoad} 
-          style={{ opacity: imageLoaded ? 1 : 0 }} 
-        />
-      </div>
+     
       <h1 className={styles.heroTitle}>A LITTLE ABOUT MARIA</h1>
+      {/* <div className='shadow-lg'>
+      <Image 
+      src='/CreditCard.avif'
+      width={300}
+      height={300}
+      priority
+      style={{rotate: '100px' }}
+      />
+      </div> */}
+     
     </section>
   );
 };

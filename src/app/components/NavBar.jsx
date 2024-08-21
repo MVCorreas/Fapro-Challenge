@@ -1,5 +1,6 @@
 import { useRouter } from "next/navigation"
 import { HamburgerIcon } from "../../../public/Icons"
+import Image from "next/image"
 
 export const NavBar = () => {
     const router = useRouter()
@@ -26,7 +27,12 @@ export const NavBar = () => {
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+ <Image 
+ src='/Logo.png'
+ width={100}
+ height={100}
+ style={{borderRadius: '10px'}}
+ priority/>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 text-white">
