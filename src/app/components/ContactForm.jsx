@@ -61,7 +61,7 @@ export const ContactForm = () => {
       className="relative flex flex-col max-h-fit py-10 mb-10 z-10 text-gray-700 overflow-visible"
       id="contact"
     >
-      <div className="bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-violet-700 via-amber-100 to-transparent rounded-full h-[500px] w-[500px] blur-xl absolute bottom-30 right-0 transform translate-x-1/4 translate-y-1/4 -z-10"></div>
+      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-700 via-amber-100 to-transparent rounded-full h-[500px] w-[500px] blur-xl absolute bottom-30 right-0 transform translate-x-1/4 translate-y-1/2 -z-10"></div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10">
         <div className="flex justify-center">
           <Image
