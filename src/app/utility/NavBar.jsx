@@ -1,4 +1,4 @@
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { HamburgerIcon } from "../../../public/Icons";
 import Image from "next/image";
 import { LightButton, MainButton, OutlinedButton } from "./Buttons";
@@ -79,11 +79,18 @@ export const NavBarLanding = () => {
   );
 };
 
-export const NavBarSignIn = () => {
+export const NavBarForms = () => {
   const router = useRouter();
+  const pathname = usePathname();
+
+  console.log("Current path:", pathname);
 
   const signUp = () => {
     router.push("/register");
+  };
+
+  const logIn = () => {
+    router.push("/signin");
   };
 
   const navigateHome = () => {
@@ -105,8 +112,12 @@ export const NavBarSignIn = () => {
       />
     </div>
     <div className="navbar-end">
-      <OutlinedButton onClick={signUp} name="Sign Up" />
+        {pathname === "/signin" ? (
+          <OutlinedButton onClick={signUp} name="Sign Up" />
+        ) : (
+          <OutlinedButton onClick={logIn} name="Sign In" />
+        )}
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};

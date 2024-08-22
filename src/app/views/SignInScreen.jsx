@@ -1,26 +1,15 @@
 "use client";
-import { useRouter } from "next/navigation";
+
 import { SignInForm } from "../components/SignInForm";
-import { OutlinedButton } from "../utility/Buttons";
-import Image from "next/image";
 import styles from '../components/HeroSection/HeroSection.module.css'
-import { NavBarSignIn } from "../utility/NavBar";
+import { NavBarForms } from "../utility/NavBar";
 
 export const SignInScreen = () => {
-  const router = useRouter();
-
-  const signUp = () => {
-    router.push("/register");
-  };
-
-  const navigateHome = () => {
-    router.push("/");
-  };
-
+ 
   return (
     <div className="flex flex-col h-screen bg-slate-900">
          
-     <NavBarSignIn/>
+     <NavBarForms />
 
       <div className="flex flex-grow mt-24 ">
       <div className="w-1/2 h-full p-6 flex items-center justify-center" style={{
@@ -28,7 +17,8 @@ export const SignInScreen = () => {
             backgroundSize: "cover",
             backgroundBlendMode: "overlay",
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: '40%'
+            backgroundPosition: '40%',
+          
            
           }}>
           <SignInForm />
