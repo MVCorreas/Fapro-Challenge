@@ -1,4 +1,8 @@
-export const DashBoard = () => {
+import { LeftPanel } from "../components/LeftPanel"
+import { Header } from "../components/Header"
+import { MainScreen } from "../components/Main"
+
+export const DashBoardScreen = () => {
     return (
         <div className="flex h-screen overflow-auto">
       <div className="w-[12.5%]">

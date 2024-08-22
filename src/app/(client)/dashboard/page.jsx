@@ -1,9 +1,11 @@
-import { Dashboard } from "@/app/components/Dashboard";
+import {DashBoardScreen} from '../../views/DashboardScreen'
 
-export default function DashboardPage() {
+const DashboardPage = () => {
   return (
     <div>
-      <Dashboard />
+      <DashBoardScreen />
     </div>
   );
 }
+
+export default DashboardPage

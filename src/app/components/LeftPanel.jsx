@@ -10,16 +10,7 @@ import {
 
 export const LeftPanel = () => {
   return (
-    <div className="join join-vertical w-full h-full min-h-screen border-r border-gray-200 rounded-none ">
-
-      <Image
-        src="/FintechLogo.jpeg"
-        width={80}
-        height={80}
-        alt="logo"
-        priority
-        style={{ alignSelf: "center" }}
-      />
+    <div className="join join-vertical w-full min-h-screen bg-violet-400 rounded-none mt-24 md:mt-32 lg:mt-24 text-white">
       <div className="flex justify-center">
         <button className="btn text-xs btn-active btn-ghost bg-[#d1d5db] w-lg mt-3">
           <DashboardIcon className="w-4 h-4" />
