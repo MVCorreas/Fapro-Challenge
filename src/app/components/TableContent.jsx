@@ -6,7 +6,7 @@ import { EyeIcon, BinIcon, DownloadIcon } from "../../../public/Icons";
 const tableData = [
   {
     id: 1,
-    image: "/Product1.jpeg",
+    image: "/ProfileAvatar.jpeg",
     name: "Men Tracking Shoes",
     price: 99,
     date: "10 Apr 24",
@@ -15,7 +15,7 @@ const tableData = [
   },
   {
     id: 2,
-    image: "/Product2.webp",
+    image: "/ProfileAvatar.jpeg",
     name: "Cocooil Body Oil",
     price: 99,
     date: "07 Apr 24",
@@ -24,7 +24,7 @@ const tableData = [
   },
   {
     id: 3,
-    image: "/Product3.jpeg",
+    image: "/ProfileAvatar.jpeg",
     name: "Freeze Air",
     price: 99,
     date: "02 Apr 24",
@@ -33,7 +33,7 @@ const tableData = [
   },
   {
     id: 4,
-    image: "/Product4.jpg",
+    image: "/ProfileAvatar.jpeg",
     name: "Ladies Shoes",
     price: 99,
     date: "08 Apr 24",
@@ -42,7 +42,7 @@ const tableData = [
   },
   {
     id: 5,
-    image: "/Product3.jpeg",
+    image: "/ProfileAvatar.jpeg",
     name: "Freeze Air",
     price: 99,
     date: "02 Apr 24",
@@ -51,7 +51,7 @@ const tableData = [
   },
   {
     id: 6,
-    image: "/Product4.jpg",
+    image: "/ProfileAvatar.jpeg",
     name: "Ladies Shoes",
     price: 99,
     date: "08 Apr 24",
@@ -60,7 +60,7 @@ const tableData = [
   },
   {
     id: 7,
-    image: "/Product3.jpeg",
+    image: "/ProfileAvatar.jpeg",
     name: "Freeze Air",
     price: 99,
     date: "02 Apr 24",
@@ -69,7 +69,7 @@ const tableData = [
   },
   {
     id: 8,
-    image: "/Product4.jpg",
+    image: "/ProfileAvatar.jpeg",
     name: "Ladies Shoes",
     price: 99,
     date: "08 Apr 24",

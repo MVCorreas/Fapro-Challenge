@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import styles from './HeroSection.module.css';
+import styles from '../styles/HeroSection.module.css';
 import { MainButton } from '@/app/utility/Buttons';
 
 export const HeroSection = () => {

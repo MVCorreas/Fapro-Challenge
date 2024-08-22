@@ -1,6 +1,6 @@
 export const MainButton = ({name, onClick}) => {
   return (
-    <button  onClick={onClick} className=" btn btn-ghost w-32 bg-purple-700 hover:bg-violet-400  text-white rounded-md">
+    <button  onClick={onClick} className="btn btn-ghost w-32 bg-purple-700 hover:bg-violet-400  text-white rounded-md">
       {name}
     </button>
   );

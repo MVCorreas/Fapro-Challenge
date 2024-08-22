@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import useEaseIn from '../hooks/useEaseIn';
-import { OutlinedButton } from "../utility/Buttons";
+import { MainButton, OutlinedButton } from "../utility/Buttons";
 
 export const AboutSection = () => {
   const router = useRouter();
@@ -25,12 +25,12 @@ export const AboutSection = () => {
           <div className="text-lg leading-relaxed mb-20 text-black w-[500px]">
            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus corporis ratione quaerat iusto cupiditate illo, deleniti culpa nesciunt sit ducimus molestiae rem doloribus quia similique. Harum recusandae animi ipsam neque.
           </div>
-          <OutlinedButton
+          <MainButton
             name='Find Out More'
             onClick={handleFindOutMore}
-          >
+          />
             
-          </OutlinedButton>
+      
         </div>
         <div className="relative w-full h-full">
         <div className="diff aspect-[16/9]">

@@ -84,15 +84,14 @@ function valueFormatter(number) {
 }
 
 export const BarChartPage = () => {
-
   return (
-    <div className="flex flex-row m-2 w-full justify-center ">
-      <Card className=" sm:max-w-2xl bg-white shadow rounded-sm m-1 p-3 overflow-hidden">
+    <div className="flex flex-row m-2 w-full justify-center">
+      <Card className="sm:max-w-2xl bg-white shadow-custom-sm rounded-sm m-1 p-3 overflow-hidden">
         <div className="flex flex-row items-center justify-between space-x-1">
-          <div className="stat-desc font-semibold text-black ">
+          <div className="stat-desc font-semibold text-black">
             Revenue Statistics
           </div>
-          <div className=" rounded-md p-0.2">
+          <div className="rounded-md p-0.2">
             <ul className="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box text-xs">
               <li>
                 <a>Day</a>
@@ -101,27 +100,26 @@ export const BarChartPage = () => {
                 <a>Month</a>
               </li>
               <li>
-                <a className="bg-primary text-white">Year</a>
+                <a className="bg-purple-700 text-white">Year</a>
               </li>
             </ul>
           </div>
         </div>
         <div className="flex flex-row items-center">
           <div className="stat-value text-xl">$ 12,547K</div>
-          <div className="rounded-lg text-xs bg-emerald-100 px-1 py-0.5 text-tremor-label font-semibold text-emerald-800 dark:bg-emerald-400/20 dark:text-emerald-500 relative top-[-4px] ml-2 w-auto">
+          <div className="rounded-lg text-xs bg-emerald-100 px-1 py-0.5 text-emerald-800 font-semibold relative top-[-4px] ml-2 w-auto">
             <span className="ml-0.5">+3.24%</span>
           </div>
         </div>
-        <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content text-xs">
+        <p className="text-tremor-default text-tremor-content text-xs">
           Total income in this year
         </p>
-
         <div className="text-xs overflow-x-auto h-40">
           <BarChart
             data={dataWithNone}
             index="date"
             categories={["Orders", "Revenue"]}
-            colors={["cyan", "blue"]}
+            colors={['cyan', 'blue']}
             yAxisWidth={70}
             showYAxis={false}
             className="h-32 mt-4"
@@ -129,24 +127,16 @@ export const BarChartPage = () => {
             showLegend={false}
             showGridLines={false}
             barCategoryGap={8}
-            style={{height: '70%'}}
-          
           />
-
           <Divider />
-
           <div className="flex justify-center mt-2">
             <div className="flex items-center mr-4">
               <div className="w-3 h-3 bg-cyan-500 mr-2 rounded-sm"></div>
-              <span className="text-xs text-tremor-content dark:text-dark-tremor-content ">
-                Orders
-              </span>
+              <span className="text-xs text-tremor-content">Orders</span>
             </div>
             <div className="flex items-center">
               <div className="w-3 h-3 bg-blue-500 mr-2 rounded-sm"></div>
-              <span className="text-xs text-tremor-content dark:text-dark-tremor-content">
-                Revenue
-              </span>
+              <span className="text-xs text-tremor-content">Revenue</span>
             </div>
           </div>
         </div>

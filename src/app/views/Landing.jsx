@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { HeroSection } from "../components/HeroSection/HeroSection";
+import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/About";
 import { SolutionsSection } from "../components/Solutions";
 import { NavBarLanding } from "../utility/NavBar";
