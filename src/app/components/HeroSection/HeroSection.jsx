@@ -16,10 +16,10 @@ export const HeroSection = () => {
   return (
     <section className={styles.section} id="hero">
 
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-700 via-amber-100 to-transparent rounded-full h-[500px] w-[500px] z-0 blur-xl absolute top-1/8 -left-1 ml-[50px] transform -translate-x-1/8 -translate-1/2"></div>
+      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-700 via-amber-100 to-transparent rounded-full h-[500px] w-[500px] z-0 blur-xl opacity-50 absolute top-1/8 -left-1 ml-[50px] transform -translate-x-1/8 -translate-1/2"></div>
       
       <div className="w-1/2 relative flex flex-col items-center z-10">
-        <h1 className={`${styles.heroTitle} text-black mb-4 text-3xl sm:text-5xl lg:text-8xl lg:leading-normal font-bold-700`} style={{ fontWeight: '700' }}>
+        <h1 className={`${styles.heroTitle} text-white mb-4 text-3xl sm:text-5xl lg:text-8xl lg:leading-normal font-bold-700`} style={{ fontWeight: '700' }}>
           A NEW GENERATION OF DATA {''}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-900 via-purple-700 to-amber-200">
             MANAGEMENT
@@ -54,7 +54,7 @@ export const HeroSection = () => {
 
         <div className="col-span-2 relative -ml-10 mt-10 z-10">
           <Image 
-            src='/HeroImage6.webp'
+            src='/HeroImage6.png'
             alt='hero1'
             width={300}
             height={300}
@@ -81,7 +81,7 @@ export const HeroSection = () => {
             width={300}
             height={300}
             priority
-            className={`${styles.heroTitle} object-cover`}
+            className={`${styles.heroTitle} object-cover rounded-md `}
           />
         </div>
       </div>

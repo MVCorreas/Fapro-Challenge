@@ -38,7 +38,7 @@ export const SolutionsSection = () => {
   return (
     <section
       ref={(el) => (sectionsRef.current[1] = el)}
-      className="opacity-0 translate-y-10 animate-slideUp mb-20"
+      className="opacity-0 translate-y-10 animate-slideUp mb-20 bg-[#0f172a]"
       id="solutions"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
@@ -47,22 +47,22 @@ export const SolutionsSection = () => {
             SOLUTIONS
           </h2>
           <div className="p-6">
-            <h3 className="text-2xl font-bold">{solutions[0].title}</h3>
-            <p className="text-lg mt-2">{solutions[0].description}</p>
+            <h3 className="text-2xl font-bold text-white">{solutions[0].title}</h3>
+            <p className="text-lg mt-2 text-white">{solutions[0].description}</p>
           </div>
         </div>
         <div className="grid grid-cols-1 gap-8">
           {solutions.slice(1).map((sol) => (
             <div key={sol.id} className="p-6">
-              <h3 className="text-2xl font-bold">{sol.title}</h3>
-              <p className="text-lg mt-2">{sol.description}</p>
+              <h3 className="text-2xl font-bold text-white">{sol.title}</h3>
+              <p className="text-lg mt-2 text-white">{sol.description}</p>
             </div>
           ))}
         </div>
       </div>
-      <div className="flex justify-center mt-12">
+      <div className="flex justify-center mt-6">
         <div
-          className="w-[700px] h-full mx-auto p-12 rounded-full shadow-lg flex flex-col justify-between items-center text-center"
+          className="w-[700px] h-full mx-auto p-12 rounded-full shadow-lg flex flex-col justify-between items-center text-center mb-6"
           style={{
             backgroundImage: "url('/BackgroundCard.jpg')",
             backgroundSize: "cover",
@@ -72,8 +72,8 @@ export const SolutionsSection = () => {
           }}
         >
           <div className="text-white flex flex-col items-center">
-            <h2 className="text-4xl mb-8">Sign Up. Get Started</h2>
-            <p className="mb-8 text-2xl">
+            <h2 className="text-4xl mb-8 text-violet-900">Sign Up. Get Started</h2>
+            <p className="mb-8 text-2xl text-violet-900">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
           </div>

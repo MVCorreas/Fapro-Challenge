@@ -14,7 +14,7 @@ export const AboutSection = () => {
   return (
     <section
     ref={(el) => (sectionsRef.current[0] = el)}
-      className="opacity-0 translate-y-10 animate-slideUp bg-violet-200 h-90vh text-white " 
+      className="opacity-0 translate-y-10 animate-slideUp h-90vh text-white " 
       id="about"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-8">

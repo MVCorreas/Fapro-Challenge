@@ -1,6 +1,6 @@
 export const Footer = () => {
     return (
-        <footer className="footer footer-center bg-neutral text-neutral-content rounded p-10">
+        <footer className="footer footer-center bg-[#0f172a] text-neutral-content rounded p-10">
   <nav className="grid grid-flow-col gap-4">
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
