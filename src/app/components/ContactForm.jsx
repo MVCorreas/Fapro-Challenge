@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { MainButton } from "@/app/utility/Buttons";
-import Modal from "./Modal/Modal";
+import {Modal} from "../utility/Modal";
 import useEaseIn from "../hooks/useEaseIn";
 
 export const ContactForm = () => {
@@ -13,7 +13,6 @@ export const ContactForm = () => {
   const [emailError, setEmailError] = useState("");
   const [subjectError, setSubjectError] = useState("");
   const [messageError, setMessageError] = useState("");
-  const [showThanksMessage, setShowThanksMessage] = useState(false);
 
   const sectionsRef = useEaseIn();
 
@@ -43,16 +42,16 @@ export const ContactForm = () => {
       setMessageError("");
     }
 
-    setShowThanksMessage(true);
+    document.getElementById("my_modal_1").showModal();
   };
 
   const closeModal = () => {
-    setShowThanksMessage(false);
-
+   
     setName("");
     setEmail("");
     setSubject("");
     setMessage("");
+    document.getElementById("my_modal_1").close();
   };
 
   return (
@@ -79,77 +78,77 @@ export const ContactForm = () => {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit error architecto eveniet corporis vel! 
           </p>
           <div className="w-full p-8 mt-7 bg-purple-50/40 rounded-md">
-            {!showThanksMessage ? (
-              <form onSubmit={handleSubmit} className="relative z-20">
-                <div className="mb-6">
-                  <label htmlFor="name" className="text-xl text-purple-800 font-bold">Name</label>
-                  <input
-                    name="name"
-                    type="name"
-                    id="name"
-                    required
-                    placeholder="Type your name"
-                    className="w-full p-4 mt-2 border border-gray-300 rounded-lg text-lg text-gray-600"
-                    onChange={(e) => {
-                      setName(e.target.value);
-                    }}
-                  />
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="email" className="text-xl text-purple-800 font-bold">Email</label>
-                  <input
-                    name="email"
-                    type="email"
-                    id="email"
-                    required
-                    className={`w-full p-4 mt-2 border ${emailError ? "border-red-600" : "border-gray-300"} rounded-lg text-lg text-gray-600`}
-                    placeholder="email@google.com"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                  />
-                  {emailError && <p className="text-red-600 text-sm mt-1">{emailError}</p>}
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="subject" className="text-xl text-purple-800 font-bold">Subject</label>
-                  <input
-                    name="subject"
-                    type="text"
-                    id="subject"
-                    required
-                    className={`w-full p-4 mt-2 border ${subjectError ? "border-red-600" : "border-gray-300"} rounded-lg text-lg text-gray-600`}
-                    placeholder="Topic of conversation"
-                    value={subject}
-                    onChange={(e) => {
-                      setSubject(e.target.value);
-                    }}
-                  />
-                  {subjectError && <p className="text-red-600 text-sm mt-1">{subjectError}</p>}
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="message" className="text-xl text-purple-800 font-bold">Message</label>
-                  <textarea
-                    name="message"
-                    id="message"
-                    required
-                    className={`w-full p-4 mt-2 border ${messageError ? "border-red-600" : "border-gray-300"} rounded-lg text-lg text-gray-600`}
-                    placeholder="How can we help you thrive?"
-                    value={message}
-                    onChange={(e) => {
-                      setMessage(e.target.value);
-                    }}
-                  />
-                  {messageError && <p className="text-red-600 text-sm mt-1">{messageError}</p>}
-                </div>
-                <MainButton name="Submit" onClick={handleSubmit} />
-              </form>
-            ) : (
-              <Modal message="Thank you for contacting Fapro! We will get back to you asap." onClose={closeModal} />
-            )}
+            <form onSubmit={handleSubmit} className="relative z-20">
+              <div className="mb-6">
+                <label htmlFor="name" className="text-xl text-purple-800 font-bold">Name</label>
+                <input
+                  name="name"
+                  type="text"
+                  id="name"
+                  required
+                  placeholder="Type your name"
+                  className="w-full p-4 mt-2 border border-gray-300 rounded-lg text-lg text-gray-600"
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="mb-6">
+                <label htmlFor="email" className="text-xl text-purple-800 font-bold">Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  id="email"
+                  required
+                  className={`w-full p-4 mt-2 border ${emailError ? "border-red-600" : "border-gray-300"} rounded-lg text-lg text-gray-600`}
+                  placeholder="email@google.com"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+                {emailError && <p className="text-red-600 text-sm mt-1">{emailError}</p>}
+              </div>
+              <div className="mb-6">
+                <label htmlFor="subject" className="text-xl text-purple-800 font-bold">Subject</label>
+                <input
+                  name="subject"
+                  type="text"
+                  id="subject"
+                  required
+                  className={`w-full p-4 mt-2 border ${subjectError ? "border-red-600" : "border-gray-300"} rounded-lg text-lg text-gray-600`}
+                  placeholder="Topic of conversation"
+                  value={subject}
+                  onChange={(e) => {
+                    setSubject(e.target.value);
+                  }}
+                />
+                {subjectError && <p className="text-red-600 text-sm mt-1">{subjectError}</p>}
+              </div>
+              <div className="mb-6">
+                <label htmlFor="message" className="text-xl text-purple-800 font-bold">Message</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  required
+                  className={`w-full p-4 mt-2 border ${messageError ? "border-red-600" : "border-gray-300"} rounded-lg text-lg text-gray-600`}
+                  placeholder="How can we help you thrive?"
+                  value={message}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                  }}
+                />
+                {messageError && <p className="text-red-600 text-sm mt-1">{messageError}</p>}
+              </div>
+              <MainButton name="Submit" />
+            </form>
           </div>
         </div>
       </div>
+
+    <Modal title='Thank you for contacting us!' message='We will get back to you asap.' onClose={closeModal} />
+     
+        
     </section>
   );
 };
