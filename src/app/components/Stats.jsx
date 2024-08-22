@@ -67,7 +67,7 @@ export const Stats = () => {
           transformation,
           subtitle,
         }) => (
-          <div key={id} className="stats shadow w-[24%] rounded-sm">
+          <div key={id} className="stats shadow w-[24%] rounded-md">
             <div className="stat">
               <div className="flex flex-row items-center justify-between space-x-1">
                 <div className="stat-desc">{title}</div>
