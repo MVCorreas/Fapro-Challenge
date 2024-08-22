@@ -1,5 +1,5 @@
 import { LeftPanel } from "../components/LeftPanel"
-import { NavBarDashboard } from "../utility/NavBar"
+import { NavBarDashboard } from "../components/NavBar"
 import { MainScreen } from "../components/Main"
 
 export const DashBoardScreen = () => {

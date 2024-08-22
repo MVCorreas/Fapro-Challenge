@@ -2,7 +2,7 @@
 
 import { SignInForm } from "../components/SignInForm";
 import styles from '../styles/HeroSection.module.css'
-import { NavBarForms } from "../utility/NavBar";
+import { NavBarForms } from "../components/NavBar"
 
 export const SignInScreen = () => {
  

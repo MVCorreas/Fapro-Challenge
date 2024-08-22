@@ -2,7 +2,7 @@
 
 import styles from '../styles/HeroSection.module.css'
 import { RegisterForm } from "../components/RegisterForm";
-import { NavBarForms } from "../utility/NavBar";
+import { NavBarForms } from "../components/NavBar"
 
 export const RegisterScreen = () => {
 
