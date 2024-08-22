@@ -86,7 +86,7 @@ function valueFormatter(number) {
 export const BarChartPage = () => {
   return (
     <div className="flex flex-row m-2 w-full justify-center">
-      <Card className="sm:max-w-2xl bg-white shadow-custom-sm rounded-sm m-1 p-3 overflow-hidden">
+      <Card className="sm:max-w-2xl bg-white shadow rounded-sm m-1 p-3 overflow-hidden">
         <div className="flex flex-row items-center justify-between space-x-1">
           <div className="stat-desc font-semibold text-black">
             Revenue Statistics

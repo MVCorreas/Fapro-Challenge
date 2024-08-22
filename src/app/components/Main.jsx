@@ -6,7 +6,15 @@ import { UsersListCard } from "./UsersListCard";
 
 export const MainScreen = () => {
   return (
-    <div className="flex flex-col h-full mt-24 md:mt-32 lg:mt-24 bg-slate-900">
+    <div className="flex flex-col h-full mt-24 md:mt-32 lg:mt-24 " style={{
+      backgroundImage: "url('/PurpleBackground.webp')",
+      backgroundSize: "cover",
+      backgroundBlendMode: "overlay",
+      backgroundRepeat: 'no-repeat',
+
+    
+     
+    }}>
       <div className="flex items-center justify-between m-2">
         <h2>Overview</h2>
         <div className="breadcrumbs text-sm">
