@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { HamburgerIcon } from "../../../public/Icons";
 import Image from "next/image";
-import { MainButton, OutlinedButton } from "../utility/Buttons";
+import { LightButton, MainButton, OutlinedButton } from "./Buttons";
 
 const navLinks = [
   {
@@ -22,7 +22,7 @@ const navLinks = [
   },
 ];
 
-export const NavBar = () => {
+export const NavBarLanding = () => {
   const router = useRouter();
 
   const logIn = () => {
@@ -62,7 +62,7 @@ export const NavBar = () => {
         />
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 justify-between space-x-6 text-white text-lg">
+        <ul className="menu menu-horizontal px-1 justify-between space-x-6 text-violet-100 text-lg">
           {navLinks.map((link) => (
             <li key={link.path}>
               <a href={link.path}>{link.title}</a>
@@ -78,3 +78,35 @@ export const NavBar = () => {
     </div>
   );
 };
+
+export const NavBarSignIn = () => {
+  const router = useRouter();
+
+  const signUp = () => {
+    router.push("/register");
+  };
+
+  const navigateHome = () => {
+    router.push("/");
+  };
+
+
+  return (
+    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-slate-900 bg-opacity-90 h-24 flex items-center px-6">
+    <div className="navbar-start flex-1">
+      <Image
+        src="/Logo.png"
+        alt="logo"
+        width={100}
+        height={100}
+        onClick={navigateHome}
+        style={{ borderRadius: "10px" }}
+        priority
+      />
+    </div>
+    <div className="navbar-end">
+      <OutlinedButton onClick={signUp} name="Sign Up" />
+    </div>
+    </div>
+  )
+}

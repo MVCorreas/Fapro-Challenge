@@ -8,7 +8,7 @@ export const MainButton = ({name, onClick}) => {
 
 export const OutlinedButton = ({name, onClick}) => {
   return (
-    <button  onClick={onClick} className=" btn w-32  bg-transparent  text-white hover:bg-violet-400  text-purple-700 rounded-md">
+    <button  onClick={onClick} className=" btn w-32  bg-transparent  text-violet-200 hover:bg-violet-400  text-purple-700 rounded-md">
       {name}
     </button>
   );

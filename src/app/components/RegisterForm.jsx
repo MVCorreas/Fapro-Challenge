@@ -174,7 +174,7 @@ export const RegisterForm = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className=" btn w-32 bg-violet-400 hover:bg-violet-700  text-white rounded-md">
+              className=" btn btn-ghost w-32 bg-purple-700 hover:bg-violet-400  text-white rounded-md">
             
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
