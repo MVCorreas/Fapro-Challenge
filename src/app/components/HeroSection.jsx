@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import styles from '../styles/HeroSection.module.css';
-import { MainButton } from '@/app/utility/Buttons';
+import { MainButton } from '@/app/components/Buttons';
 
 export const HeroSection = () => {
   const router = useRouter()
@@ -74,7 +74,7 @@ export const HeroSection = () => {
           />
         </div>
 
-        <div className="col-span-2 ml-20 w-full mb-[100px] -mt-10 z-10">
+        <div className="col-span-2 ml-20 w-full mb-[100px] -mt-10 z-10 h-auto">
           <Image 
             src='/HeroImage7.jpg'
             alt='hero1'

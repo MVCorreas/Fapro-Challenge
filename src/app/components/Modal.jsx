@@ -1,5 +1,5 @@
 import React from "react";
-import { MainButton } from "@/app/utility/Buttons";
+import { MainButton } from "@/app/components/Buttons";
 
 export const Modal = ({ title, message, onClose }) => {
   return (

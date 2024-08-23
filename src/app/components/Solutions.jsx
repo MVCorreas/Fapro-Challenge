@@ -2,7 +2,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import useEaseIn from "../hooks/useEaseIn";
-import { LightButton } from "@/app/utility/Buttons";
+import { LightButton } from "@/app/components/Buttons";
 
 const solutions = [
   {

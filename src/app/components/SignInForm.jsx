@@ -6,7 +6,7 @@ import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { LightButton, MainButton } from "../utility/Buttons";
+import { LightButton, MainButton } from "./Buttons";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -54,6 +54,7 @@ export const SignInForm = () => {
         response.data.data.data.accessToken
       ) {
         localStorage.setItem("token", response.data.data.data.accessToken);
+        localStorage.setItem("UserName", response.data.data.data.user.first_name);
         toast.success("Login successful!");
         router.push("/dashboard");
       } else {

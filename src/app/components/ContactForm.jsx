@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { MainButton } from "@/app/utility/Buttons";
-import {Modal} from "../utility/Modal";
+import { MainButton } from "@/app/components/Buttons";
+import {Modal} from "./Modal";
 import useEaseIn from "../hooks/useEaseIn";
 
 export const ContactForm = () => {

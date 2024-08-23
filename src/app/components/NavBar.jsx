@@ -1,9 +1,9 @@
 "use client"
 
 import { useRouter, usePathname } from "next/navigation";
-import { HamburgerIcon } from "../../../public/Icons";
+import { DropDownIcon, HamburgerIcon } from "../../../public/Icons";
 import Image from "next/image";
-import { MainButton, OutlinedButton } from "../utility/Buttons";
+import { MainButton, OutlinedButton } from "./Buttons";
 import { RiSearchLine } from "@remixicon/react";
 
 const navLinks = [
@@ -129,27 +129,25 @@ export const NavBarForms = () => {
 export const NavBarDashboard = () => {
   const router = useRouter();
 
+  const firstName = typeof window !== "undefined" ? localStorage.getItem("UserName") : null;
   const navigateHome = () => {
     router.push("/");
   };
+  
   return (
-    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-slate-900 bg-opacity-90 h-24">
+    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-slate-900 bg-opacity-90 h-24 flex items-center">
       <div className="flex-1">
         <Image
           src="/Logo.png"
           alt="logo"
           width={100}
           height={100}
-          style={{ borderRadius: "10px" }}
+          style={{ borderRadius: "10px", cursor: "pointer" }}
           onClick={navigateHome}
           priority
         />
       </div>
-      <div className="flex-none gap-2">
-        {/* <div className="m-2 flex justify-between space-x-4">
-    <DarkModeIcon/>
-    <BellIcon />
-    </div> */}
+      <div className="flex-none flex items-center gap-4">
         <div className="form-control relative">
           <RiSearchLine className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
           <input
@@ -158,25 +156,35 @@ export const NavBarDashboard = () => {
             className="input input-bordered w-24 md:w-auto h-8 text-sm pl-8"
           />
         </div>
-        <div className="dropdown dropdown-end">
-          <div
+  
+        {/* <div className="flex items-center">
+          <DarkModeIcon />
+          <BellIcon />
+        </div> */}
+  
+        <div className="dropdown dropdown-end flex items-center">
+        <div
             tabIndex={0}
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
-            <div className="w-10 rounded-full border-gray-300 border">
+            <div className="w-12 rounded-full">
               <Image
                 alt="profile pic"
-                src="/profileAvatar.jpeg"
-                width={30}
-                height={30}
+                src="/Emoji.png"
+                width={50}
+                height={50}
                 priority
               />
             </div>
+            <span className="text-white text-md mr-1">{firstName}</span>
           </div>
-          <button className="btn btn-square btn-ghost">
-            <HamburgerIcon />
+         
+           
+          <button className="btn btn-square btn-ghost ml-2">
+            <DropDownIcon />
           </button>
+  
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
@@ -191,12 +199,11 @@ export const NavBarDashboard = () => {
               <a>Settings</a>
             </li>
             <li>
-              <a>Logout</a>
+              <a onClick={navigateHome}>Logout</a>
             </li>
           </ul>
         </div>
       </div>
     </div>
   );
-};
-
+}  

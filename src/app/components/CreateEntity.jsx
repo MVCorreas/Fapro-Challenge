@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { NavBarDashboard } from './NavBar';
 import { LeftPanel } from './LeftPanel';
-import { MainButton } from '../utility/Buttons';
+import { MainButton } from './Buttons';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 

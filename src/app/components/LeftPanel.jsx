@@ -7,7 +7,7 @@ import {
   AuthIcon,
   DashboardIcon,
 } from "../../../public/Icons";
-import { MainButton } from "../utility/Buttons";
+import { MainButton } from "./Buttons";
 
 export const LeftPanel = () => {
   return (
