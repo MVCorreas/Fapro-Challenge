@@ -94,7 +94,7 @@ export const RegisterForm = () => {
               type="text"
               id="firstName"
               {...register("firstName", { required: "First Name is required" })}
-              className="input input-bordered w-full max-w-sm text-black"
+              className="input input-bordered w-full max-w-sm text-black rounded-full"
             />
             {errors.firstName && (
               <div className="text-error">{errors.firstName.message}</div>
@@ -108,7 +108,7 @@ export const RegisterForm = () => {
               type="text"
               id="lastName"
               {...register("lastName", { required: "Last Name is required" })}
-              className="input input-bordered w-full max-w-sm text-black"
+              className="input input-bordered w-full max-w-sm text-black rounded-full"
             />
             {errors.lastName && (
               <div className="text-error">{errors.lastName.message}</div>
@@ -128,7 +128,7 @@ export const RegisterForm = () => {
                   message: "Email is invalid",
                 },
               })}
-              className="input input-bordered w-full max-w-sm text-black" 
+              className="input input-bordered w-full max-w-sm text-black rounded-full" 
             />
             {errors.email && (
               <div className="text-error">{errors.email.message}</div>
@@ -148,7 +148,7 @@ export const RegisterForm = () => {
                   message: "Password must be at least 8 characters long",
                 },
               })}
-              className="input input-bordered w-full max-w-sm text-black"
+              className="input input-bordered w-full max-w-sm text-black rounded-full"
             />
             {errors.password && (
               <div className="text-error">{errors.password.message}</div>
@@ -164,7 +164,7 @@ export const RegisterForm = () => {
               {...register("repeatPassword", {
                 required: "Confirm Password is required",
               })}
-              className="input input-bordered w-full max-w-sm text-black"
+              className="input input-bordered w-full max-w-sm text-black rounded-full"
             />
             {errors.repeatPassword && (
               <div className="text-error">{errors.repeatPassword.message}</div>
@@ -174,7 +174,7 @@ export const RegisterForm = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className=" btn btn-ghost w-32 bg-purple-700 hover:bg-violet-400  text-white rounded-md">
+              className=" btn btn-ghost w-32 bg-purple-700 hover:bg-violet-400  text-white rounded-full">
             
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>

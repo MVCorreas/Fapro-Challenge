@@ -94,7 +94,7 @@ export const SignInForm = () => {
                   message: "Email is invalid",
                 },
               })}
-              className="input input-bordered w-full max-w-sm text-black"
+              className="input input-bordered w-full max-w-sm text-black rounded-full"
             />
             {errors.email?.message && (
               <div className="text-error">{errors.email.message}</div>
@@ -110,7 +110,7 @@ export const SignInForm = () => {
               {...register("password", {
                 required: "Password is required",
               })}
-              className="input input-bordered w-full max-w-sm text-black"
+              className="input input-bordered w-full max-w-sm text-black rounded-full"
             />
             {errors.password?.message && (
               <div className="text-error">{errors.password.message}</div>
@@ -120,7 +120,7 @@ export const SignInForm = () => {
           <button
               type="submit"
               disabled={isSubmitting}
-              className="btn btn-ghost w-32 bg-purple-700 hover:bg-violet-400  text-white rounded-md">
+              className="btn btn-ghost w-32 bg-purple-700 hover:bg-violet-400  text-white rounded-full">
             
               {isSubmitting && (
                 <span className="loading loading-spinner text-white"></span>
