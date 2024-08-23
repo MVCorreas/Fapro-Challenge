@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { MainButton } from "@/app/components/Buttons";
+import { GradientButton, MainButton } from "@/app/components/Buttons";
 import { Modal } from "./Modal";
 import useEaseIn from "../hooks/useEaseIn";
 
@@ -146,7 +146,7 @@ export const ContactForm = () => {
               />
               {messageError && <p className="text-red-600 text-sm mt-1">{messageError}</p>}
             </div>
-            <button className='p-4 bg-gradient-to-r from-amber-400 via-yellow-300 to-purple-300 w-full rounded-full text-2xl' name="submit">Submit</button>
+           <GradientButton name='Submit' onSubmit={handleSubmit} />
             <div className="flex flex-row space-x-4 justify-center mt-4">
             <Image
             src='/Google.png'

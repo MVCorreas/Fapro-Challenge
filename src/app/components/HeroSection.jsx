@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import styles from '../styles/SpecificStyles.module.css';
-import { MainButton } from '@/app/components/Buttons';
+import { GradientButton, MainButton } from '@/app/components/Buttons';
 
 export const HeroSection = () => {
   const router = useRouter()
@@ -30,9 +30,10 @@ export const HeroSection = () => {
         </p>
         <br/>
         <div className={styles.heroSubTitle}>
-        <MainButton
+        <GradientButton
           onClick={logIn}
           name='Get Started'
+          className='text-black'
           
        />
         </div>

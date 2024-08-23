@@ -2,29 +2,33 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import useEaseIn from "../hooks/useEaseIn";
-import { LightButton } from "@/app/components/Buttons";
-import styles from '../styles/SpecificStyles.module.css'
+import { GradientButton, LightButton } from "@/app/components/Buttons";
+import styles from "../styles/SpecificStyles.module.css";
 
 const solutions = [
   {
     id: 1,
     title: "Banking",
-    description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus',
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus",
   },
   {
     id: 2,
     title: "Financing",
-    description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus',
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus",
   },
   {
     id: 3,
     title: "Investment",
-    description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus',
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus",
   },
   {
     id: 4,
     title: "Insurance",
-    description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus',
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus",
   },
 ];
 
@@ -33,7 +37,7 @@ export const SolutionsSection = () => {
   const sectionsRef = useEaseIn();
 
   const handleRegister = () => {
-    router.push('/register');
+    router.push("/register");
   };
 
   return (
@@ -48,8 +52,12 @@ export const SolutionsSection = () => {
             SOLUTIONS
           </h2>
           <div className="p-6">
-            <h3 className="text-2xl font-bold text-white">{solutions[0].title}</h3>
-            <p className="text-lg mt-2 text-white">{solutions[0].description}</p>
+            <h3 className="text-2xl font-bold text-white">
+              {solutions[0].title}
+            </h3>
+            <p className="text-lg mt-2 text-white">
+              {solutions[0].description}
+            </p>
           </div>
         </div>
         <div className="grid grid-cols-1 gap-8">
@@ -61,11 +69,11 @@ export const SolutionsSection = () => {
           ))}
         </div>
       </div>
-      <div className="flex justify-center mt-6">
+      {/* <div className="flex justify-center mt-6">
         <div
           className={styles.funContainer}
           style={{
-            backgroundImage: "url('/BackgroundCard.jpg')",
+            backgroundImage: "url('/Telephone.jpg')",
             backgroundSize: "cover",
             backgroundBlendMode: "overlay",
             backgroundRepeat: 'no-repeat',
@@ -79,6 +87,28 @@ export const SolutionsSection = () => {
             </p>
           </div>
           <LightButton name="Sign Up" onClick={handleRegister} className='mt-auto' />
+        </div>
+      </div> */}
+      <div className="flex justify-center mt-6">
+        <div className="card card-side bg-base-100 shadow-xl w-[55%] mb-12">
+          <div className="card-body">
+            <h2 className="card-title">Get started today</h2>
+            <p>You make the most of your time, we help you make money.</p>
+            <div className="card-actions justify-end">
+             <GradientButton name='Get Started' onClick={handleRegister} />
+            </div>
+          </div>
+          <figure className="w-1/2 p-6">
+            <video
+              src="/CardVideo.mp4"
+              alt="Movie Trailer"
+              className="w-full h-auto rounded-xl"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </figure>
         </div>
       </div>
     </section>
