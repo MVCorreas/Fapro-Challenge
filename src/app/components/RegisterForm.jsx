@@ -148,7 +148,7 @@ export const RegisterForm = () => {
                   message: "Password must be at least 8 characters long",
                 },
               })}
-              className="input input-bordered w-full max-w-sm"
+              className="input input-bordered w-full max-w-sm text-black"
             />
             {errors.password && (
               <div className="text-error">{errors.password.message}</div>
@@ -164,7 +164,7 @@ export const RegisterForm = () => {
               {...register("repeatPassword", {
                 required: "Confirm Password is required",
               })}
-              className="input input-bordered w-full max-w-sm"
+              className="input input-bordered w-full max-w-sm text-black"
             />
             {errors.repeatPassword && (
               <div className="text-error">{errors.repeatPassword.message}</div>

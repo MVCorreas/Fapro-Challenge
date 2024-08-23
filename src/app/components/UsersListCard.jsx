@@ -45,7 +45,7 @@ export const UsersListCard = () => {
           <div key={id} className="flex flex-row items-start justify-between mt-1">
             <div className="flex items-center space-x-2">
               <div className="rounded-md p-1">
-                <Image src={image} width={40} height={40} priority />
+                <Image src={image} alt='user' width={40} height={40} priority />
               </div>
               <div className="flex flex-col">
                 <div className="flex justify-between items-center w-full">

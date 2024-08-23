@@ -1,15 +1,14 @@
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 export const createUser = async (email, password) => {
   try {
-    const response = await fetch(
-      "https://api-fapro-itw.fapro.dev/v1/authentication/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      }
-    );
+    const response = await fetch(`${apiUrl}/v1/authentication/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
     if (!response.ok) {
       throw new Error("User creation failed");
@@ -25,16 +24,13 @@ export const createUser = async (email, password) => {
 
 export const loginUser = async (email, password) => {
   try {
-    const response = await fetch(
-      "https://api-fapro-itw.fapro.dev/v1/authentication/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      }
-    );
+    const response = await fetch(`${apiUrl}/v1/authentication/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
     if (!response.ok) {
       throw new Error("Login failed");
@@ -58,16 +54,13 @@ export const loginUser = async (email, password) => {
 
 export const validateToken = async (token) => {
   try {
-    const response = await fetch(
-      "https://api-fapro-itw.fapro.dev/v1/authentication/token",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await fetch(`${apiUrl}/v1/authentication/token`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
 
     if (!response.ok) {
       throw new Error("Token validation failed");
