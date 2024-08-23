@@ -1,6 +1,7 @@
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "./components/Providers";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <SessionProvider>{children}</SessionProvider>
+        <SessionProvider>
+          <Toaster />
+          {children}
+        </SessionProvider>
       </body>
     </html>
   );

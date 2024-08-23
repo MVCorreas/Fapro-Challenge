@@ -95,7 +95,7 @@ export const SignInForm = () => {
                   message: "Email is invalid",
                 },
               })}
-              className="input input-bordered w-full max-w-sm"
+              className="input input-bordered w-full max-w-sm text-black"
             />
             {errors.email?.message && (
               <div className="text-error">{errors.email.message}</div>

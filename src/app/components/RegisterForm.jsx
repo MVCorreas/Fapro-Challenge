@@ -94,7 +94,7 @@ export const RegisterForm = () => {
               type="text"
               id="firstName"
               {...register("firstName", { required: "First Name is required" })}
-              className="input input-bordered w-full max-w-sm"
+              className="input input-bordered w-full max-w-sm text-black"
             />
             {errors.firstName && (
               <div className="text-error">{errors.firstName.message}</div>
@@ -108,7 +108,7 @@ export const RegisterForm = () => {
               type="text"
               id="lastName"
               {...register("lastName", { required: "Last Name is required" })}
-              className="input input-bordered w-full max-w-sm"
+              className="input input-bordered w-full max-w-sm text-black"
             />
             {errors.lastName && (
               <div className="text-error">{errors.lastName.message}</div>
@@ -128,7 +128,7 @@ export const RegisterForm = () => {
                   message: "Email is invalid",
                 },
               })}
-              className="input input-bordered w-full max-w-sm"
+              className="input input-bordered w-full max-w-sm text-black" 
             />
             {errors.email && (
               <div className="text-error">{errors.email.message}</div>
