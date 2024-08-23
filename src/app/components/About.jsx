@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import useEaseIn from '../hooks/useEaseIn';
-import { MainButton, OutlinedButton } from "./Buttons";
+import { MainButton } from "./Buttons";
 
 export const AboutSection = () => {
   const router = useRouter();

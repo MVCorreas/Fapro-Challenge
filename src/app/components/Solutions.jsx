@@ -3,6 +3,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import useEaseIn from "../hooks/useEaseIn";
 import { LightButton } from "@/app/components/Buttons";
+import styles from '../styles/SpecificStyles.module.css'
 
 const solutions = [
   {
@@ -62,7 +63,7 @@ export const SolutionsSection = () => {
       </div>
       <div className="flex justify-center mt-6">
         <div
-          className="w-[700px] h-full mx-auto p-12 rounded-full shadow-lg flex flex-col justify-between items-center text-center mb-6"
+          className={styles.funContainer}
           style={{
             backgroundImage: "url('/BackgroundCard.jpg')",
             backgroundSize: "cover",

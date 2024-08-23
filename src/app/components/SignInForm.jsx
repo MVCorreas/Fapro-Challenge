@@ -6,7 +6,6 @@ import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { LightButton, MainButton } from "./Buttons";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -76,7 +75,7 @@ export const SignInForm = () => {
 
 
   return (
-    <div className="max-w-sm mx-auto card bg-white bg-opacity-30 m-4 text-white p-10">
+    <div className="max-w-sm mx-auto card bg-amber-700 bg-opacity-30 m-4 text-white p-10">
        <div className="card-body">
        <h1 className="card-title text-3xl justify-center">SIGN IN</h1>
         {errorMessage && <div className="alert text-error">{errorMessage}</div>}

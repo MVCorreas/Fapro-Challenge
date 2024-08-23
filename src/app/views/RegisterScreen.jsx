@@ -1,6 +1,6 @@
 "use client";
 
-import styles from '../styles/HeroSection.module.css'
+import styles from '../styles/SpecificStyles.module.css'
 import { RegisterForm } from "../components/RegisterForm";
 import { NavBarForms } from "../components/NavBar"
 

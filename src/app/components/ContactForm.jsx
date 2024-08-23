@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { MainButton } from "@/app/components/Buttons";
-import {Modal} from "./Modal";
+import { Modal } from "./Modal";
 import useEaseIn from "../hooks/useEaseIn";
 
 export const ContactForm = () => {

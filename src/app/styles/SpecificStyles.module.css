@@ -79,3 +79,28 @@
     transform: rotate(360deg);
   }
 }
+
+.funContainer {
+max-width: 600px;
+position: relative;
+color: white;
+padding: clamp(1em, 4em, 7em);
+margin: 2em;
+border-radius: 50px;
+
+}
+
+.funContainer::before {
+  content: '';
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background-color: #0f172a;
+  border-radius: 50%;
+ 
+}
+
+
+

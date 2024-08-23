@@ -1,7 +1,7 @@
 "use client";
 
 import { SignInForm } from "../components/SignInForm";
-import styles from '../styles/HeroSection.module.css'
+import styles from '../styles/SpecificStyles.module.css'
 import { NavBarForms } from "../components/NavBar"
 
 export const SignInScreen = () => {
