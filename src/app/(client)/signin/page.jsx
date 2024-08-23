@@ -1,10 +1,11 @@
-
+"use client"
+import React, { Suspense } from 'react';
 import { SignInScreen } from "@/app/views/SignInScreen";
 
-export default function Register() {
+export default function SignIn() {
   return (
-    <div>
+    <Suspense fallback={<div>Loading...</div>}>
       <SignInScreen />
-    </div>
+    </Suspense>
   );
 }
