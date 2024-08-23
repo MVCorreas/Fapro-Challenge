@@ -2,8 +2,9 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import useEaseIn from "../hooks/useEaseIn";
-import { GradientButton, LightButton } from "@/app/components/Buttons";
+import { GradientButton, LightButton, MainButton } from "@/app/components/Buttons";
 import styles from "../styles/SpecificStyles.module.css";
+import { VideoCard } from "./VideoCard";
 
 const solutions = [
   {
@@ -33,17 +34,13 @@ const solutions = [
 ];
 
 export const SolutionsSection = () => {
-  const router = useRouter();
   const sectionsRef = useEaseIn();
 
-  const handleRegister = () => {
-    router.push("/register");
-  };
 
   return (
     <section
       ref={(el) => (sectionsRef.current[1] = el)}
-      className="opacity-0 translate-y-10 animate-slideUp mb-20 bg-[#0f172a]"
+      className="opacity-0 translate-y-10 animate-slideUp p-10 bg-[#0f172a]"
       id="solutions"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
@@ -89,28 +86,7 @@ export const SolutionsSection = () => {
           <LightButton name="Sign Up" onClick={handleRegister} className='mt-auto' />
         </div>
       </div> */}
-      <div className="flex justify-center mt-6">
-        <div className="card card-side bg-base-100 shadow-xl w-[55%] mb-12">
-          <div className="card-body">
-            <h2 className="card-title">Get started today</h2>
-            <p>You make the most of your time, we help you make money.</p>
-            <div className="card-actions justify-end">
-             <GradientButton name='Get Started' onClick={handleRegister} />
-            </div>
-          </div>
-          <figure className="w-1/2 p-6">
-            <video
-              src="/CardVideo.mp4"
-              alt="Movie Trailer"
-              className="w-full h-auto rounded-xl"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          </figure>
-        </div>
-      </div>
+      <VideoCard />
     </section>
   );
 };

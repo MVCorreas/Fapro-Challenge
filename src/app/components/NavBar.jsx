@@ -1,28 +1,14 @@
-"use client"
-
+"use client";
 import { useRouter, usePathname } from "next/navigation";
 import { DropDownIcon, HamburgerIcon } from "../../../public/Icons";
 import Image from "next/image";
 import { MainButton, OutlinedButton } from "./Buttons";
-import { RiSearchLine } from "@remixicon/react";
 
 const navLinks = [
-  {
-    title: "Home",
-    path: "#hero",
-  },
-  {
-    title: "About",
-    path: "#about",
-  },
-  {
-    title: "Solutions",
-    path: "#solutions",
-  },
-  {
-    title: "Contact",
-    path: "#contact",
-  },
+  { title: "Home", path: "#hero" },
+  { title: "About", path: "#about" },
+  { title: "Solutions", path: "#solutions" },
+  { title: "Contact", path: "#contact" },
 ];
 
 export const NavBarLanding = () => {
@@ -36,8 +22,20 @@ export const NavBarLanding = () => {
     router.push("/register");
   };
 
+  const handleScroll = (event) => {
+    event.preventDefault();
+    const targetId = event.currentTarget.getAttribute("href").substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-10 backdrop-blur-lg h-24  z-10">
+    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-10 backdrop-blur-lg h-24 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,11 +44,17 @@ export const NavBarLanding = () => {
 
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-lg"
           >
             {navLinks.map((link) => (
               <li key={link.path}>
-                <a href={link.path}>{link.title}</a>
+                <a
+                  href={link.path}
+                  onClick={handleScroll}
+                  className="text-violet-100 hover:text-violet-400 "
+                >
+                  {link.title}
+                </a>
               </li>
             ))}
           </ul>
@@ -65,17 +69,22 @@ export const NavBarLanding = () => {
         />
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 justify-between space-x-6 text-violet-100 text-lg">
+        <ul className="menu menu-horizontal px-1 justify-between space-x-6 text-lg">
           {navLinks.map((link) => (
             <li key={link.path}>
-              <a href={link.path}>{link.title}</a>
+              <a
+                href={link.path}
+                onClick={handleScroll}
+                className="text-violet-100 hover:text-violet-400"
+              >
+                {link.title}
+              </a>
             </li>
           ))}
         </ul>
       </div>
       <div className="navbar-end gap-4">
         <MainButton onClick={logIn} name="Sign In" />
-
         <OutlinedButton onClick={signUp} name="Sign Up" />
       </div>
     </div>

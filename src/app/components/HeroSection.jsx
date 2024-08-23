@@ -47,8 +47,9 @@ export const HeroSection = () => {
             alt='hero1'
             width={700}
             height={700}
+         
             priority
-            className={`${styles.heroTitle} object-cover`}
+            className={styles.heroTitle}
             style={{ borderRadius: '10px' }}
           />
         </div>
@@ -59,8 +60,9 @@ export const HeroSection = () => {
             alt='hero1'
             width={300}
             height={300}
+           
             priority
-            className={`${styles.heroTitle} object-cover`}
+            className={styles.heroTitle}
           />
         </div>
 
@@ -70,8 +72,9 @@ export const HeroSection = () => {
            alt='hero1'
             width={300}
             height={300}
+          
             priority
-            className={`${styles.heroTitle} object-cover`}
+            className={styles.heroTitle}
           />
         </div>
 
@@ -82,7 +85,7 @@ export const HeroSection = () => {
             width={300}
             height={300}
             priority
-            className={`${styles.heroTitle} object-cover rounded-md `}
+            className={`${styles.heroTitle} rounded-md `}
           />
         </div>
       </div>

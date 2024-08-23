@@ -59,7 +59,7 @@ export const ContactForm = () => {
   return (
     <section
       ref={(el) => (sectionsRef.current[2] = el)}
-      className="relative flex flex-col max-h-fit py-10 mb-10 z-10 text-gray-700 overflow-visible"
+      className="relative flex flex-col max-h-fit py-10 p-10 z-10 text-gray-700 overflow-visible"
       id="contact"
       style={{
         backgroundImage: "url('/BackgroundCard.jpg')",
@@ -74,7 +74,7 @@ export const ContactForm = () => {
       <div className="absolute inset-0 bg-amber-900 opacity-40 z-0 rounded-lg m-24" style={{ borderTopLeftRadius: '20%' }}></div>
   
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
-        {/* Left Section: Title and Text */}
+
         <div className="flex flex-col w-full p-8 bg-zinc-900 bg-opacity-80 rounded-lg h-full justify-center" style={{ borderTopLeftRadius: '30%' }}>
           <p className="text-6xl font-light text-purple-300 mb-12 ">Contact Us</p>
           <p className="text-4xl leading-8 text-white mb-4 ">
