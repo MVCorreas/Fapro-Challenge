@@ -28,7 +28,7 @@ export const SignInScreen = () => {
             <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-700 via-amber-100 to-transparent rounded-full h-[500px] w-[500px] blur-xl opacity-50 z-0"></div>
           </div>
           <h1 className={`${styles.heroTitle} text-6xl font-bold relative z-10 text-white`}>
-            There are ample opportunities on each byte of data
+            There are ample opportunities on each byte of data. Let us do the job. You just thrive.
           </h1>
         </div>
       </div>

@@ -67,7 +67,7 @@ export const ContactForm = () => {
         backgroundBlendMode: "overlay",
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '40%',
-      }}
+      }} 
     >
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-700 via-amber-100 to-transparent rounded-full h-[300px] w-[300px] blur-xl absolute bottom-[350px] left-40 transform translate-x-1/4 translate-y-1/2 opacity-50 z-20"></div> 
      

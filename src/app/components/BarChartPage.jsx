@@ -4,7 +4,7 @@ import { useState } from "react";
 import { BarChart, Card, Divider, Switch } from "@tremor/react";
 import { RiArrowUpLine } from "@remixicon/react";
 
-const data = [
+const defaulData = [
   {
     date: "2014",
     Orders: 68560,
@@ -63,10 +63,10 @@ const data = [
 ];
 
 // Calculate the max value across all data points
-const maxValue = Math.max(...data.map((d) => d.Orders + d.Revenue));
+const maxValue = Math.max(...defaulData.map((d) => d.Orders + d.Revenue));
 
 // Add a "none" category to each data point
-const dataWithNone = data.map((d) => ({
+const dataWithNone = defaulData.map((d) => ({
   ...d,
   none: maxValue - (d.Orders + d.Revenue),
 }));
@@ -83,7 +83,7 @@ function valueFormatter(number) {
   return formatter.format(number);
 }
 
-export const BarChartPage = () => {
+export const BarChartPage = ({data = defaulData}) => {
   return (
     <div className="flex flex-row m-2 w-full justify-center">
       <Card className="sm:max-w-2xl bg-white shadow rounded-sm m-1 p-3 overflow-hidden">

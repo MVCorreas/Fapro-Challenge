@@ -1,26 +1,37 @@
-export const MainButton = ({name, onClick}) => {
+export const MainButton = ({ name, onClick }) => {
   return (
-    <button  onClick={onClick} className="btn btn-ghost p-4 w-40 bg-purple-700 hover:bg-violet-400 text-white rounded-full">
+    <button
+      onClick={onClick}
+      className="btn btn-ghost p-2 w-full max-w-[150px] bg-purple-700 hover:bg-violet-400 text-white rounded-full"
+    >
       {name}
     </button>
   );
 };
 
-export const OutlinedButton = ({name, onClick}) => {
+
+export const OutlinedButton = ({ name, onClick }) => {
   return (
-    <button  onClick={onClick} className=" btn w-32  bg-transparent  text-violet-200 hover:bg-violet-400  text-purple-700 rounded-full">
+    <button
+      onClick={onClick}
+      className="btn w-full max-w-[150px] bg-transparent text-violet-200 hover:bg-violet-400 text-purple-700 rounded-full"
+    >
       {name}
     </button>
   );
 };
 
-export const LightButton = ({name, onClick}) => {
+export const LightButton = ({ name, onClick }) => {
   return (
-    <button  onClick={onClick} className=" btn w-32 bg-violet-400 hover:bg-violet-700  text-white rounded-full">
+    <button
+      onClick={onClick}
+      className="btn w-full max-w-[150px] bg-violet-400 hover:bg-violet-700 text-white rounded-full"
+    >
       {name}
     </button>
   );
 };
+
 
 export const GradientButton = ({name, onClick}) => {
   return (

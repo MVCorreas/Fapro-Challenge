@@ -8,7 +8,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const data = [
+const defaulData = [
   {
     date: "2014",
     Organic: 232,
@@ -114,7 +114,7 @@ const artChartBadge = [
   },
 ];
 
-export const ArtChartPage = () => {
+export const ArtChartPage = ({data = defaulData}) => {
   return (
     <div className=" flex flex-row justify-center m-2 w-full">
       <Card className=" w-full sm:max-w-2xl bg-white shadow rounded-sm m-1 p-2">

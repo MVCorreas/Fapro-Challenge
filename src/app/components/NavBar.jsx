@@ -3,6 +3,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { DropDownIcon, HamburgerIcon } from "../../../public/Icons";
 import Image from "next/image";
 import { MainButton, OutlinedButton } from "./Buttons";
+import { RiSearchLine } from "@remixicon/react";
 
 const navLinks = [
   { title: "Home", path: "#hero" },

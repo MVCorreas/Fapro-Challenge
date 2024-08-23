@@ -85,7 +85,7 @@ export const HeroSection = () => {
             width={300}
             height={300}
             priority
-            className={`${styles.heroTitle} rounded-md `}
+            className={`${styles.heroTitle} rounded-md w-auto h-auto`}
           />
         </div>
       </div>

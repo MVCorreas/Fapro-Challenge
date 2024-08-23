@@ -79,7 +79,7 @@ export const getColorClassName = (color, type) => {
 
 // Tremor Raw getYAxisDomain
 
-export const getYAxisDomain = (autoMinValue, minValue, maxValue) => {
+export const getDomain = (autoMinValue, minValue, maxValue) => {
   const minDomain = autoMinValue ? "auto" : minValue ?? 0;
   const maxDomain = maxValue ?? "auto";
   return [minDomain, maxDomain];
