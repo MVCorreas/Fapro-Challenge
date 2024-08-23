@@ -42,15 +42,22 @@ export const UsersListCard = () => {
           Quick Chat
         </div>
         {chatMessages.map(({ id, image, name, time, message }) => (
-          <div key={id} className="flex flex-row items-start justify-between mt-1">
+          <div
+            key={id}
+            className="flex flex-row items-start justify-between mt-1"
+          >
             <div className="flex items-center space-x-2">
               <div className="rounded-md p-1">
-                <Image src={image} alt='user' width={40} height={40} priority />
+                <Image src={image} alt="user" width={40} height={40} priority />
               </div>
               <div className="flex flex-col">
                 <div className="flex justify-between items-center w-full">
-                  <span className="stat-desc text-black font-semibold">{name}</span>
-                  <span className="stat-desc text-right text-gray-500 text-sm ml-4">{time}</span>
+                  <span className="stat-desc text-black font-semibold">
+                    {name}
+                  </span>
+                  <span className="stat-desc text-right text-gray-500 text-sm ml-4">
+                    {time}
+                  </span>
                 </div>
                 <p className="text-xs text-left mt-1">{message}</p>
               </div>
