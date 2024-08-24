@@ -1,6 +1,5 @@
 "use client";
 
-import styles from '../styles/SpecificStyles.module.css'
 import { RegisterForm } from "../components/RegisterForm";
 import { NavBarForms } from "../components/NavBar"
 
@@ -25,9 +24,9 @@ export const RegisterScreen = () => {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-700 via-amber-100 to-transparent rounded-full h-[500px] w-[500px] blur-xl opacity-50 z-0"></div>
           </div>
-          <h1 className={`${styles.heroTitle} text-6xl font-bold relative z-10 text-white`}>
+          <p className='text-4xl sm:text-5xl lg:text-6xl relative z-10 text-white animate-slideUp delay-500 text-center'>
             Sign up today and have access to the most extensive data.
-          </h1>
+          </p>
         </div>
       </div>
     </div>
