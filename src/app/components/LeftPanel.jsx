@@ -14,7 +14,7 @@ export const LeftPanel = () => {
     <div className="flex flex-col min-h-screen">
       <div className="join join-vertical w-full h-[900px] bg-violet-400 rounded-none mt-24 md:mt-32 lg:mt-24 text-white flex flex-col justify-center items-center">
         <div className="flex justify-center mb-4">
-          <button className="btn text-xs btn-active btn-ghost bg-[#d1d5db] w-lg">
+          <button className="btn text-md btn-active btn-ghost bg-[#d1d5db] w-lg rounded-full">
             <DashboardIcon className="w-4 h-4" />
             Dashboard
           </button>

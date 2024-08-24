@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { NavBarDashboard } from "./NavBar";
-import { LeftPanel } from "./LeftPanel";
 import { MainButton } from "./Buttons";
+import { CloseIcon } from "../../../public/Icons";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -18,6 +17,7 @@ export const CreateEntity = () => {
   });
   const [status, setStatus] = useState({ error: "", success: "" });
   const [errors, setErrors] = useState({});
+  const [dashboardId, setDashboardId] = useState(null); // State to store the dashboard ID
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -48,14 +48,14 @@ export const CreateEntity = () => {
       return;
     }
 
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      setStatus({ error: "No token found", success: "" });
-      return;
-    }
-
     try {
+      const token = localStorage.getItem("token"); // Access inside useEffect
+
+      if (!token) {
+        setStatus({ error: "No token found", success: "" });
+        return;
+      }
+
       const response = await axios.post(
         `${apiUrl}/api_entities/entities/`,
         formData,
@@ -74,6 +74,7 @@ export const CreateEntity = () => {
       });
 
       const createdEntityId = response.data.id;
+      setDashboardId(createdEntityId); // Store the created entity ID in state
       router.push(`/dashboard?id=${createdEntityId}`);
     } catch (error) {
       setStatus({
@@ -84,21 +85,35 @@ export const CreateEntity = () => {
     }
   };
 
+  const handleGoBack = () => {
+    if (dashboardId) {
+      router.push(`/dashboard?id=${dashboardId}`);
+    }
+  };
+
   return (
     <div className="relative flex flex-col max-h-fit z-10 text-gray-700 overflow-visible">
-      <div
-        className="absolute inset-0 bg-amber-900 opacity-40 z-0 rounded-lg m-32"
-   
-      ></div>
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24"  >
-        <div className="min-w-sm mx-auto card bg-white bg-opacity-30 m-4 text-white p-10 mt-32 md:mt-32 lg:mt-24 items-center " style={{ borderTopLeftRadius: "20%" }}>
-          <div className="card-body">
-            <h1 className="card-title text-2xl justify-center">
-              ADD A NEW ENTITY
-            </h1>
+      <div className="absolute inset-0 bg-white opacity-40 z-0 rounded-lg m-32 shadow-xl"></div>
+      <div className="relative p-16 items-center z-10 m-24">
+      <button
+            onClick={() => handleGoBack()}
+           className="absolute top-12 right-20 bg-violet-400 hover:bg-violet-700 p-4 rounded-full"
+          >
+            <CloseIcon />
+          </button>
+          <br/>
+        <p className="text-3xl text-violet-700 text-center mt-4">ADD A NEW ENTITY</p>
+       
+        <div
+          className="min-w-sm mx-auto card bg-violet-400 bg-opacity-30 m-4 text-white p-10 mt-32 md:mt-32 lg:mt-24 items-center"
+          style={{ borderTopLeftRadius: "20%" }}
+        >
+        
+          <div className="card-body w-[85%]">
+           
             {status.error && <div className="error">{status.error}</div>}
             {status.success && <div className="success">{status.success}</div>}
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="w-full">
               <div className="my-2">
                 <label className="label" htmlFor="business_name">
                   Business Name
@@ -108,7 +123,7 @@ export const CreateEntity = () => {
                   name="business_name"
                   value={formData.business_name}
                   onChange={handleChange}
-                  className="input input-bordered w-full max-w-sm text-black rounded-full"
+                  className="input input-bordered w-full text-black rounded-full"
                   required
                 />
                 {errors.business_name && (
@@ -124,7 +139,7 @@ export const CreateEntity = () => {
                   name="credential"
                   value={formData.credential}
                   onChange={handleChange}
-                  className="input input-bordered w-full max-w-sm text-black rounded-full"
+                  className="input input-bordered w-full text-black rounded-full"
                   required
                 />
                 {errors.credential && (
@@ -132,42 +147,34 @@ export const CreateEntity = () => {
                 )}
               </div>
               <div className="my-2">
-                <label className="label" htmlFor="field1">
+                <label className="label" htmlFor="additional_field1">
                   Field 1
                 </label>
                 <input
                   type="text"
-                  name="field1"
-                  value={formData.field1}
+                  name="additional_field1"
+                  value={formData.additional_field1}
                   onChange={handleChange}
-                  className="input input-bordered w-full max-w-sm text-black rounded-full"
+                  className="input input-bordered w-full text-black rounded-full"
                 />
               </div>
               <div className="my-2">
-                <label className="label" htmlFor="field2">
+                <label className="label" htmlFor="additional_field2">
                   Field 2
                 </label>
                 <input
                   type="text"
-                  name="field2"
-                  value={formData.field2}
+                  name="additional_field2"
+                  value={formData.additional_field2}
                   onChange={handleChange}
-                  className="input input-bordered w-full max-w-sm text-black rounded-full"
+                  className="input input-bordered w-full text-black rounded-full"
                 />
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center p-2">
                 <MainButton name="Add Company" onClick={handleSubmit} />
               </div>
             </form>
           </div>
-          
-        </div>
-        <div className="flex flex-col w-full p-8 bg-zinc-900 bg-opacity-80 rounded-lg h-full justify-center" style={{ borderTopLeftRadius: '30%' }}>
-          <p className="text-6xl font-light text-purple-300 mb-12 ">Contact Us</p>
-          <p className="text-4xl leading-8 text-white mb-4 ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit error architecto eveniet corporis vel! 
-          </p>
-
         </div>
       </div>
     </div>

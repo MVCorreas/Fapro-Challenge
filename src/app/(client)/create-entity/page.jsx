@@ -13,7 +13,7 @@ export default function CreateEntityPage() {
         <NavBarDashboard />
       </div>
       <div className="flex-1 " style={{
-          backgroundImage: "url('/BackgroundCard.jpg')",
+          backgroundImage: "url('/PurpleBackground.png')",
           backgroundSize: "cover",
           backgroundBlendMode: "overlay",
           backgroundRepeat: 'no-repeat',
