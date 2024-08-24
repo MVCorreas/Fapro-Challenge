@@ -35,7 +35,7 @@ export const LightButton = ({ name, onClick }) => {
 
 export const GradientButton = ({name, onClick}) => {
   return (
-<button onClick={onClick} className='p-4 bg-gradient-to-r from-amber-400 via-yellow-300 to-purple-300 w-full rounded-full text-2xl'>{name}</button>
+<button onClick={onClick} className='p-4 bg-gradient-to-r from-amber-500 to-yellow-200 w-full max-w-[250px] rounded-full text-2xl text-black'>{name}</button>
   )
   
 }

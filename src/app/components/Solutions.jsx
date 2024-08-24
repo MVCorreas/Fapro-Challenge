@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/navigation";
 import useEaseIn from "../hooks/useEaseIn";
-import { GradientButton, LightButton, MainButton } from "@/app/components/Buttons";
-import styles from "../styles/SpecificStyles.module.css";
-import { VideoCard } from "./VideoCard";
 
 const solutions = [
   {
@@ -36,23 +32,22 @@ const solutions = [
 export const SolutionsSection = () => {
   const sectionsRef = useEaseIn();
 
-
   return (
     <section
       ref={(el) => (sectionsRef.current[1] = el)}
-      className="opacity-0 translate-y-10 animate-slideUp p-10 bg-[#0f172a]"
+      className="opacity-0 translate-y-10 animate-slideUp p-10 bg-slate-900 animate-slideUpAndFade delay-500"
       id="solutions"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
         <div className="flex flex-col justify-center items-start">
-          <h2 className="text-5xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-900 via-purple-400 to-amber-600 mb-4">
+          <h2 className="text-5xl sm:text-5xl lg:text-7xl font-200 lg:leading-normal  text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-purple-200 to-amber-400">
             SOLUTIONS
           </h2>
           <div className="p-6">
             <h3 className="text-2xl font-bold text-white">
               {solutions[0].title}
             </h3>
-            <p className="text-lg mt-2 text-white">
+            <p className="font-lighter text-lg mt-2 text-white">
               {solutions[0].description}
             </p>
           </div>
@@ -61,32 +56,11 @@ export const SolutionsSection = () => {
           {solutions.slice(1).map((sol) => (
             <div key={sol.id} className="p-6">
               <h3 className="text-2xl font-bold text-white">{sol.title}</h3>
-              <p className="text-lg mt-2 text-white">{sol.description}</p>
+              <p className="font-lighter text-lg mt-2 text-white">{sol.description}</p>
             </div>
           ))}
         </div>
       </div>
-      {/* <div className="flex justify-center mt-6">
-        <div
-          className={styles.funContainer}
-          style={{
-            backgroundImage: "url('/Telephone.jpg')",
-            backgroundSize: "cover",
-            backgroundBlendMode: "overlay",
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'right'
-          }}
-        >
-          <div className="text-white flex flex-col items-center">
-            <h2 className="text-4xl mb-8 text-violet-900">Sign Up. Get Started</h2>
-            <p className="mb-8 text-2xl text-violet-900">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-          </div>
-          <LightButton name="Sign Up" onClick={handleRegister} className='mt-auto' />
-        </div>
-      </div> */}
-      <VideoCard />
     </section>
   );
 };

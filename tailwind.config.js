@@ -9,9 +9,23 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
+        slideUp: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(100%)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
         hide: {
           from: { opacity: "1" },
           to: { opacity: "0" },
+        },
+        show: {
+          from: { opacity: "0", transform: "translateY(100%)" },
+          to: { opacity: "1", transform: "translateY(0)" },
         },
         slideDownAndFade: {
           from: { opacity: "0", transform: "translateY(-6px)" },
@@ -52,12 +66,13 @@ module.exports = {
         },
       },
       animation: {
+        slideUp: "slideUp 0.8s ease-out forwards",
         hide: "hide 150ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideDownAndFade:
           "slideDownAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideLeftAndFade:
           "slideLeftAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1)",
-        slideUpAndFade: "slideUpAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+        slideUpAndFade: "slideUpAndFade 250ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideRightAndFade:
           "slideRightAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1)",
         // Accordion

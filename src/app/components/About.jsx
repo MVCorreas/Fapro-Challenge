@@ -14,15 +14,15 @@ export const AboutSection = () => {
   return (
     <section
     ref={(el) => (sectionsRef.current[0] = el)}
-      className="opacity-0 translate-y-10 animate-slideUp h-90vh text-white" 
+      className="opacity-0 translate-y-10 animate-slideUp h-90vh text-white animate-slideUpAndFade delay-500" 
       id="about"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-8">
         <div className="flex flex-col justify-center">
-        <span className="text-3xl sm:text-5xl lg:text-7xl lg:leading-normal font-bold-700 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-900 via-purple-400 to-amber-600">
+        <span className="text-5xl sm:text-5xl lg:text-7xl font-200 lg:leading-normal  text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-purple-200 to-amber-400">
             ABOUT US
           </span>
-          <div className="text-lg leading-relaxed mb-20 text-black w-[500px]">
+          <div className="font-lighter text-2xl leading-relaxed mb-20 text-black w-[500px]">
            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus corporis ratione quaerat iusto cupiditate illo, deleniti culpa nesciunt sit ducimus molestiae rem doloribus quia similique. Harum recusandae animi ipsam neque.
           </div>
           <MainButton

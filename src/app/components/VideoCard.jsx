@@ -10,8 +10,15 @@ export const VideoCard = () => {
     };
 
     return (
+      <section
+     
+        className=" translate-y-10 animate-slideUp h-[500px] animate-slideUpAndFade delay-500" 
+       
+      >
+       
+          <div className="flex flex-col justify-center">
         <div className="flex justify-center mt-6">
-        <div className="card card-side bg-base-100 shadow-xl w-[55%] mb-12">
+        <div className="card card-side bg-base-100 shadow-2xl w-[45%] mb-12 h-96">
           <div className="card-body">
             <h2 className="card-title text-4xl text-violet-400">Get started today</h2>
             <p className="text-2xl">You make the most of your time, we help you make money.</p>
@@ -19,7 +26,7 @@ export const VideoCard = () => {
              <MainButton name='Get Started' onClick={handleRegister} styles={{with: '20%'}}/>
             </div>
           </div>
-          <figure className="w-1/2 p-6">
+          <figure className="w-full p-4">
             <video
               src="/CardVideo.mp4"
               alt="Movie Trailer"
@@ -31,6 +38,8 @@ export const VideoCard = () => {
             />
           </figure>
         </div>
-      </div>
+        </div>
+        </div>
+      </section>
     )
 }

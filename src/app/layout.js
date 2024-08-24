@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 
 const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["100", "200", "500", "700"],
+  weight: ["100", "200", "500", "600", "700"],
 });
 
 export const metadata = {
