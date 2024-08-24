@@ -5,6 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { EditIcon, CloseIcon } from "../../../public/Icons";
+import { MainButton } from "./Buttons";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -147,179 +148,180 @@ export const EditEntity = ({ entityId }) => {
           backgroundPosition: "center",
         }}
       ></div>
-
+  
       <div className="relative flex items-center justify-center z-10 m-24 h-full">
-        <div className="flex flex-col text-white items-center justify-center bg-violet-400 opacity-70 p-8 rounded-lg shadow-lg max-w-full w-[55%] max-h-full h-[75%] overflow-auto relative">
-      
-        <div className="absolute top-4 right-4 z-20 flex gap-2">
-  {!isEditing ? (
-    <>
-      <button
-        onClick={() => setIsEditing(true)}
-        className="p-2 w-12 h-12 flex items-center justify-center bg-purple-800 rounded-full shadow-md"
-      >
-        <EditIcon className="w-6 h-6 text-black" />
-      </button>
-      <button
-        onClick={handleGoBack}
-        className="p-2 w-12 h-12 flex items-center justify-center bg-purple-800 rounded-full shadow-md"
-      >
-        <CloseIcon className="w-6 h-6 text-black" />
-      </button>
-    </>
-  ) : (
-    <button
-      onClick={() => setIsEditing(false)}
-      className="p-2 w-12 h-12 flex items-center justify-center bg-purple-800 rounded-full shadow-md"
-    >
-      <CloseIcon className="w-6 h-6 text-black" />
-    </button>
-  )}
-</div>
-
-          <div className="text-center text-3xl p-4">
+        <div className="flex flex-col text-white items-center justify-center bg-violet-400 opacity-70 p-8 rounded-lg shadow-lg max-w-full w-[65%] max-h-full h-[75%] overflow-auto relative">
+          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-center text-3xl p-4 z-10 mt-4">
             <h1>{formData.business_name}</h1>
           </div>
-
-          {error && <div className="error">{error}</div>}
-          {success && <div className="success">{success}</div>}
-          {isEditing ? (
-            <form onSubmit={handleSubmit} className="space-y-4 w-full">
-              <div>
-                <label htmlFor="business_name" className="block">
-                  Business Name:
-                </label>
-                <input
-                  type="text"
-                  id="business_name"
-                  name="business_name"
-                  value={formData.business_name}
-                  onChange={handleChange}
-                  required
-                  className="input input-bordered w-full max-w-xs text-black rounded-full"
-                />
-              </div>
-              <div>
-                <label htmlFor="credential" className="block">
-                  Credential:
-                </label>
-                <input
-                  type="text"
-                  id="credential"
-                  name="credential"
-                  value={formData.credential}
-                  onChange={handleChange}
-                  required
-                 className="input input-bordered w-full max-w-xs text-black rounded-full"
-                />
-              </div>
-              <div>
-                <label htmlFor="is_enabled" className="block">
-                  Active:
-                </label>
-                <input
-                  type="checkbox"
-                  className="toggle"
-                  id="is_enabled"
-                  name="is_enabled"
-                  checked={formData.is_enabled}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="industry_type" className="block">
-                  Industry Type:
-                </label>
-                <select
-                  id="industry_type"
-                  name="industry_type"
-                  value={additionalData.industry_type}
-                  onChange={handleAdditionalDataChange}
-                  className="select w-full max-w-xs text-black rounded-full"
+  
+          <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-100">
+            {!isEditing ? (
+              <>
+                <button
+                  onClick={() => setIsEditing(true)}
+                  className="p-2 w-24 h-12 flex items-center justify-center bg-purple-800 rounded-full shadow-md"
                 >
-                  <option value="" disabled>
-                    Industry Type
-                  </option>
-                  <option value="Finance">Finance</option>
-                  <option value="Tourism">Tourism</option>
-                  <option value="Construction">Construction</option>
-                  <option value="Transport">Transport</option>
-                  <option value="Insurance">Insurance</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="number_of_employees" className="block">
-                  Number of Employees:
-                </label>
-                <input
-                  type="text"
-                  id="number_of_employees"
-                  name="number_of_employees"
-                  value={additionalData.number_of_employees}
-                  onChange={handleAdditionalDataChange}
-                 className="input input-bordered w-full max-w-xs text-black rounded-full"
-                />
-              </div>
-              <div>
-                <label htmlFor="annual_turnover" className="block">
-                  Annual Turnover:
-                </label>
-                <input
-                  type="text"
-                  id="annual_turnover"
-                  name="annual_turnover"
-                  value={additionalData.annual_turnover}
-                  onChange={handleAdditionalDataChange}
-                 className="input input-bordered w-full max-w-xs text-black rounded-full"
-                />
-              </div>
-              <div>
-                <label htmlFor="market_value" className="block">
-                  Market Value:
-                </label>
-                <input
-                  type="text"
-                  id="market_value"
-                  name="market_value"
-                  value={additionalData.market_value}
-                  onChange={handleAdditionalDataChange}
-                  className="input input-bordered w-full max-w-xs text-black rounded-full"
-                />
-              </div>
-              <button className="btn btn-outline btn-sm" type="submit">
-                Update Entity
+                  <EditIcon className="w-6 h-6 text-black" />
+                </button>
+                <button
+                  onClick={handleGoBack}
+                  className="p-2 w-24 h-12 flex items-center justify-center bg-purple-800 rounded-full shadow-md"
+                >
+                  <CloseIcon className="w-6 h-6 text-black" />
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={() => setIsEditing(false)}
+                className="p-2 w-24 h-12 flex items-center justify-center bg-purple-800 rounded-full shadow-md"
+              >
+                <CloseIcon className="w-6 h-6 text-black" />
               </button>
-            </form>
-          ) : (
-            <div>
-              <p>
-                <strong>Business Name:</strong> {formData.business_name}
-              </p>
-              <p>
-                <strong>Credential:</strong> {formData.credential}
-              </p>
-              <p>
-                <strong>Status:</strong>{" "}
-                {formData.is_enabled ? "Enabled" : "Disabled"}
-              </p>
-              <p>
-                <strong>Industry Type:</strong> {additionalData.industry_type}
-              </p>
-              <p>
-                <strong>Number of Employees:</strong>{" "}
-                {additionalData.number_of_employees}
-              </p>
-              <p>
-                <strong>Annual Turnover:</strong>{" "}
-                {additionalData.annual_turnover}
-              </p>
-              <p>
-                <strong>Market Value:</strong> {additionalData.market_value}
-              </p>
-            </div>
-          )}
+            )}
+          </div>
+  
+          <div className="mt-16 w-full flex justify-center opacity-100 mt-[20%]">
+            {error && <div className="error">{error}</div>}
+            {success && <div className="success">{success}</div>}
+            {isEditing ? (
+              <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md mx-auto">
+                <div>
+                  <label htmlFor="business_name" className="block">
+                    Business Name:
+                  </label>
+                  <input
+                    type="text"
+                    id="business_name"
+                    name="business_name"
+                    value={formData.business_name}
+                    onChange={handleChange}
+                    required
+                    className="input input-bordered w-full text-black rounded-full"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="credential" className="block">
+                    Credential:
+                  </label>
+                  <input
+                    type="text"
+                    id="credential"
+                    name="credential"
+                    value={formData.credential}
+                    onChange={handleChange}
+                    required
+                    className="input input-bordered w-full text-black rounded-full"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="is_enabled" className="block">
+                    Active:
+                  </label>
+                  <input
+                    type="checkbox"
+                    className="toggle"
+                    id="is_enabled"
+                    name="is_enabled"
+                    checked={formData.is_enabled}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="industry_type" className="block">
+                    Industry Type:
+                  </label>
+                  <select
+                    id="industry_type"
+                    name="industry_type"
+                    value={additionalData.industry_type}
+                    onChange={handleAdditionalDataChange}
+                    className="select w-full text-black rounded-full"
+                  >
+                    <option value="" disabled>
+                      Industry Type
+                    </option>
+                    <option value="Finance">Finance</option>
+                    <option value="Tourism">Tourism</option>
+                    <option value="Construction">Construction</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Insurance">Insurance</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="number_of_employees" className="block">
+                    Number of Employees:
+                  </label>
+                  <input
+                    type="text"
+                    id="number_of_employees"
+                    name="number_of_employees"
+                    value={additionalData.number_of_employees}
+                    onChange={handleAdditionalDataChange}
+                    className="input input-bordered w-full text-black rounded-full"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="annual_turnover" className="block">
+                    Annual Turnover:
+                  </label>
+                  <input
+                    type="text"
+                    id="annual_turnover"
+                    name="annual_turnover"
+                    value={additionalData.annual_turnover}
+                    onChange={handleAdditionalDataChange}
+                    className="input input-bordered w-full text-black rounded-full"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="market_value" className="block">
+                    Market Value:
+                  </label>
+                  <input
+                    type="text"
+                    id="market_value"
+                    name="market_value"
+                    value={additionalData.market_value}
+                    onChange={handleAdditionalDataChange}
+                    className="input input-bordered w-full text-black rounded-full"
+                  />
+                </div>
+                <div className="my-4 flex justify-center">
+                <MainButton name='Update Entity'/>
+                </div>
+              </form>
+            ) : (
+              <div className="text-xl space-y-4">
+                <p>
+                  <strong>Business Name:</strong> {formData.business_name}
+                </p>
+                <p>
+                  <strong>Credential:</strong> {formData.credential}
+                </p>
+                <p>
+                  <strong>Status:</strong>{" "}
+                  {formData.is_enabled ? "Enabled" : "Disabled"}
+                </p>
+                <p>
+                  <strong>Industry Type:</strong> {additionalData.industry_type}
+                </p>
+                <p>
+                  <strong>Number of Employees:</strong>{" "}
+                  {additionalData.number_of_employees}
+                </p>
+                <p>
+                  <strong>Annual Turnover:</strong>{" "}
+                  {additionalData.annual_turnover}
+                </p>
+                <p>
+                  <strong>Market Value:</strong> {additionalData.market_value}
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
-};
+}  
