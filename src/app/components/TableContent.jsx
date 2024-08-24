@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import { EyeIcon, BinIcon, PlusIcon, EditIcon } from "../../../public/Icons";
+import Link from 'next/link';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -151,10 +152,16 @@ export const TableContent = () => {
                     alt={entity.business_name}
                     width={50}
                     height={50}
+                
                   />
                 </div>
               </div>
-              <div className="font-bold text-xs">{entity.business_name}</div>
+              <div
+              className="font-bold text-xs cursor-pointer"
+              onClick={() => handleEditEntity(entity.id)} 
+            >
+              {entity.business_name}
+            </div>
             </div>
           </td>
           <td>{entity.credential}</td>
