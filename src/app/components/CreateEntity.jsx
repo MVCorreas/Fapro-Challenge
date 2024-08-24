@@ -21,7 +21,6 @@ export const CreateEntity = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // Perform client-side only actions here, such as accessing localStorage
     const token = localStorage.getItem("token");
     if (!token) {
       setStatus({ error: "No token found", success: "" });
@@ -51,32 +50,24 @@ export const CreateEntity = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!validate()) {
       return;
     }
-
+  
     try {
-      if (typeof window === "undefined") {
-        return;
-      }
-
       const token = localStorage.getItem("token");
-
+  
       if (!token) {
         setStatus({ error: "No token found", success: "" });
         return;
       }
-
-      // Construct payload with only the fields to be sent to the server
+  
       const { business_name, credential } = formData;
-
+  
       const response = await axios.post(
         `${apiUrl}/api_entities/entities/`,
-        {
-          business_name,
-          credential,
-        },
+        { business_name, credential },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -85,16 +76,21 @@ export const CreateEntity = () => {
           },
         }
       );
-
-      setStatus({
-        error: "",
-        success: "Entity created successfully!",
-      });
-
-      const createdEntityId = response.data.data.id; // Accessing id from the response data
-      console.log('At create entity data id', createdEntityId)
-      setDashboardId(createdEntityId);
-      router.push(`/dashboard?id=${createdEntityId}`);
+  
+      console.log("API Response Data:", response.data);
+  
+      const createdEntityId = response.data.data.id;
+      if (createdEntityId) {
+        console.log("Created Entity ID:", createdEntityId);
+        setDashboardId(createdEntityId);  // Ensure this is called
+        setStatus({
+          error: "",
+          success: "Entity created successfully!",
+        });
+        router.push(`/dashboard?id=${createdEntityId}`);
+      } else {
+        setStatus({ error: "Entity ID not found in response", success: "" });
+      }
     } catch (error) {
       setStatus({
         error: "Error creating entity",
@@ -103,36 +99,30 @@ export const CreateEntity = () => {
       console.error("Error creating entity:", error);
     }
   };
-
+  
   const handleGoBack = () => {
-    if (dashboardId) {
-      router.push(`/dashboard?id=${dashboardId}`);
-    }
-  };
-
+    router.push('/dashboard')
+  }
+  
   return (
     <div className="relative flex flex-col max-h-fit z-10 text-gray-700 overflow-visible">
-      <div className="absolute inset-0 bg-white opacity-40 z-0 rounded-lg m-32 shadow-xl"></div>
-      <div className="relative p-16 items-center z-10 m-24">
+      <div className="absolute inset-0 bg-white opacity-40 z-0 rounded-lg m-12 shadow-xl"></div>
+      <div className="relative grid grid-cols-2 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
       <button
-            onClick={() => handleGoBack()}
+            onClick={handleGoBack}
            className="absolute top-12 right-20 bg-violet-400 hover:bg-violet-700 p-4 rounded-full"
           >
             <CloseIcon />
           </button>
           <br/>
-        <p className="text-3xl text-violet-700 text-center mt-4">ADD A NEW ENTITY</p>
-       
+        <p className="text-3xl text-violet-700 text-center mt-2">ADD A NEW ENTITY</p>
         <div
-          className="min-w-sm mx-auto card bg-violet-400 bg-opacity-30 m-4 text-white p-10 mt-32 md:mt-32 lg:mt-24 items-center"
-          style={{ borderTopLeftRadius: "20%" }}
+          className="min-w-[85%] mx-auto card bg-violet-400 bg-opacity-30 text-white p-10 mt-12 rounded-lg shadow-md col-span-full md:col-span-2" style={{borderTopLeftRadius: '20%'}}
         >
-        
-          <div className="card-body w-[85%]">
-           
-            {status.error && <div className="error">{status.error}</div>}
-            {status.success && <div className="success">{status.success}</div>}
-            <form onSubmit={handleSubmit} className="w-full">
+          <div className="card-body">
+            {status.error && <div className="text-red-500">{status.error}</div>}
+            {status.success && <div className="text-green-500">{status.success}</div>}
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="my-2">
                 <label className="label" htmlFor="business_name">
                   Business Name
@@ -146,7 +136,7 @@ export const CreateEntity = () => {
                   required
                 />
                 {errors.business_name && (
-                  <div className="text-error">{errors.business_name}</div>
+                  <div className="text-red-500">{errors.business_name}</div>
                 )}
               </div>
               <div className="my-2">
@@ -162,7 +152,7 @@ export const CreateEntity = () => {
                   required
                 />
                 {errors.credential && (
-                  <div className="text-error">{errors.credential}</div>
+                  <div className="text-red-500">{errors.credential}</div>
                 )}
               </div>
               <div className="my-2">
@@ -189,7 +179,7 @@ export const CreateEntity = () => {
                   className="input input-bordered w-full text-black rounded-full"
                 />
               </div>
-              <div className="flex justify-center p-2">
+              <div className="col-span-1 md:col-span-2 flex justify-center p-2">
                 <MainButton name="Add Company" onClick={handleSubmit} />
               </div>
             </form>

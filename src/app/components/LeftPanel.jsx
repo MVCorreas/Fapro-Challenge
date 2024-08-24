@@ -1,4 +1,5 @@
-import Image from "next/image";
+"use client"
+
 import {
   EcommerceIcon,
   FileManagerIcon,
@@ -8,13 +9,21 @@ import {
   DashboardIcon,
 } from "../../../public/Icons";
 import { MainButton } from "./Buttons";
+import { useRouter } from "next/navigation";
 
 export const LeftPanel = () => {
+  const router = useRouter()
+
+  const handleGoBack = () => {
+    router.push('/dashboard')
+  }
+
+
   return (
-    <div className="flex flex-col min-h-screen w-[12.5%]">
-      <div className="join join-vertical w-full bg-violet-400 rounded-none mt-24 md:mt-32 lg:mt-24 text-white flex flex-col justify-center items-center flex-grow">
+    <div className="fixed relative top-0 left-0 h-screen w-[12.5%] bg-violet-400 text-white flex flex-col py-4">
+      <div className="flex flex-col justify-center items-center mt-24 md:mt-32 lg:mt-24">
         <div className="flex justify-center mb-4">
-          <button className="btn text-md btn-active btn-ghost bg-[#d1d5db] w-lg rounded-full">
+          <button className="btn text-md btn-active btn-ghost bg-[#d1d5db] w-lg rounded-full" onClick={handleGoBack}>
             <DashboardIcon className="w-4 h-4" />
             Dashboard
           </button>
