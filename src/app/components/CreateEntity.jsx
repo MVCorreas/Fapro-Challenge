@@ -82,7 +82,7 @@ export const CreateEntity = () => {
       const createdEntityId = response.data.data.id;
       if (createdEntityId) {
         setDashboardId(createdEntityId);
-        
+
         localStorage.setItem(
           `entity_${createdEntityId}_additional_data`,
           JSON.stringify({
