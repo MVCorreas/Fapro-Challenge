@@ -106,16 +106,18 @@ export const CreateEntity = () => {
   
   return (
     <div className="relative flex flex-col max-h-fit z-10 text-gray-700 overflow-visible">
-      <div className="absolute inset-0 bg-white opacity-40 z-0 rounded-lg m-12 shadow-xl"></div>
-      <div className="relative grid grid-cols-2 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
-      <button
-            onClick={handleGoBack}
-           className="absolute top-12 right-20 bg-violet-400 hover:bg-violet-700 p-4 rounded-full"
-          >
-            <CloseIcon />
-          </button>
-          <br/>
-        <p className="text-3xl text-violet-700 text-center mt-2">ADD A NEW ENTITY</p>
+    <div className="absolute inset-0 bg-white opacity-40 z-0 rounded-lg m-32 h-[80%] shadow-xl"></div>
+     <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
+     <button
+  onClick={handleGoBack}
+  className="absolute top-12 right-12 bg-violet-400 hover:bg-violet-700 p-4 rounded-full flex items-center justify-center"
+>
+  <CloseIcon />
+</button>
+
+      <p className="text-3xl text-violet-700 text-center mt-8 col-span-full">
+        ADD A NEW ENTITY
+      </p>
         <div
           className="min-w-[85%] mx-auto card bg-violet-400 bg-opacity-30 text-white p-10 mt-12 rounded-lg shadow-md col-span-full md:col-span-2" style={{borderTopLeftRadius: '20%'}}
         >
