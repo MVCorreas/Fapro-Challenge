@@ -116,21 +116,30 @@ export const CreateEntity = () => {
 
   return (
     <div className="relative flex flex-col max-h-fit z-10 text-gray-700 overflow-visible">
-      <div className="absolute inset-0 bg-white opacity-40 z-0 rounded-lg m-32 h-[80%] shadow-xl"></div>
+        <div
+        className="absolute inset-0 z-0 rounded-lg m-32 h-[80%] shadow-xl"
+        style={{
+          backgroundImage: "url('/Background1.avif')",
+          backgroundSize: "cover",
+          backgroundBlendMode: "overlay",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      ></div>
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
         <button
           onClick={handleGoBack}
-          className="absolute top-12 right-12 bg-violet-400 hover:bg-violet-700 p-4 rounded-full flex items-center justify-center"
+          className="absolute top-12 right-12 bg-purple-800 p-2 w-24 h-12 flex hover:bg-violet-700 p-4 rounded-full flex items-center justify-center"
         >
           <CloseIcon />
         </button>
 
-        <p className="text-3xl text-violet-700 text-center mt-8 col-span-full">
+        <p className="text-3xl text-white text-center mt-8 col-span-full">
           ADD A NEW ENTITY
         </p>
         <div
-          className="min-w-[85%] mx-auto card bg-violet-400 bg-opacity-30 text-white p-10 mt-12 rounded-lg shadow-md col-span-full md:col-span-2"
-          style={{ borderTopLeftRadius: "20%" }}
+          className="min-w-[65%] mx-auto card bg-violet-400 opacity-70 text-white p-10 mt-12 rounded-lg shadow-2xl col-span-full md:col-span-2"
+         
         >
           <div className="card-body">
             {status.error && <div className="text-red-500">{status.error}</div>}
@@ -139,7 +148,7 @@ export const CreateEntity = () => {
             )}
             <form
               onSubmit={handleSubmit}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center mx-auto w-full"
             >
               <div className="my-2">
                 <label className="label" htmlFor="business_name">
@@ -150,7 +159,7 @@ export const CreateEntity = () => {
                   name="business_name"
                   value={formData.business_name}
                   onChange={handleChange}
-                  className="input input-bordered w-full max-w-xs text-black rounded-full"
+                  className="input input-bordered w-full max-w-md text-black rounded-full "
                   required
                 />
                 {errors.business_name && (
@@ -166,7 +175,7 @@ export const CreateEntity = () => {
                   name="credential"
                   value={formData.credential}
                   onChange={handleChange}
-                  className="input input-bordered w-full max-w-xs text-black rounded-full"
+                  className="input input-bordered w-full max-w-md text-black rounded-full"
                   required
                 />
                 {errors.credential && (
@@ -181,7 +190,7 @@ export const CreateEntity = () => {
                   name="industry_type"
                   value={formData.industry_type}
                   onChange={handleChange}
-                  className="select w-full max-w-xs text-black"
+                  className="select w-full max-w-md text-black rounded-full"
                   required
                 >
                   <option disabled value="">
@@ -203,7 +212,7 @@ export const CreateEntity = () => {
                   name="number_of_employees"
                   value={formData.number_of_employees}
                   onChange={handleChange}
-                  className="input input-bordered w-full max-w-xs text-black rounded-full"
+                  className="input input-bordered w-full max-w-md text-black rounded-full"
                 />
               </div>
               <div className="my-2">
@@ -215,7 +224,7 @@ export const CreateEntity = () => {
                   name="annual_turnover"
                   value={formData.annual_turnover}
                   onChange={handleChange}
-                  className="input input-bordered w-full max-w-xs text-black rounded-full"
+                  className="input input-bordered w-full max-w-md text-black rounded-full"
                 />
               </div>
               <div className="my-2">
@@ -227,7 +236,7 @@ export const CreateEntity = () => {
                   name="market_value"
                   value={formData.market_value}
                   onChange={handleChange}
-                  className="input input-bordered w-full max-w-xs text-black rounded-full"
+                  className="input input-bordered w-full max-w-md text-black rounded-full"
                 />
               </div>
               <div className="col-span-1 md:col-span-2 flex justify-center p-2">
