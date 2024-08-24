@@ -5,9 +5,9 @@ import { LeftPanel } from "@/app/components/LeftPanel";
 export default function CreateEntityPage() {
   return (
     <div className="flex min-h-screen overflow-auto ">
-    <div className="w-[12.5%]">
+   
       <LeftPanel />
-    </div>
+  
     <div className="flex flex-col w-full">
       <div className="w-full">
         <NavBarDashboard />

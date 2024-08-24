@@ -5,9 +5,9 @@ import { MainScreen } from "../components/Main"
 export const DashBoardScreen = () => {
     return (
     <div className="flex min-h-screen h-full overflow-auto">
-      <div className="w-[12.5%]">
+     
         <LeftPanel />
-      </div>
+     
       <div className="flex flex-col w-full">
         <div className="w-full">
           <NavBarDashboard />
