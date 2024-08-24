@@ -12,8 +12,10 @@ export const CreateEntity = () => {
   const [formData, setFormData] = useState({
     business_name: "",
     credential: "",
-    additional_field1: "",
-    additional_field2: "",
+    industry_type: "",
+    number_of_employees: "",
+    annual_turnover: "",
+    market_value: "",
   });
   const [status, setStatus] = useState({ error: "", success: "" });
   const [errors, setErrors] = useState({});
@@ -50,21 +52,21 @@ export const CreateEntity = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (!validate()) {
       return;
     }
-  
+
     try {
       const token = localStorage.getItem("token");
-  
+
       if (!token) {
         setStatus({ error: "No token found", success: "" });
         return;
       }
-  
+
       const { business_name, credential } = formData;
-  
+
       const response = await axios.post(
         `${apiUrl}/api_entities/entities/`,
         { business_name, credential },
@@ -76,13 +78,22 @@ export const CreateEntity = () => {
           },
         }
       );
-  
-      console.log("API Response Data:", response.data);
-  
+
       const createdEntityId = response.data.data.id;
       if (createdEntityId) {
-        console.log("Created Entity ID:", createdEntityId);
-        setDashboardId(createdEntityId);  // Ensure this is called
+        setDashboardId(createdEntityId);
+
+        // Store additional fields in localStorage
+        localStorage.setItem(
+          `entity_${createdEntityId}_additional_data`,
+          JSON.stringify({
+            industry_type: formData.industry_type,
+            number_of_employees: formData.number_of_employees,
+            annual_turnover: formData.annual_turnover,
+            market_value: formData.market_value,
+          })
+        );
+
         setStatus({
           error: "",
           success: "Entity created successfully!",
@@ -99,32 +110,38 @@ export const CreateEntity = () => {
       console.error("Error creating entity:", error);
     }
   };
-  
+
   const handleGoBack = () => {
-    router.push('/dashboard')
-  }
-  
+    router.push("/dashboard");
+  };
+
   return (
     <div className="relative flex flex-col max-h-fit z-10 text-gray-700 overflow-visible">
-    <div className="absolute inset-0 bg-white opacity-40 z-0 rounded-lg m-32 h-[80%] shadow-xl"></div>
-     <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
-     <button
-  onClick={handleGoBack}
-  className="absolute top-12 right-12 bg-violet-400 hover:bg-violet-700 p-4 rounded-full flex items-center justify-center"
->
-  <CloseIcon />
-</button>
+      <div className="absolute inset-0 bg-white opacity-40 z-0 rounded-lg m-32 h-[80%] shadow-xl"></div>
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
+        <button
+          onClick={handleGoBack}
+          className="absolute top-12 right-12 bg-violet-400 hover:bg-violet-700 p-4 rounded-full flex items-center justify-center"
+        >
+          <CloseIcon />
+        </button>
 
-      <p className="text-3xl text-violet-700 text-center mt-8 col-span-full">
-        ADD A NEW ENTITY
-      </p>
+        <p className="text-3xl text-violet-700 text-center mt-8 col-span-full">
+          ADD A NEW ENTITY
+        </p>
         <div
-          className="min-w-[85%] mx-auto card bg-violet-400 bg-opacity-30 text-white p-10 mt-12 rounded-lg shadow-md col-span-full md:col-span-2" style={{borderTopLeftRadius: '20%'}}
+          className="min-w-[85%] mx-auto card bg-violet-400 bg-opacity-30 text-white p-10 mt-12 rounded-lg shadow-md col-span-full md:col-span-2"
+          style={{ borderTopLeftRadius: "20%" }}
         >
           <div className="card-body">
             {status.error && <div className="text-red-500">{status.error}</div>}
-            {status.success && <div className="text-green-500">{status.success}</div>}
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {status.success && (
+              <div className="text-green-500">{status.success}</div>
+            )}
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
               <div className="my-2">
                 <label className="label" htmlFor="business_name">
                   Business Name
@@ -134,7 +151,7 @@ export const CreateEntity = () => {
                   name="business_name"
                   value={formData.business_name}
                   onChange={handleChange}
-                  className="input input-bordered w-full text-black rounded-full"
+                  className="input input-bordered w-full max-w-xs text-black rounded-full"
                   required
                 />
                 {errors.business_name && (
@@ -143,14 +160,14 @@ export const CreateEntity = () => {
               </div>
               <div className="my-2">
                 <label className="label" htmlFor="credential">
-                  Credential
+                  Corporate ID Number
                 </label>
                 <input
                   type="text"
                   name="credential"
                   value={formData.credential}
                   onChange={handleChange}
-                  className="input input-bordered w-full text-black rounded-full"
+                  className="input input-bordered w-full max-w-xs text-black rounded-full"
                   required
                 />
                 {errors.credential && (
@@ -158,27 +175,60 @@ export const CreateEntity = () => {
                 )}
               </div>
               <div className="my-2">
-                <label className="label" htmlFor="additional_field1">
-                  Field 1
+                <label className="label" htmlFor="industry_type">
+                  Type of Industry
+                </label>
+                <select
+                  name="industry_type"
+                  value={formData.industry_type}
+                  onChange={handleChange}
+                  className="select w-full max-w-xs text-black"
+                  required
+                >
+                  <option disabled value="">
+                    Select Type of Industry
+                  </option>
+                  <option>Finance</option>
+                  <option>Tourism</option>
+                  <option>Construction</option>
+                  <option>Transport</option>
+                  <option>Insurance</option>
+                </select>
+              </div>
+              <div className="my-2">
+                <label className="label" htmlFor="number_of_employees">
+                  Number of Employees
                 </label>
                 <input
                   type="text"
-                  name="additional_field1"
-                  value={formData.additional_field1}
+                  name="number_of_employees"
+                  value={formData.number_of_employees}
                   onChange={handleChange}
-                  className="input input-bordered w-full text-black rounded-full"
+                  className="input input-bordered w-full max-w-xs text-black rounded-full"
                 />
               </div>
               <div className="my-2">
-                <label className="label" htmlFor="additional_field2">
-                  Field 2
+                <label className="label" htmlFor="annual_turnover">
+                  Annual Turnover
                 </label>
                 <input
                   type="text"
-                  name="additional_field2"
-                  value={formData.additional_field2}
+                  name="annual_turnover"
+                  value={formData.annual_turnover}
                   onChange={handleChange}
-                  className="input input-bordered w-full text-black rounded-full"
+                  className="input input-bordered w-full max-w-xs text-black rounded-full"
+                />
+              </div>
+              <div className="my-2">
+                <label className="label" htmlFor="market_value">
+                  Market Value
+                </label>
+                <input
+                  type="text"
+                  name="market_value"
+                  value={formData.market_value}
+                  onChange={handleChange}
+                  className="input input-bordered w-full max-w-xs text-black rounded-full"
                 />
               </div>
               <div className="col-span-1 md:col-span-2 flex justify-center p-2">
