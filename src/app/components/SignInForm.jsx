@@ -32,10 +32,7 @@ export const SignInForm = () => {
     try {
       const response = await axios.post(
         `${apiUrl}/authentication/login`,
-        {
-          email,
-          password,
-        },
+        { email, password },
         {
           headers: {
             Accept: "application/json",
@@ -44,33 +41,27 @@ export const SignInForm = () => {
         }
       );
 
-      console.log("Login response:", response.data);
-
       if (
-        response.data &&
-        response.data.data &&
-        response.data.data.data &&
-        response.data.data.data.accessToken
+        response.data?.data?.data?.accessToken
       ) {
-        localStorage.setItem("token", response.data.data.data.accessToken);
-        localStorage.setItem("UserName", response.data.data.data.user.first_name);
+        if (typeof window !== "undefined") {
+          localStorage.setItem("token", response.data.data.data.accessToken);
+          localStorage.setItem("UserName", response.data.data.data.user.first_name);
+        }
         toast.success("Login successful!");
-        router.push("/dashboard");
+        router.push(callbackUrl);
       } else {
         throw new Error("Token not found in response");
       }
     } catch (error) {
-      console.error("Login error:", error.response?.data || error.message);
+      const errorMsg =
+        error.response?.data?.errors?.[0]?.code === "invalid_login"
+          ? "No active account found for these credentials."
+          : error.response?.data?.message || "Error logging in";
 
-      if (error.response?.data?.errors?.[0]?.code === "invalid_login") {
-        setErrorMessage("No active account found for these credentials.");
-      } else {
-        setErrorMessage(error.response?.data?.message || "Error logging in");
-     
-        toast.error(errorMessage);
-      }
-      }
-    
+      setErrorMessage(errorMsg);
+      toast.error(errorMsg);
+    }
   };
 
 

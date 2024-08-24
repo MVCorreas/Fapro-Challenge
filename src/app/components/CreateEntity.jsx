@@ -17,8 +17,16 @@ export const CreateEntity = () => {
   });
   const [status, setStatus] = useState({ error: "", success: "" });
   const [errors, setErrors] = useState({});
-  const [dashboardId, setDashboardId] = useState(null); // State to store the dashboard ID
+  const [dashboardId, setDashboardId] = useState(null);
   const router = useRouter();
+
+  useEffect(() => {
+    // Perform client-side only actions here, such as accessing localStorage
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setStatus({ error: "No token found", success: "" });
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,16 +57,26 @@ export const CreateEntity = () => {
     }
 
     try {
-      const token = localStorage.getItem("token"); // Access inside useEffect
+      if (typeof window === "undefined") {
+        return;
+      }
+
+      const token = localStorage.getItem("token");
 
       if (!token) {
         setStatus({ error: "No token found", success: "" });
         return;
       }
 
+      // Construct payload with only the fields to be sent to the server
+      const { business_name, credential } = formData;
+
       const response = await axios.post(
         `${apiUrl}/api_entities/entities/`,
-        formData,
+        {
+          business_name,
+          credential,
+        },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -73,8 +91,9 @@ export const CreateEntity = () => {
         success: "Entity created successfully!",
       });
 
-      const createdEntityId = response.data.id;
-      setDashboardId(createdEntityId); // Store the created entity ID in state
+      const createdEntityId = response.data.data.id; // Accessing id from the response data
+      console.log('At create entity data id', createdEntityId)
+      setDashboardId(createdEntityId);
       router.push(`/dashboard?id=${createdEntityId}`);
     } catch (error) {
       setStatus({

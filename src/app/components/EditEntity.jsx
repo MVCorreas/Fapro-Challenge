@@ -20,7 +20,7 @@ export const EditEntity = ({ entityId }) => {
 
     useEffect(() => {
         const fetchEntity = async () => {
-            const token = localStorage.getItem('token');
+            const token = localStorage.getItem('token'); // Access inside useEffect
             if (!token) {
                 setError('No token found');
                 return;
@@ -54,7 +54,9 @@ export const EditEntity = ({ entityId }) => {
             }
         };
 
-        fetchEntity();
+        if (entityId) {
+            fetchEntity(); // Only fetch if entityId is provided
+        }
     }, [entityId]);
 
     const handleChange = (e) => {
@@ -67,7 +69,7 @@ export const EditEntity = ({ entityId }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('token'); // Access inside useEffect
 
         if (!token) {
             setError('No token found');
@@ -97,7 +99,7 @@ export const EditEntity = ({ entityId }) => {
     };
 
     if (isLoading) return <div>Loading...</div>;
-
+    
     return (
         <div>
             <h1>Edit Entity</h1>

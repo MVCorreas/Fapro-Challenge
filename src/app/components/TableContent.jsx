@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -17,6 +17,8 @@ export const TableContent = () => {
   const router = useRouter();
 
   const fetchEntities = async () => {
+    if (typeof window === "undefined") return; // Avoids issues with SSR
+
     const token = localStorage.getItem('token');
     if (!token) {
       setError('No token found');
@@ -47,6 +49,8 @@ export const TableContent = () => {
   }, []);
 
   const updateEntityStatus = async (id, newStatus) => {
+    if (typeof window === "undefined") return; // Avoids issues with SSR
+
     const token = localStorage.getItem('token');
     if (!token) {
       setError('No token found');
@@ -73,6 +77,8 @@ export const TableContent = () => {
 
   const handleRemoveEntity = async (id) => {
     if (window.confirm("Do you want to remove?")) {
+      if (typeof window === "undefined") return; // Avoids issues with SSR
+
       const token = localStorage.getItem('token');
       if (!token) {
         setError('No token found');
@@ -98,6 +104,7 @@ export const TableContent = () => {
         fetchEntities();
       } catch (error) {
         console.error("Failed to delete entity:", error.message);
+        setError('Failed to delete entity');
       }
     }
   };
@@ -140,7 +147,7 @@ export const TableContent = () => {
               <div className="avatar">
                 <div className="mask mask-squircle h-8 w-8">
                   <Image
-                    src={entity.image ? entity.image : '/Rocket.png'}
+                    src={entity.image || '/Rocket.png'}
                     alt={entity.business_name}
                     width={50}
                     height={50}
@@ -158,17 +165,13 @@ export const TableContent = () => {
           <td>
             <div className="flex gap-2">
               <button onClick={() => handleEditEntity(entity.id)}>
-              <EditIcon  />
+                <EditIcon />
               </button>
-         
-            {entity.is_enabled ? (
-               <button onClick={() => handleRemoveEntity(entity.id)}>
-               <BinIcon  />
-               </button>
-            ) : (
-              null
-            )}
-              
+              {entity.is_enabled && (
+                <button onClick={() => handleRemoveEntity(entity.id)}>
+                  <BinIcon />
+                </button>
+              )}
             </div>
           </td>
         </tr>
@@ -233,4 +236,4 @@ export const TableContent = () => {
       </div>
     </div>
   );
-}
+};
