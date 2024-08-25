@@ -1,35 +1,33 @@
 'use client';
 
-import { Card, DonutChart, List, ListItem } from '@tremor/react';
+import { Card, List, ListItem } from '@tremor/react';
+import { PieChart } from './PieChart';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
 
 const data = [
   {
     name: 'Travel',
     amount: 6730,
     share: '32.1%',
-    color: 'bg-cyan-500',
+    color: 'rgba(173, 216, 230, 0.7)', 
   },
   {
     name: 'IT & equipment',
     amount: 4120,
     share: '19.6%',
-    color: 'bg-blue-500',
+    color: 'rgba(135, 206, 250, 0.7)',
   },
   {
     name: 'Office supplies',
     amount: 3210,
     share: '15.3%',
-    color: 'bg-violet-500',
+    color: 'rgba(221, 160, 221, 0.7)', 
   },
   {
     name: 'Communication',
     amount: 3010,
     share: '14.3%',
-    color: 'bg-fuchsia-500',
+    color: 'rgba(255, 182, 193, 0.7)',
   },
 ];
 
@@ -39,20 +37,12 @@ const currencyFormatter = (number) => {
 
 export const DonutChartComponent = () => {
   return (
-    <div className="bg-white shadow-lg w-[80%] mx-auto max-h-auto rounded-sm h-80 overflow-hidden"> {/* Added overflow-hidden */}
+    <div className="bg-white shadow-2xl w-[80%] mx-auto rounded-sm h-80 overflow-hidden">
       <Card className="max-w-xs mx-auto">
-        <h3 className="text-sm font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
+        <h3 className="text-sm font-bold text-tremor-content-strong dark:text-dark-tremor-content-strong">
           Total expenses by category
         </h3>
-        <DonutChart
-          className="mt-2"
-          data={data}
-          category="amount"
-          index="name"
-          valueFormatter={currencyFormatter}
-          showTooltip={false}
-          colors={['cyan', 'lime', 'violet', 'fuchsia']}
-        />
+        <PieChart data={data} /> 
         <p className="mt-2 flex items-center justify-between text-xs text-tremor-content dark:text-dark-tremor-content truncate">
           <span className="truncate">Category</span>
           <span className="truncate">Amount / Share</span>
@@ -62,10 +52,7 @@ export const DonutChartComponent = () => {
             <ListItem key={item.name} className="space-x-2">
               <div className="flex items-center space-x-1.5 truncate">
                 <span
-                  className={classNames(
-                    item.color,
-                    'size-2 shrink-0 rounded-sm',
-                  )}
+                  className={`${item.color} size-2 shrink-0 rounded-sm`}
                   aria-hidden={true}
                 />
                 <span className="truncate text-xs dark:text-dark-tremor-content-emphasis">
@@ -86,4 +73,4 @@ export const DonutChartComponent = () => {
       </Card>
     </div>
   );
-}
+};

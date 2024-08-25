@@ -5,28 +5,28 @@ import Image from "next/image";
 const chatMessages = [
   {
     id: 1,
-    image: "/Person3.jpeg",
+    image: "/Assets/Person3.jpeg",
     name: "Mia Johnson",
     time: "2:01 am",
     message: "It is called Dreamscape. A must watch!",
   },
   {
     id: 2,
-    image: "/Person1.webp",
+    image: "/Assets/Person1.webp",
     name: "Ethan Pathel",
     time: "12:21 am",
     message: "Just got a new book, excited to start.",
   },
   {
     id: 3,
-    image: "/Person2.jpeg",
+    image: "/Assets/Person2.jpeg",
     name: "Sophia Nguyen",
     time: "10:41 pm",
     message: "How's your day going?",
   },
   {
     id: 4,
-    image: "/Person3.jpeg",
+    image: "/Assets/Person3.jpeg",
     name: "Emily Chen",
     time: "9:01 pm",
     message: "Did you see that amazing sunset yesterday?",
