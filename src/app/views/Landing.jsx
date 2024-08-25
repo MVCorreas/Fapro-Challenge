@@ -6,7 +6,7 @@ import { SolutionsSection } from "../components/Solutions";
 import { NavBarLanding } from "../components/NavBar"
 import { Footer } from "../components/Footer";
 import {ContactForm} from "../components/ContactForm";
-import { VideoCard } from "../components/VideoCard";
+import { Reviews } from "../components/Reviews";
 
 export const Landing = () => {
   const router = useRouter();
@@ -16,9 +16,8 @@ export const Landing = () => {
       <NavBarLanding />
       <HeroSection />
       <AboutSection />
-     
       <SolutionsSection />
-      <VideoCard />
+      <Reviews />
       <ContactForm />
       <Footer />
     </div>

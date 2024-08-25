@@ -45,7 +45,7 @@ export const UsersListCard = () => {
           <div key={id} className="flex items-start justify-between mb-3">
             <div className="flex items-center space-x-2 w-full">
               <div className="rounded-md p-1 border border-gray-50">
-                <Image src={image} alt="user" width={40} height={40} priority style={{ width: 'auto' }} />
+                <Image src={image} alt="user" width={40} height={40} priority style={{ width: 'auto', height: 'auto' }} />
               </div>
               <div className="flex flex-col w-full">
                 <div className="flex justify-between items-center w-full mb-1">
