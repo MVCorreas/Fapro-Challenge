@@ -1,7 +1,7 @@
 import { UnderConstruction } from "@/app/components/UnderConstruction";
 
-const ProfilePage = () => {
+const SettingsPage = () => {
   return <UnderConstruction />;
 };
 
-export default ProfilePage;
+export default SettingsPage;

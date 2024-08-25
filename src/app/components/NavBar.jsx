@@ -76,7 +76,7 @@ export const NavBarLanding = () => {
               <a
                 href={link.path}
                 onClick={handleScroll}
-                className="text-dark-pink hover:text-light-pink"
+                className="text-light-pink hover:text-dark-pink"
               >
                 {link.title}
               </a>
@@ -147,6 +147,10 @@ export const NavBarDashboard = () => {
   const navigateProfile = () => {
     router.push('/profile')
   }
+
+  const navigateSettings = () => {
+    router.push('/settings')
+  }
   
   return (
     <div className="navbar fixed top-0 left-0 right-0 z-50 bg-medium-pink bg-opacity-90 h-24 flex items-center">
@@ -186,8 +190,8 @@ export const NavBarDashboard = () => {
               <Image
                 alt="profile pic"
                 src="/Assets/Emoji.png"
-                width={50}
-                height={50}
+                width={70}
+                height={70}
                 priority
               />
             </div>
@@ -210,7 +214,7 @@ export const NavBarDashboard = () => {
               </a>
             </li>
             <li>
-              <a>Settings</a>
+              <a onClick={navigateSettings}>Settings</a>
             </li>
             <li>
               <a onClick={navigateHome}>Logout</a>

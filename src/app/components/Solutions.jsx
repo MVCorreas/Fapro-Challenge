@@ -53,8 +53,8 @@ export const SolutionsSection = () => {
               <Image
                 src={solutions[0].logo}
                 alt="Solution Logo"
-                width={50}
-                height={50}
+                width={60}
+                height={60}
                 className="mr-4" 
               />
               {solutions[0].title}
@@ -71,8 +71,8 @@ export const SolutionsSection = () => {
                 <Image
                   src={sol.logo}
                   alt="Solution Logo"
-                  width={50}
-                  height={50}
+                  width={60}
+                  height={60}
                   className="mr-4" 
                 />
                 {sol.title}
