@@ -143,6 +143,10 @@ export const NavBarDashboard = () => {
   const navigateHome = () => {
     router.push("/");
   };
+
+  const navigateProfile = () => {
+    router.push('/profile')
+  }
   
   return (
     <div className="navbar fixed top-0 left-0 right-0 z-50 bg-slate-900 bg-opacity-90 h-24 flex items-center">
@@ -200,7 +204,7 @@ export const NavBarDashboard = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a className="justify-between">
+              <a className="justify-between" onClick={navigateProfile}>
                 Profile
                 <span className="badge">New</span>
               </a>

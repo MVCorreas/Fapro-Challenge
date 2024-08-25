@@ -1,9 +1,9 @@
-// const { Profile } = require("@/app/components/Profile")
+import { UnderConstruction } from "@/app/components/UnderConstruction"
 
-// const ProfilePage = () => {
-//     return (
-//         <Profile />
-//     )
-// }
+const ProfilePage = () => {
+    return (
+        <UnderConstruction />
+    )
+}
 
-// export default ProfilePage
+export default ProfilePage
