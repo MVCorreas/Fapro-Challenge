@@ -2,7 +2,7 @@ export const MainButton = ({ name, onClick, bgColor = 'bg-dark-pink', hoverColor
   return (
     <button
       onClick={onClick}
-      className={`btn btn-ghost p-2 w-full max-w-[150px] ${bgColor} ${hoverColor} rounded-full text-white text-lg`}
+      className={`btn btn-ghost p-2 w-full max-w-[150px] ${bgColor} ${hoverColor} rounded-full text-white text-md`}
     >
       {name}
     </button>
@@ -14,7 +14,7 @@ export const OutlinedButton = ({ name, onClick, textColor = 'text-dark-teal', ho
   return (
     <button
       onClick={onClick}
-      className={`btn w-full max-w-[150px] bg-transparent ${textColor} ${hoverColor} ${hoverText} ${borderColor} rounded-full text-lg`}
+      className={`btn w-full max-w-[150px] bg-transparent ${textColor} ${hoverColor} ${hoverText} ${borderColor} rounded-full text-md`}
     >
       {name}
     </button>
@@ -25,7 +25,7 @@ export const LightButton = ({ name, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="btn w-full max-w-[150px] bg-violet-400 hover:bg-violet-700 text-white rounded-full text-lg"
+      className="btn w-full max-w-[150px] bg-violet-400 hover:bg-violet-700 text-white rounded-full text-md"
     >
       {name}
     </button>

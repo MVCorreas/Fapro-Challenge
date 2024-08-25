@@ -141,7 +141,7 @@ export const EditEntity = ({ entityId }) => {
       <div
         className="absolute inset-0 z-0 rounded-lg m-32 h-[80%] shadow-xl"
         style={{
-          backgroundImage: "url('/Background1.avif')",
+          backgroundImage: "url('/Assets/Desk2.avif')",
           backgroundSize: "cover",
           backgroundBlendMode: "overlay",
           backgroundRepeat: "no-repeat",
@@ -150,7 +150,7 @@ export const EditEntity = ({ entityId }) => {
       ></div>
   
       <div className="relative flex items-center justify-center z-10 m-24 h-full">
-        <div className="flex flex-col text-white items-center justify-center bg-violet-400 opacity-70 p-8 rounded-lg shadow-lg max-w-full w-[65%] max-h-full h-[75%] overflow-auto relative">
+        <div className="flex flex-col text-white items-center justify-center bg-dark-teal opacity-70 p-8 rounded-lg shadow-lg max-w-full w-[65%] max-h-full h-[75%] overflow-auto relative">
           <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-center text-3xl p-4 z-10 mt-4">
             <h1>{formData.business_name}</h1>
           </div>
@@ -160,13 +160,13 @@ export const EditEntity = ({ entityId }) => {
               <>
                 <button
                   onClick={() => setIsEditing(true)}
-                  className="p-2 w-24 h-12 flex items-center justify-center bg-purple-800 rounded-full shadow-md"
+                  className="p-2 w-24 h-12 flex items-center justify-center bg-dark-pink hover:bg-light-pink rounded-full shadow-md"
                 >
                   <EditIcon className="w-6 h-6 text-black" />
                 </button>
                 <button
                   onClick={handleGoBack}
-                  className="p-2 w-24 h-12 flex items-center justify-center bg-purple-800 rounded-full shadow-md"
+                  className="p-2 w-24 h-12 flex items-center justify-center bg-dark-pink hover:bg-light-pink rounded-full shadow-md"
                 >
                   <CloseIcon className="w-6 h-6 text-black" />
                 </button>
@@ -174,7 +174,7 @@ export const EditEntity = ({ entityId }) => {
             ) : (
               <button
                 onClick={() => setIsEditing(false)}
-                className="p-2 w-24 h-12 flex items-center justify-center bg-purple-800 rounded-full shadow-md"
+                className="p-2 w-24 h-12 flex items-center justify-center bg-dark-pink hover:bg-light-pink rounded-full shadow-md"
               >
                 <CloseIcon className="w-6 h-6 text-black" />
               </button>

@@ -116,10 +116,20 @@ export const CreateEntity = () => {
 
   return (
     <div className="relative flex flex-col max-h-fit z-10 text-gray-700 overflow-visible">
+     
+      <div
+        className="absolute inset-0 opacity-30 z-0"
+        style={{
+          backgroundImage: "url('/Assets/GreenBackground.jpg')",
+          backgroundSize: "cover",
+          backgroundBlendMode: "overlay",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
         <div
         className="absolute inset-0 z-0 rounded-lg m-32 h-[80%] shadow-2xl"
         style={{
-          backgroundImage: "url('/Background1.avif')",
+          backgroundImage: "url('/Assets/Desk2.avif')",
           backgroundSize: "cover",
           backgroundBlendMode: "overlay",
           backgroundRepeat: "no-repeat",
@@ -129,19 +139,20 @@ export const CreateEntity = () => {
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
         <button
           onClick={handleGoBack}
-          className="absolute top-12 right-12 bg-purple-800 p-2 w-24 h-12 flex hover:bg-violet-700 p-4 rounded-full flex items-center justify-center"
+          className="absolute top-12 right-12 bg-dark-pink p-2 w-24 h-12 flex hover:bg-light-pink p-4 rounded-full flex items-center justify-center"
         >
           <CloseIcon />
         </button>
 
-        <p className="text-3xl text-white text-center mt-8 col-span-full">
-          ADD A NEW ENTITY
-        </p>
+       
         <div
-          className="min-w-[65%] mx-auto card bg-violet-400 opacity-70 text-white p-10 mt-12 rounded-lg shadow-2xl col-span-full md:col-span-2"
+          className="min-w-[65%] mx-auto card bg-dark-teal opacity-70 text-white p-10 mt-12 rounded-lg shadow-2xl col-span-full md:col-span-2"
          
         >
           <div className="card-body">
+          <p className="text-3xl text-white text-center mt-6 col-span-full">
+          ADD A NEW ENTITY
+        </p>
             {status.error && <div className="text-red-500">{status.error}</div>}
             {status.success && (
               <div className="text-green-500">{status.success}</div>
