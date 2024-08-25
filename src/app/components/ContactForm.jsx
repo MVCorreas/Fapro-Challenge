@@ -86,7 +86,7 @@ export const ContactForm = () => {
         <div className="w-full p-8 bg-transparent rounded-lg">
           <form onSubmit={handleSubmit} className="relative z-20">
             <div className="mb-6">
-              <label htmlFor="name" className="text-xl text-white font-bold">Name</label>
+              <label htmlFor="name" className="text-2xl text-white font-bold">Name</label>
               <input
                 name="name"
                 type="text"
@@ -100,7 +100,7 @@ export const ContactForm = () => {
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="email" className="text-xl text-white font-bold">Email</label>
+              <label htmlFor="email" className="text-2xl text-white font-bold">Email</label>
               <input
                 name="email"
                 type="email"
@@ -116,7 +116,7 @@ export const ContactForm = () => {
               {emailError && <p className="text-red-600 text-sm mt-1">{emailError}</p>}
             </div>
             <div className="mb-6">
-              <label htmlFor="subject" className="text-xl text-white font-bold">Subject</label>
+              <label htmlFor="subject" className="text-2xl text-white font-bold">Subject</label>
               <input
                 name="subject"
                 type="text"
@@ -132,7 +132,7 @@ export const ContactForm = () => {
               {subjectError && <p className="text-red-600 text-sm mt-1">{subjectError}</p>}
             </div>
             <div className="mb-6">
-              <label htmlFor="message" className="text-xl text-white font-bold">Message</label>
+              <label htmlFor="message" className="text-2xl text-white font-bold">Message</label>
               <textarea
                 name="message"
                 id="message"

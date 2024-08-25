@@ -2,7 +2,7 @@ export const MainButton = ({ name, onClick, bgColor = 'bg-dark-pink', hoverColor
   return (
     <button
       onClick={onClick}
-      className={`btn btn-ghost p-2 w-full max-w-[150px] ${bgColor} ${hoverColor} rounded-full text-white`}
+      className={`btn btn-ghost p-2 w-full max-w-[150px] ${bgColor} ${hoverColor} rounded-full text-white text-lg`}
     >
       {name}
     </button>
@@ -14,7 +14,7 @@ export const OutlinedButton = ({ name, onClick, textColor = 'text-dark-teal', ho
   return (
     <button
       onClick={onClick}
-      className={`btn w-full max-w-[150px] bg-transparent ${textColor} ${hoverColor} ${hoverText} ${borderColor} rounded-full`}
+      className={`btn w-full max-w-[150px] bg-transparent ${textColor} ${hoverColor} ${hoverText} ${borderColor} rounded-full text-lg`}
     >
       {name}
     </button>
@@ -25,17 +25,9 @@ export const LightButton = ({ name, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="btn w-full max-w-[150px] bg-violet-400 hover:bg-violet-700 text-white rounded-full"
+      className="btn w-full max-w-[150px] bg-violet-400 hover:bg-violet-700 text-white rounded-full text-lg"
     >
       {name}
     </button>
   );
 };
-
-
-export const GradientButton = ({name, onClick}) => {
-  return (
-<button onClick={onClick} className='p-4 bg-gradient-to-r from-amber-500 to-yellow-200 w-full max-w-[250px] rounded-full text-2xl text-black'>{name}</button>
-  )
-  
-}

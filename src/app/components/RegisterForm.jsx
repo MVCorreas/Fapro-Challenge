@@ -79,8 +79,8 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div className="max-w-sm mx-auto card bg-white bg-opacity-30 m-4 text-white p-10">
-      <div className="card-body">
+    <div className="max-w-lg mx-auto card bg-light-teal bg-opacity-60 m-4 text-white p-10">
+      <div className="card-body ">
       <h1 className="card-title text-3xl justify-center">REGISTER</h1>
         {errorMessage && (
           <div className="alert alert-error mb-4">{errorMessage}</div>
@@ -174,7 +174,7 @@ export const RegisterForm = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className=" btn btn-ghost w-32 bg-purple-700 hover:bg-violet-400  text-white rounded-full">
+              className=" btn btn-ghost w-32 bg-dark-pink hover:bg-light-pink  text-white rounded-full">
             
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
@@ -184,7 +184,7 @@ export const RegisterForm = () => {
           </div>
         </form>
 
-        <div className="divider"> </div>
+       
         <div>
           Already have an account?{" "}
           <Link className="link" href={`/signin?callbackUrl=${callbackUrl}`}>

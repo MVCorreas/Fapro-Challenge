@@ -17,6 +17,7 @@ export const AboutSection = () => {
       className="opacity-0 translate-y-10 animate-slideUp h-90vh text-white animate-slideUpAndFade delay-500" 
       id="about"
     >
+       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-400 via-red-100 to-transparent rounded-full h-[300px] w-[300px] blur-xl absolute bottom-[350px] left-40 transform translate-x-1/4 translate-y-1/2 opacity-50 z-20"></div> 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-8">
         <div className="flex flex-col justify-center">
         <span className="text-3xl sm:text-5xl lg:text-7xl lg:leading-normal font-bold-700 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-900 via-teal-500 to-rose-400">
@@ -30,6 +31,7 @@ export const AboutSection = () => {
             onClick={handleFindOutMore}
             bgColor="bg-dark-teal"
             hoverColor="hover:bg-light-teal"
+           style={{width: '60px'}}
           />
             
       

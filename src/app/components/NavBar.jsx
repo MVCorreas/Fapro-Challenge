@@ -112,17 +112,17 @@ export const NavBarForms = () => {
 
 
   return (
-    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-slate-900 bg-opacity-90 h-24 flex items-center px-6">
+    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-medium-pink bg-opacity-90 h-24 flex items-center px-6">
     <div className="navbar-start flex-1">
-      <Image
-        src="/Logo.png"
-        alt="logo"
-        width={100}
-        height={100}
-        onClick={navigateHome}
-        style={{ borderRadius: "10px" }}
-        priority
-      />
+    <Image
+          src="/Assets/TealLogo.png"
+          alt="logo"
+          width={200}
+          height={200}
+          style={{ borderRadius: "10px", cursor: 'pointer' }}
+          onClick={navigateHome}
+          priority
+        />
     </div>
     <div className="navbar-end">
         {pathname === "/signin" ? (

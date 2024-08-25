@@ -66,7 +66,7 @@ export const SignInForm = () => {
 
 
   return (
-    <div className="max-w-sm mx-auto card bg-white bg-opacity-30 m-4 text-white p-10">
+    <div className="max-w-sm mx-auto card bg-light-teal bg-opacity-60 m-4 text-white p-10">
        <div className="card-body">
        <h1 className="card-title text-3xl justify-center">SIGN IN</h1>
         {errorMessage && <div className="alert text-error">{errorMessage}</div>}
@@ -111,7 +111,7 @@ export const SignInForm = () => {
           <button
               type="submit"
               disabled={isSubmitting}
-              className="btn btn-ghost w-32 bg-purple-700 hover:bg-violet-400  text-white rounded-full">
+              className="btn btn-ghost w-32 bg-dark-pink hover:bg-light-pink  text-white rounded-full">
             
               {isSubmitting && (
                 <span className="loading loading-spinner text-white"></span>
