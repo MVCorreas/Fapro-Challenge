@@ -52,7 +52,7 @@ export const Reviews = () => {
                 <p className="text-md text-center mb-4">
                   <i>"{review.review}"</i>
                 </p>
-                <p className="font-bold text-lg">{review.name}</p>
+                <p className="font-bold text-lg text-dark-pink">{review.name}</p>
                 <p className="">{review.title}</p>
               </div>
             </div>

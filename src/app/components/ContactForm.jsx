@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { GradientButton, MainButton } from "@/app/components/Buttons";
+import { GradientButton, MainButton, OutlinedButton } from "@/app/components/Buttons";
 import { Modal } from "./Modal";
 import useEaseIn from "../hooks/useEaseIn";
 
@@ -62,7 +62,7 @@ export const ContactForm = () => {
       className="relative flex flex-col max-h-fit py-10 p-10 z-10 text-gray-700 overflow-visible animate-slideUpAndFade delay-500"
       id="contact"
       style={{
-        backgroundImage: "url('/Assets/SalmonGradientBg2.jpg')",
+        backgroundImage: "url('/Assets/Background1.jpg')",
         backgroundSize: "cover",
         backgroundBlendMode: "overlay",
         backgroundRepeat: 'no-repeat',
@@ -71,7 +71,7 @@ export const ContactForm = () => {
     >
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-400 via-red-100 to-transparent rounded-full h-[300px] w-[300px] blur-xl absolute bottom-[350px] left-40 transform translate-x-1/4 translate-y-1/2 opacity-50 z-20"></div> 
      
-      <div className="absolute inset-0 bg-medium-teal opacity-50 z-0 rounded-lg m-24" style={{ borderTopLeftRadius: '20%' }}></div>
+      <div className="absolute inset-0 bg-dark-pink opacity-50 z-0 rounded-lg m-24" style={{ borderTopLeftRadius: '20%' }}></div>
   
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
 
@@ -147,7 +147,7 @@ export const ContactForm = () => {
               {messageError && <p className="text-red-600 text-sm mt-1">{messageError}</p>}
             </div>
             <div className="flex w-full justify-center">
-            <MainButton name='Submit' onSubmit={handleSubmit}/>
+            <OutlinedButton name='Submit' onSubmit={handleSubmit}/>
             </div>
          
            

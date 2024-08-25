@@ -19,7 +19,7 @@ export const AboutSection = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-8">
         <div className="flex flex-col justify-center">
-        <span className="text-5xl sm:text-5xl lg:text-7xl font-200 lg:leading-normal  text-dark-teal">
+        <span className="text-3xl sm:text-5xl lg:text-7xl lg:leading-normal font-bold-700 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-900 via-teal-500 to-rose-400">
             ABOUT US
           </span>
           <div className="font-lighter text-2xl leading-relaxed mb-20 text-slate-700 w-[500px]">
