@@ -62,21 +62,21 @@ export const ContactForm = () => {
       className="relative flex flex-col max-h-fit py-10 p-10 z-10 text-gray-700 overflow-visible animate-slideUpAndFade delay-500"
       id="contact"
       style={{
-        backgroundImage: "url('/BackgroundCard.jpg')",
+        backgroundImage: "url('/Assets/SalmonGradientBg2.jpg')",
         backgroundSize: "cover",
         backgroundBlendMode: "overlay",
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '40%',
       }} 
     >
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-700 via-amber-100 to-transparent rounded-full h-[300px] w-[300px] blur-xl absolute bottom-[350px] left-40 transform translate-x-1/4 translate-y-1/2 opacity-50 z-20"></div> 
+      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-400 via-red-100 to-transparent rounded-full h-[300px] w-[300px] blur-xl absolute bottom-[350px] left-40 transform translate-x-1/4 translate-y-1/2 opacity-50 z-20"></div> 
      
-      <div className="absolute inset-0 bg-amber-900 opacity-40 z-0 rounded-lg m-24" style={{ borderTopLeftRadius: '20%' }}></div>
+      <div className="absolute inset-0 bg-medium-teal opacity-50 z-0 rounded-lg m-24" style={{ borderTopLeftRadius: '20%' }}></div>
   
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
 
-        <div className="flex flex-col w-full p-8 bg-zinc-900 bg-opacity-80 rounded-lg h-full justify-center" style={{ borderTopLeftRadius: '30%' }}>
-          <p className="text-5xl sm:text-5xl lg:text-7xl font-200 lg:leading-normal  text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-purple-200 to-amber-400">Contact Us</p>
+        <div className="flex flex-col w-full p-8 bg-zinc-900 bg-opacity-80 gap-8 rounded-lg h-full justify-center" style={{ borderTopLeftRadius: '30%' }}>
+          <p className="text-5xl sm:text-5xl lg:text-7xl font-200 lg:leading-normal  text-white ">Contact Us</p>
           <p className="font-lighter text-2xl leading-8 text-white mb-4 ">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit error architecto eveniet corporis vel! 
           </p>
@@ -147,7 +147,7 @@ export const ContactForm = () => {
               {messageError && <p className="text-red-600 text-sm mt-1">{messageError}</p>}
             </div>
             <div className="flex w-full justify-center">
-            <GradientButton name='Submit' onSubmit={handleSubmit}/>
+            <MainButton name='Submit' onSubmit={handleSubmit}/>
             </div>
          
            

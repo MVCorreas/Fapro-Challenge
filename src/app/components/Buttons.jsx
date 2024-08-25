@@ -1,8 +1,8 @@
-export const MainButton = ({ name, onClick }) => {
+export const MainButton = ({ name, onClick, bgColor = 'bg-dark-pink', hoverColor = 'hover:bg-light-pink'}) => {
   return (
     <button
       onClick={onClick}
-      className="btn btn-ghost p-2 w-full max-w-[150px] bg-purple-700 hover:bg-violet-400 text-white rounded-full"
+      className={`btn btn-ghost p-2 w-full max-w-[150px] ${bgColor} ${hoverColor} rounded-full text-white`}
     >
       {name}
     </button>
@@ -10,11 +10,11 @@ export const MainButton = ({ name, onClick }) => {
 };
 
 
-export const OutlinedButton = ({ name, onClick }) => {
+export const OutlinedButton = ({ name, onClick, textColor = 'text-dark-teal', hoverColor = 'hover:bg-light-teal', hoverText = 'hover:text-white', borderColor = 'border-dark-teal'}) => {
   return (
     <button
       onClick={onClick}
-      className="btn w-full max-w-[150px] bg-transparent text-violet-200 hover:bg-violet-400 text-purple-700 rounded-full"
+      className={`btn w-full max-w-[150px] bg-transparent ${textColor} ${hoverColor} ${hoverText} ${borderColor} rounded-full`}
     >
       {name}
     </button>

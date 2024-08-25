@@ -8,6 +8,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        "dark-teal": "#034C52",
+        "medium-teal": "#015C63",
+        "light-teal": "#017075",
+        "dark-pink": "#F48D79",
+        "medium-pink": "#FDA898",
+        "light-pink": "#FFC0B4",
+      },
       keyframes: {
         slideUp: {
           "0%": {

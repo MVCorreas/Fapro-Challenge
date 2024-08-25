@@ -19,15 +19,17 @@ export const AboutSection = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-8">
         <div className="flex flex-col justify-center">
-        <span className="text-5xl sm:text-5xl lg:text-7xl font-200 lg:leading-normal  text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-purple-200 to-amber-400">
+        <span className="text-5xl sm:text-5xl lg:text-7xl font-200 lg:leading-normal  text-dark-teal">
             ABOUT US
           </span>
-          <div className="font-lighter text-2xl leading-relaxed mb-20 text-black w-[500px]">
+          <div className="font-lighter text-2xl leading-relaxed mb-20 text-slate-700 w-[500px]">
            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus corporis ratione quaerat iusto cupiditate illo, deleniti culpa nesciunt sit ducimus molestiae rem doloribus quia similique. Harum recusandae animi ipsam neque.
           </div>
           <MainButton
             name='Find Out More'
             onClick={handleFindOutMore}
+            bgColor="bg-dark-teal"
+            hoverColor="hover:bg-light-teal"
           />
             
       
@@ -36,7 +38,7 @@ export const AboutSection = () => {
         <div className="diff aspect-[16/9]">
         <div className="diff-item-1">
           <Image
-            src="/Window2.jpg"
+            src="/Assets/About1.avif"
             alt="aboutImage"
             width={800}
             height={800}
@@ -46,7 +48,7 @@ export const AboutSection = () => {
           </div>
           <div className="diff-item-2">
           <Image
-            src="/Window1.jpeg"
+            src="/Assets/About2.jpeg"
             alt="aboutImage"
             width={800}
             height={800}

@@ -1,8 +1,17 @@
+import Image from "next/image";
 import { FacebookIcon, TwitterIcon, YoutubeIcon } from "../../../public/Icons";
 
 export const Footer = () => {
   return (
-    <footer className="footer footer-center bg-[#0f172a] text-neutral-content rounded p-10">
+    <footer className="footer footer-center bg-dark-teal text-white ">
+       <Image
+          src="/Assets/PinkLogo.png"
+          alt="logo"
+          width={200}
+          height={200}
+          style={{ borderRadius: "10px" }}
+          priority
+        />
       <nav className="grid grid-flow-col gap-4">
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
@@ -23,7 +32,7 @@ export const Footer = () => {
         </div>
       </nav>
       <aside>
-        <p>
+        <p className="mb-12">
           Copyright © {new Date().getFullYear()} - All right reserved by
           MVCorreas Ltd
         </p>

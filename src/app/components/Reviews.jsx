@@ -30,7 +30,7 @@ const reviewsData = [
 export const Reviews = () => {
   return (
     <section className="translate-y-10 animate-slideUp h-[600px] animate-slideUpAndFade delay-500">
-      <p className="text-5xl sm:text-5xl lg:text-7xl font-200 lg:leading-normal  text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-purple-200 to-amber-400 text-center">
+      <p className="text-5xl font-200 lg:leading-normal text-dark-teal text-center">
         Find out why company leaders choose us.
       </p>
       <div className="flex flex-row justify-center items-center gap-4">

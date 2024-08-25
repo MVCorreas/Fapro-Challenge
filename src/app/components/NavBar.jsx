@@ -39,20 +39,20 @@ export const NavBarLanding = () => {
     <div className="navbar fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-10 backdrop-blur-lg h-24 z-10">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden ">
             <HamburgerIcon />
           </div>
 
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-lg"
+            className="menu menu-sm dropdown-content bg-light-pink rounded-box z-[1] mt-3 w-52 p-2 shadow text-lg"
           >
             {navLinks.map((link) => (
               <li key={link.path}>
                 <a
                   href={link.path}
                   onClick={handleScroll}
-                  className="text-violet-100 hover:text-violet-400 "
+                  className="text-dark-teal hover:text-light-teal "
                 >
                   {link.title}
                 </a>
@@ -61,10 +61,10 @@ export const NavBarLanding = () => {
           </ul>
         </div>
         <Image
-          src="/Logo.png"
+          src="/Assets/TealLogo.png"
           alt="logo"
-          width={100}
-          height={100}
+          width={200}
+          height={200}
           style={{ borderRadius: "10px" }}
           priority
         />
@@ -76,7 +76,7 @@ export const NavBarLanding = () => {
               <a
                 href={link.path}
                 onClick={handleScroll}
-                className="text-violet-100 hover:text-violet-400"
+                className="text-dark-teal hover:text-light-teal"
               >
                 {link.title}
               </a>
@@ -85,7 +85,7 @@ export const NavBarLanding = () => {
         </ul>
       </div>
       <div className="navbar-end gap-4">
-        <MainButton onClick={logIn} name="Sign In" />
+        <MainButton onClick={logIn} name="Sign In" bgColor='bg-dark-teal' hoverColor="hover-light-teal" />
         <OutlinedButton onClick={signUp} name="Sign Up" />
       </div>
     </div>
