@@ -76,8 +76,8 @@ export const ContactForm = () => {
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
 
         <div className="flex flex-col w-full p-8 bg-zinc-900 bg-opacity-80 gap-8 rounded-lg h-full justify-center" style={{ borderTopLeftRadius: '30%' }}>
-          <p className="text-5xl sm:text-5xl lg:text-7xl font-200 lg:leading-normal  text-white ">Contact Us</p>
-          <p className="font-lighter text-2xl leading-8 text-white mb-4 ">
+          <p className="text-5xl sm:text-5xl lg:text-7xl font-bold lg:leading-normal  text-white ">Contact Us</p>
+          <p className="font-light text-3xl leading-8 text-white mb-4 ">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit error architecto eveniet corporis vel! 
           </p>
 
@@ -86,7 +86,7 @@ export const ContactForm = () => {
         <div className="w-full p-8 bg-transparent rounded-lg">
           <form onSubmit={handleSubmit} className="relative z-20">
             <div className="mb-6">
-              <label htmlFor="name" className="text-2xl text-white font-bold">Name</label>
+              <label htmlFor="name" className="text-2xl text-white font-semibold">Name</label>
               <input
                 name="name"
                 type="text"
@@ -100,7 +100,7 @@ export const ContactForm = () => {
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="email" className="text-2xl text-white font-bold">Email</label>
+              <label htmlFor="email" className="text-2xl text-white font-semibold">Email</label>
               <input
                 name="email"
                 type="email"
@@ -116,7 +116,7 @@ export const ContactForm = () => {
               {emailError && <p className="text-red-600 text-sm mt-1">{emailError}</p>}
             </div>
             <div className="mb-6">
-              <label htmlFor="subject" className="text-2xl text-white font-bold">Subject</label>
+              <label htmlFor="subject" className="text-2xl text-white font-semibold">Subject</label>
               <input
                 name="subject"
                 type="text"
@@ -132,7 +132,7 @@ export const ContactForm = () => {
               {subjectError && <p className="text-red-600 text-sm mt-1">{subjectError}</p>}
             </div>
             <div className="mb-6">
-              <label htmlFor="message" className="text-2xl text-white font-bold">Message</label>
+              <label htmlFor="message" className="text-2xl text-white font-semibold">Message</label>
               <textarea
                 name="message"
                 id="message"

@@ -18,15 +18,15 @@ export const HeroSection = () => {
         loop
         muted
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/Assets/BackgroundVideo.mp4" 
+        src="/Assets/PinkVideo.mp4" 
       ></video>
       <div className="relative w-[40%] flex flex-col items-center z-10 gap-2 text-center">
-        <p className="text-dark-teal mb-4 text-5xl sm:text-5xl lg:text-7xl lg:leading-normal animate-slideUp delay-500 mt-12"
+        <p className="text-dark-teal mb-4 text-5xl font-bold sm:text-5xl lg:text-7xl lg:leading-normal animate-slideUp delay-500 mt-12"
            style={{ fontSize: '3.5rem' }}> 
           A NEW GENERATION OF DATA  MANAGEMENT
          
         </p>
-        <p className="font-lighter text-2xl m-8 animate-slideUp delay-500">
+        <p className="font-light text-3xl text-dark-pink m-8 animate-slideUp delay-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </p>
         <div className="flex w-full justify-center">

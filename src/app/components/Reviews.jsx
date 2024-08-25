@@ -30,7 +30,7 @@ const reviewsData = [
 export const Reviews = () => {
   return (
     <section className="translate-y-10 animate-slideUp h-[600px] animate-slideUpAndFade delay-500">
-      <p className="text-5xl font-600 lg:leading-normal text-dark-teal text-center">
+      <p className="text-5xl font-bold lg:leading-normal text-dark-teal text-center">
         Find out why company leaders choose us.
       </p>
       <div className="flex flex-row justify-center items-center gap-4">
@@ -49,7 +49,7 @@ export const Reviews = () => {
                   className="rounded-full mb-4"
                 />
 
-                <p className="text-md text-center mb-4">
+                <p className="font-light text-md text-center mb-4">
                   <i>{review.review}</i>
                 </p>
                 <p className="font-200 text-lg text-dark-pink">{review.name}</p>
