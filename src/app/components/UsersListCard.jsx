@@ -58,7 +58,7 @@ export const UsersListCard = () => {
           </div>
         ))}
         <div className="card-actions flex justify-center mt-4">
-          <button className="btn btn-outline btn-sm">Go to Chat</button>
+          <button className="btn bg-dark-teal text-white btn-sm">Go to Chat</button>
         </div>
       </div>
     </div>

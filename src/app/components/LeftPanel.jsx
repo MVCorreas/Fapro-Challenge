@@ -20,16 +20,16 @@ export const LeftPanel = () => {
 
 
   return (
-    <div className="fixed relative top-0 left-0 min-h-screen w-[12.5%] bg-violet-400 text-white flex flex-col py-4">
+    <div className="fixed relative top-0 left-0 min-h-screen w-[12.5%] bg-dark-teal text-white flex flex-col py-4">
       <div className="flex flex-col justify-center items-center mt-24 md:mt-32 lg:mt-24">
         <div className="flex justify-center mb-4">
-          <button className="btn text-md btn-active btn-ghost bg-[#d1d5db] w-lg rounded-full" onClick={handleGoBack}>
+          <button className="btn text-md btn-active text-white bg-medium-pink w-lg rounded-full" onClick={handleGoBack}>
             <DashboardIcon className="w-4 h-4" />
             Dashboard
           </button>
         </div>
         <div className="menu w-24 mb-1">
-          <li className="menu-title text-xs">Apps</li>
+          <li className="font-bold text-xs text-light-pink">Apps</li>
         </div>
         <ul className="menu menu-xs rounded-lg w-full max-w-xs mb-1">
           <li>
@@ -56,7 +56,7 @@ export const LeftPanel = () => {
           </li>
         </ul>
         <div className="menu w-24 mb-1">
-          <li className="menu-title text-xs">Pages</li>
+          <li className="font-bold text-xs text-light-pink">Pages</li>
         </div>
         <ul className="menu menu-xs rounded-lg w-full max-w-xs mb-1">
           <li>
@@ -81,7 +81,7 @@ export const LeftPanel = () => {
           </li>
         </ul>
         <div className="menu w-32 mb-1">
-          <li className="menu-title text-xs">UI Showcase</li>
+          <li className="font-bold text-md text-light-pink">UI Showcase</li>
         </div>
         <ul className="menu menu-xs rounded-lg w-full max-w-xs mb-1">
           <li>

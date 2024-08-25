@@ -199,8 +199,8 @@ export const BellIcon = () => (
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-4 h-4 mr-2"
+    stroke="#034C52"
+    className="w-6 h-6 mr-2"
   >
     <path
       strokeLinecap="round"
@@ -375,7 +375,7 @@ export const DropDownIcon = () => (
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
-    stroke="white"
+    stroke="#034C52"
     className="w-4 h-4 mr-2"
   >
     <path

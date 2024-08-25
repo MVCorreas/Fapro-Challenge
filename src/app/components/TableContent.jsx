@@ -148,7 +148,7 @@ export const TableContent = () => {
               <div className="avatar">
                 <div className="mask mask-squircle h-8 w-8">
                   <Image
-                    src={entity.image || '/Rocket.png'}
+                    src={entity.image || '/Assets/Rocket.png'}
                     alt={entity.business_name}
                     width={50}
                     height={50}
@@ -199,14 +199,14 @@ export const TableContent = () => {
         <div className="stat-desc font-semibold text-black">My Companies</div>
         <div className="justify-end gap-1">
           <button
-            className="btn my-1 text-xs btn-sm bg-purple-700 hover:bg-violet-400 text-white"
+            className="btn my-1 text-xs btn-sm bg-dark-teal hover:bg-light-teal text-white"
             onClick={handleCreateEntity}
           >
             <PlusIcon />
             Add
           </button>
           <button
-            className="btn my-1 text-xs btn-sm bg-purple-700 hover:bg-violet-400 text-white"
+            className="btn my-1 text-xs btn-sm bg-dark-teal hover:bg-light-teal text-white"
             onClick={toggleDisabledEntities}
           >
             <EyeIcon />

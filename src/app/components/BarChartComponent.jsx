@@ -40,7 +40,7 @@ export const BarChartComponent = () => {
                 <a>Month</a>
               </li>
               <li>
-                <a className="bg-purple-700 text-white">Year</a>
+                <a className="bg-dark-teal text-white">Year</a>
               </li>
             </ul>
           </div>

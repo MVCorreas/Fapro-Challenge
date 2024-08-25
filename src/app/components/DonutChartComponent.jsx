@@ -57,7 +57,7 @@ export const DonutChartComponent = () => {
           <span className="truncate">Category</span>
           <span className="truncate">Amount / Share</span>
         </p>
-        <List className="mt-1 overflow-auto"> {/* Added overflow-auto */}
+        <List className="mt-1 overflow-auto"> 
           {data.map((item) => (
             <ListItem key={item.name} className="space-x-2">
               <div className="flex items-center space-x-1.5 truncate">

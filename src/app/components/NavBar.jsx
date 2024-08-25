@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
-import { DropDownIcon, HamburgerIcon } from "../../../public/Icons";
+import { DropDownIcon, HamburgerIcon, BellIcon } from "../../../public/Icons";
 import Image from "next/image";
 import { MainButton, OutlinedButton } from "./Buttons";
 import { RiSearchLine } from "@remixicon/react";
@@ -36,7 +36,7 @@ export const NavBarLanding = () => {
   };
 
   return (
-    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-10 backdrop-blur-lg h-24 z-10">
+    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-medium-pink bg-opacity-30 backdrop-blur-lg h-24 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden ">
@@ -149,13 +149,13 @@ export const NavBarDashboard = () => {
   }
   
   return (
-    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-slate-900 bg-opacity-90 h-24 flex items-center">
+    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-medium-pink bg-opacity-90 h-24 flex items-center">
       <div className="flex-1">
         <Image
-          src="/Logo.png"
+          src="/Assets/TealLogo.png"
           alt="logo"
-          width={100}
-          height={100}
+          width={200}
+          height={200}
           style={{ borderRadius: "10px", cursor: "pointer" }}
           onClick={navigateHome}
           priority
@@ -171,10 +171,10 @@ export const NavBarDashboard = () => {
           />
         </div>
   
-        {/* <div className="flex items-center">
-          <DarkModeIcon />
+        <div className="flex items-center">
+
           <BellIcon />
-        </div> */}
+        </div> 
   
         <div className="dropdown dropdown-end flex items-center">
         <div
@@ -191,7 +191,7 @@ export const NavBarDashboard = () => {
                 priority
               />
             </div>
-            <span className="text-white text-md mr-1">{firstName}</span>
+            <span className="text-dark-teal text-md mr-1">{firstName}</span>
           </div>
          
            

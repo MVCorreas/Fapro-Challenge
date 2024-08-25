@@ -7,14 +7,17 @@ import { DonutChartComponent } from "./DonutChartComponent";
 
 export const MainScreen = () => {
   return (
-    <div className="fixed relative h-full mt-24 md:mt-32 lg:mt-24" style={{
-      backgroundImage: "url('/PurpleBackground.png')",
-      backgroundSize: "cover",
-      backgroundBlendMode: "overlay",
-      backgroundRepeat: 'no-repeat',
-    }}>
-    
-   
+    <div className="relative h-full mt-24 md:mt-32 lg:mt-24">
+      <div
+        className="absolute inset-0 opacity-30 z-0"
+        style={{
+          backgroundImage: "url('/Assets/GreenBackground.jpg')",
+          backgroundSize: "cover",
+          backgroundBlendMode: "overlay",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
+      <div className="relative z-10">
         <div className="flex items-center justify-between mx-10 py-2">
           <h2>Overview</h2>
           <div className="breadcrumbs text-sm">
@@ -25,28 +28,27 @@ export const MainScreen = () => {
             </ul>
           </div>
         </div>
+
         <div className="grid grid-cols-1 gap-4 p-2 md:grid-cols-2 lg:grid-cols-3">
-        <div className="col-span-1 md:col-span-2 lg:col-span-3">
-          <Stats />
+          <div className="col-span-1 md:col-span-2 lg:col-span-3">
+            <Stats />
+          </div>
+          <div className="col-span-1 md:col-span-1 lg:col-span-1">
+            <BarChartComponent />
+          </div>
+          <div className="col-span-1 md:col-span-1 lg:col-span-1">
+            <ArtChartComponent />
+          </div>
+          <div className="col-span-1 md:col-span-1 lg:col-span-1">
+            <DonutChartComponent />
+          </div>
+          <div className="col-span-1 md:col-span-1 lg:col-span-1">
+            <UsersListCard />
+          </div>
+          <div className="col-span-1 md:col-span-2 lg:col-span-2">
+            <TableContent />
+          </div>
         </div>
-        <div className="col-span-1 md:col-span-1 lg:col-span-1">
-          <BarChartComponent />
-        </div>
-        <div className="col-span-1 md:col-span-1 lg:col-span-1">
-          <ArtChartComponent />
-        </div>
-        <div className="col-span-1 md:col-span-1 lg:col-span-1">
-          <DonutChartComponent />
-        </div>
-        <div className="col-span-1 md:col-span-1 lg:col-span-1">
-          <UsersListCard />
-        </div>
- 
-        <div className="col-span-1 md:col-span-2 lg:col-span-2">
-          <TableContent />
-        </div>
-       
-      
       </div>
     </div>
   );
