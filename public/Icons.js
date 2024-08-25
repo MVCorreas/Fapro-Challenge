@@ -1,5 +1,5 @@
 // () instad of {}
-export const HamburgerIcon = ({ color = "#034C52" }) => (
+export const HamburgerIcon = ({ color = "#FFC0B4" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className="h-5 w-5"

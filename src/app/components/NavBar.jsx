@@ -36,7 +36,7 @@ export const NavBarLanding = () => {
   };
 
   return (
-    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-medium-pink bg-opacity-30 backdrop-blur-lg h-24 z-10">
+    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-dark-teal bg-opacity-30 backdrop-blur-lg h-24 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden ">
@@ -45,14 +45,14 @@ export const NavBarLanding = () => {
 
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-light-pink rounded-box z-[1] mt-3 w-52 p-2 shadow text-lg"
+            className="menu menu-sm dropdown-content bg-dark-teal rounded-box z-[1] mt-3 w-52 p-2 shadow text-lg"
           >
             {navLinks.map((link) => (
               <li key={link.path}>
                 <a
                   href={link.path}
                   onClick={handleScroll}
-                  className="text-dark-teal hover:text-light-teal "
+                  className="text-light-pink hover:text-dark-pink "
                 >
                   {link.title}
                 </a>
@@ -61,7 +61,7 @@ export const NavBarLanding = () => {
           </ul>
         </div>
         <Image
-          src="/Assets/TealLogo.png"
+          src="/Assets/PinkLogo.png"
           alt="logo"
           width={200}
           height={200}
@@ -76,7 +76,7 @@ export const NavBarLanding = () => {
               <a
                 href={link.path}
                 onClick={handleScroll}
-                className="text-dark-teal hover:text-light-teal"
+                className="text-dark-pink hover:text-light-pink"
               >
                 {link.title}
               </a>
@@ -85,8 +85,8 @@ export const NavBarLanding = () => {
         </ul>
       </div>
       <div className="navbar-end gap-4">
-        <MainButton onClick={logIn} name="Sign In" bgColor='bg-dark-teal' hoverColor="hover-light-teal" />
-        <OutlinedButton onClick={signUp} name="Sign Up" />
+        <MainButton onClick={logIn} name="Sign In" />
+        <OutlinedButton onClick={signUp} name="Sign Up" textColor="text-light-pink" hoverColor="hover:bg-light-pink" hoverText="hover:text-dark-pink" borderColor="border-light-pink"/>
       </div>
     </div>
   );
