@@ -1,8 +1,6 @@
 'use client';
 
-import { useState } from "react";
 import { BarChart, Card, Divider, Switch } from "@tremor/react";
-import { RiArrowUpLine } from "@remixicon/react";
 
 const defaulData = [
   { date: "2014", Orders: 68560, Revenue: 28560 },
@@ -18,14 +16,6 @@ const defaulData = [
   { date: "2024", Orders: 61210, Revenue: 100330 },
 ];
 
-// for React Google Charts
-// const transformedData = [
-//   ['Year', 'Orders', 'Revenue'], 
-//   ...defaulData.map(item => [[parseInt(item.date), item.Orders, item.Revenue]])
-// ];
-
-// console.log(transformedData);
-
 const maxValue = Math.max(...defaulData.map((d) => d.Orders + d.Revenue));
 
 const dataWithNone = defaulData.map((d) => ({
@@ -33,22 +23,10 @@ const dataWithNone = defaulData.map((d) => ({
   none: maxValue - (d.Orders + d.Revenue),
 }));
 
-function valueFormatter(number) {
-  const formatter = new Intl.NumberFormat("en-US", {
-    maximumFractionDigits: 0,
-    notation: "standard",
-    compactDisplay: "short",
-    style: "currency",
-    currency: "USD",
-  });
-
-  return formatter.format(number);
-}
-
-export const BarChartPage = ({data = defaulData}) => {
+export const BarChartComponent = () => {
   return (
     <div className="flex flex-row m-2 w-full justify-center">
-      <Card className="sm:max-w-2xl bg-white shadow rounded-sm m-1 p-3 overflow-hidden">
+      <Card className="sm:max-w-2xl bg-white shadow-2xl rounded-sm m-1 p-3 overflow-hidden">
         <div className="flex flex-row items-center justify-between space-x-1">
           <div className="stat-desc font-semibold text-black">
             Revenue Statistics

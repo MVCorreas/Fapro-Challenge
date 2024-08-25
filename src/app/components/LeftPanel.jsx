@@ -20,7 +20,7 @@ export const LeftPanel = () => {
 
 
   return (
-    <div className="fixed relative top-0 left-0 h-screen w-[12.5%] bg-violet-400 text-white flex flex-col py-4">
+    <div className="fixed relative top-0 left-0 min-h-screen w-[12.5%] bg-violet-400 text-white flex flex-col py-4">
       <div className="flex flex-col justify-center items-center mt-24 md:mt-32 lg:mt-24">
         <div className="flex justify-center mb-4">
           <button className="btn text-md btn-active btn-ghost bg-[#d1d5db] w-lg rounded-full" onClick={handleGoBack}>

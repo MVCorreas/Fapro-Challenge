@@ -117,7 +117,7 @@ export const CreateEntity = () => {
   return (
     <div className="relative flex flex-col max-h-fit z-10 text-gray-700 overflow-visible">
         <div
-        className="absolute inset-0 z-0 rounded-lg m-32 h-[80%] shadow-xl"
+        className="absolute inset-0 z-0 rounded-lg m-32 h-[80%] shadow-2xl"
         style={{
           backgroundImage: "url('/Background1.avif')",
           backgroundSize: "cover",

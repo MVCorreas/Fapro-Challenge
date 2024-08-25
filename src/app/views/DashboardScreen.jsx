@@ -4,9 +4,11 @@ import { MainScreen } from "../components/Main"
 
 export const DashBoardScreen = () => {
     return (
-    <div className="flex min-h-screen h-full overflow-auto">
-     
-        <LeftPanel />
+    <div className="flex min-h-screen h-full mx-auto overflow-auto">
+   
+     <LeftPanel />
+  
+       
      
       <div className="flex flex-col w-full">
         <div className="w-full">

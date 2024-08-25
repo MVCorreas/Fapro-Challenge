@@ -114,10 +114,10 @@ const artChartBadge = [
   },
 ];
 
-export const ArtChartPage = ({data = defaulData}) => {
+export const ArtChartComponent = ({data = defaulData}) => {
   return (
     <div className=" flex flex-row justify-center m-2 w-full">
-      <Card className=" w-full sm:max-w-2xl bg-white shadow rounded-sm m-1 p-2">
+      <Card className=" w-full sm:max-w-2xl bg-white shadow-2xl rounded-sm m-1 p-2">
         <h3 className="font-semibold text-xs dark:text-dark-tremor-content-strong mb-2">
           Customer Acquisition
         </h3>

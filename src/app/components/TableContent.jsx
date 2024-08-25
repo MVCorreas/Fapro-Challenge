@@ -172,7 +172,7 @@ export const TableContent = () => {
           <td>
             <div className="flex gap-2">
               <button onClick={() => handleEditEntity(entity.id)}>
-                <EditIcon />
+                <EditIcon width='18px' height='18px'/>
               </button>
               {entity.is_enabled && (
                 <button onClick={() => handleRemoveEntity(entity.id)}>
@@ -193,8 +193,9 @@ export const TableContent = () => {
   );
 
   return (
-    <div className="overflow-x-auto bg-white rounded-sm shadow m-2">
+    <div className="relative overflow-x-auto bg-white rounded-sm shadow-2xl mx-2 w-[80%]">
       <div className="flex flex-row items-center justify-between space-x-1 p-2">
+  
         <div className="stat-desc font-semibold text-black">My Companies</div>
         <div className="justify-end gap-1">
           <button
