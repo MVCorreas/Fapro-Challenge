@@ -153,7 +153,7 @@ export const ContactForm = () => {
            
             <div className="flex flex-row space-x-4 justify-center mt-6">
             <Image
-            src='/Google.png'
+            src='/Assets/Google.png'
             alt="Google"
             width={50}
             height={50}
@@ -161,7 +161,7 @@ export const ContactForm = () => {
             className="rounded-full"
             />
              <Image
-            src='/Github.png'
+            src='/Assets/Github.png'
             alt="Google"
             width={50}
             height={50}

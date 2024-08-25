@@ -94,8 +94,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("daisyui"), // Correctly require DaisyUI
-    require("@tailwindcss/forms"), // Correctly require Tailwind CSS Forms
-  ],
+  plugins: [require("daisyui"), require("@tailwindcss/forms")],
 };

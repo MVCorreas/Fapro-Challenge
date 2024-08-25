@@ -76,7 +76,7 @@ export const BarChart = () => {
 
       chartRef.current.chart = newChart;
     }
-  }, []);
+  }, [dataWithNone]);
 
   return (
     <div className="relative w-full h-96">

@@ -47,7 +47,7 @@ export const PieChart = ({ data }) => {
 
       chartRef.current.chart = newChart;
     }
-  }, []);
+  }, [data]);
 
   return (
     <div className="relative w-full h-full">
