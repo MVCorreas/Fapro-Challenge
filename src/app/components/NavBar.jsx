@@ -185,7 +185,7 @@ export const NavBarDashboard = () => {
             <div className="w-12 rounded-full">
               <Image
                 alt="profile pic"
-                src="/Emoji.png"
+                src="/Assets/Emoji.png"
                 width={50}
                 height={50}
                 priority
