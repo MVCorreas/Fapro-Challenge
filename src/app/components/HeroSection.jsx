@@ -1,14 +1,24 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useEffect, useRef } from "react";
 import { MainButton } from "@/app/components/Buttons";
 
 export const HeroSection = () => {
   const router = useRouter();
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5; 
+    }
+  }, []);
 
   const logIn = () => {
     router.push("/signin");
   };
+
+
 
   return (
     <section
@@ -16,6 +26,7 @@ export const HeroSection = () => {
       id="hero"
     >
       <video
+       ref={videoRef}
         autoPlay
         loop
         muted
