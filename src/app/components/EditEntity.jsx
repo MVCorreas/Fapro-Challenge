@@ -137,21 +137,18 @@ export const EditEntity = ({ entityId }) => {
   return (
     <div className="relative flex flex-col h-screen text-gray-700 overflow-hidden">
       <div
-        className="absolute inset-0 z-0 rounded-lg m-32 h-[80%] shadow-xl"
-        style={{
-          backgroundImage: "url('/Assets/Desk2.avif')",
-          backgroundSize: "cover",
-          backgroundBlendMode: "overlay",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      ></div>
+       className="absolute inset-0 opacity-80 z-0 min-h-screen"
+       style={{
+         backgroundImage: "url('/Assets/WhiteDsk.jpg')",
+         backgroundSize: "cover",
+         backgroundBlendMode: "overlay",
+         backgroundRepeat: "no-repeat",
+       }}
+     ></div>
+       <div className="absolute inset-0 z-0 rounded-lg m-32 h-[80%] shadow-2xl bg-light-teal opacity-20"></div>
+       
       <div className="relative flex items-center justify-center z-10 m-24 h-full">
-        <div className="flex flex-col text-white items-center justify-center bg-dark-teal opacity-70 p-8 rounded-lg shadow-lg max-w-full w-[65%] max-h-full h-[75%] overflow-auto relative">
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-center text-3xl p-4 z-10 mt-4">
-            <h1>{formData.business_name}</h1>
-          </div>
-          <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-100">
+      <div className="absolute top-12 right-12 z-20 flex gap-2">
             {!isEditing ? (
               <>
                 <button
@@ -177,6 +174,12 @@ export const EditEntity = ({ entityId }) => {
             )}
           </div>
 
+      <div className="flex flex-col text-white items-center justify-center bg-dark-teal opacity-80 p-8 rounded-lg shadow-lg max-w-full w-[65%] max-h-full h-[75%] overflow-auto relative top-6">
+
+          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-center text-3xl p-4 z-10 mt-4">
+            <h1>{formData.business_name}</h1>
+          </div>
+         
           <div className="mt-16 w-full flex justify-center opacity-100 mt-[20%]">
             {error && <div className="error">{error}</div>}
             {success && <div className="success">{success}</div>}
@@ -292,28 +295,28 @@ export const EditEntity = ({ entityId }) => {
               </form>
             ) : (
               <div className="text-xl space-y-4">
-                <p>
+                <p className="font-light text-2xl">
                   <strong>Business Name:</strong> {formData.business_name}
                 </p>
-                <p>
+                <p className="font-light text-2xl">
                   <strong>Credential:</strong> {formData.credential}
                 </p>
-                <p>
+                <p className="font-light text-2xl">
                   <strong>Status:</strong>{" "}
                   {formData.is_enabled ? "Enabled" : "Disabled"}
                 </p>
-                <p>
+                <p className="font-light text-2xl">
                   <strong>Industry Type:</strong> {additionalData.industry_type}
                 </p>
-                <p>
+                <p className="font-light text-2xl">
                   <strong>Number of Employees:</strong>{" "}
                   {additionalData.number_of_employees}
                 </p>
-                <p>
+                <p className="font-light text-2xl">
                   <strong>Annual Turnover:</strong>{" "}
                   {additionalData.annual_turnover}
                 </p>
-                <p>
+                <p className="font-light text-2xl">
                   <strong>Market Value:</strong> {additionalData.market_value}
                 </p>
               </div>

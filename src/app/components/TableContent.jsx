@@ -198,7 +198,7 @@ export const TableContent = () => {
           <td>
             <div className="flex gap-2">
               <button onClick={() => handleEditEntity(entity.id)}>
-                <EditIcon width="18px" height="18px" />
+                <EditIcon width="18px" height="18px" color='black' />
               </button>
               {entity.is_enabled && (
                 <button onClick={() => handleRemoveEntity(entity.id)}>

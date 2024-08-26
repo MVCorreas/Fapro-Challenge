@@ -117,24 +117,15 @@ export const CreateEntity = () => {
   return (
     <div className="relative flex flex-col max-h-fit z-10 text-gray-700 overflow-visible">
       <div
-        className="absolute inset-0 opacity-30 z-0"
+        className="absolute inset-0 opacity-80 z-0 min-h-screen"
         style={{
-          backgroundImage: "url('/Assets/GreenBackground.jpg')",
+          backgroundImage: "url('/Assets/WhiteDsk.jpg')",
           backgroundSize: "cover",
           backgroundBlendMode: "overlay",
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      <div
-        className="absolute inset-0 z-0 rounded-lg m-32 h-[80%] shadow-2xl"
-        style={{
-          backgroundImage: "url('/Assets/Desk2.avif')",
-          backgroundSize: "cover",
-          backgroundBlendMode: "overlay",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      ></div>
+      <div className="absolute inset-0 z-0 rounded-lg m-32 h-[80%] shadow-2xl bg-light-teal opacity-20"></div>
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
         <button
           onClick={handleGoBack}
@@ -142,7 +133,7 @@ export const CreateEntity = () => {
         >
           <CloseIcon />
         </button>
-        <div className="min-w-[65%] mx-auto card bg-dark-teal opacity-70 text-white p-10 mt-12 rounded-lg shadow-2xl col-span-full md:col-span-2">
+        <div className="min-w-[65%] mx-auto card bg-dark-teal opacity-80 text-white p-10 mt-12 rounded-lg shadow-2xl col-span-full md:col-span-2">
           <div className="card-body">
             <p className="text-3xl text-white text-center mt-6 col-span-full">
               ADD A NEW ENTITY
@@ -244,8 +235,11 @@ export const CreateEntity = () => {
                   className="input input-bordered w-full max-w-md text-black rounded-full"
                 />
               </div>
-              <div className="col-span-1 md:col-span-2 flex justify-center p-2">
-                <MainButton name="Add Company" onClick={handleSubmit} />
+              <div className="col-span-2 flex justify-center mt-6">
+                <MainButton
+                  name="Add Company"
+                  onClick={handleSubmit}
+                />
               </div>
             </form>
           </div>

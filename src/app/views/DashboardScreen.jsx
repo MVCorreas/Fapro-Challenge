@@ -10,7 +10,7 @@ export const DashBoardScreen = () => {
         <div className="w-full">
           <NavBarDashboard />
         </div>
-        <div className="flex-1 bg-[#f1f5f9] ">
+        <div className="flex-1 ">
           <MainScreen />
         </div>
       </div>

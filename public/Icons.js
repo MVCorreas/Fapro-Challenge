@@ -351,13 +351,17 @@ export const NewsIcon = () => (
   </svg>
 );
 
-export const EditIcon = ({ width = "32px", height = "32px" }) => (
+export const EditIcon = ({
+  width = "32px",
+  height = "32px",
+  color = "white",
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
-    stroke="currentColor"
+    stroke={color}
     className="w-4 h-4 mr-2"
     style={{ width, height }} //to modify pass without style --> <CloseIcon width='12px' height='12px' />
   >
