@@ -5,7 +5,7 @@ import { NavBarForms } from "../components/NavBar";
 
 export const SignInScreen = () => {
   return (
-    <div className="flex flex-col h-screen bg-sdark-teal">
+    <div className="flex flex-col h-screen bg-dark-teal">
       <NavBarForms />
       <div className="flex flex-grow mt-24 ">
         <div
