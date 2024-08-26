@@ -41,12 +41,13 @@ export const SignInForm = () => {
         }
       );
 
-      if (
-        response.data?.data?.data?.accessToken
-      ) {
+      if (response.data?.data?.data?.accessToken) {
         if (typeof window !== "undefined") {
           localStorage.setItem("token", response.data.data.data.accessToken);
-          localStorage.setItem("UserName", response.data.data.data.user.first_name);
+          localStorage.setItem(
+            "UserName",
+            response.data.data.data.user.first_name
+          );
         }
         toast.success("Login successful!");
         router.push(callbackUrl);
@@ -64,11 +65,10 @@ export const SignInForm = () => {
     }
   };
 
-
   return (
     <div className="max-w-sm mx-auto card bg-light-teal bg-opacity-60 m-4 text-white p-10">
-       <div className="card-body">
-       <h1 className="card-title text-3xl justify-center">SIGN IN</h1>
+      <div className="card-body">
+        <h1 className="card-title text-3xl justify-center">SIGN IN</h1>
         {errorMessage && <div className="alert text-error">{errorMessage}</div>}
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="my-2">
@@ -108,18 +108,16 @@ export const SignInForm = () => {
             )}
           </div>
           <div className="my-4 flex justify-center">
-          <button
+            <button
               type="submit"
               disabled={isSubmitting}
-              className="btn btn-ghost w-32 bg-dark-pink hover:bg-light-pink  text-white rounded-full">
-            
+              className="btn btn-ghost w-32 bg-dark-pink hover:bg-light-pink  text-white rounded-full"
+            >
               {isSubmitting && (
                 <span className="loading loading-spinner text-white"></span>
               )}
               Sign In
             </button>
-            
-            
           </div>
         </form>
         <div>
@@ -129,6 +127,6 @@ export const SignInForm = () => {
           </Link>
         </div>
       </div>
-  </div>
+    </div>
   );
 };

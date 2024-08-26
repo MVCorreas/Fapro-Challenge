@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Image from "next/image";
 import useEaseIn from "../hooks/useEaseIn";
@@ -6,28 +7,28 @@ import useEaseIn from "../hooks/useEaseIn";
 const solutions = [
   {
     id: 1,
-    logo: '/Assets/Banking.png',
+    logo: "/Assets/Banking.png",
     title: "Banking",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus",
   },
   {
     id: 2,
-    logo: '/Assets/Investment.png',
+    logo: "/Assets/Investment.png",
     title: "Finance",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus",
   },
   {
     id: 3,
-    logo: '/Assets/Dart.png',
+    logo: "/Assets/Dart.png",
     title: "Investment",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus",
   },
   {
     id: 4,
-    logo: '/Assets/Insuarance.png',
+    logo: "/Assets/Insuarance.png",
     title: "Insurance",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur reiciendis nisi laboriosam corrupti libero omnis quis non quia labore excepturi? Error tenetur alias, eius quas ipsum corrupti eveniet quos doloribus",
@@ -55,7 +56,7 @@ export const SolutionsSection = () => {
                 alt="Solution Logo"
                 width={60}
                 height={60}
-                className="mr-4" 
+                className="mr-4"
               />
               {solutions[0].title}
             </h3>
@@ -73,11 +74,13 @@ export const SolutionsSection = () => {
                   alt="Solution Logo"
                   width={60}
                   height={60}
-                  className="mr-4" 
+                  className="mr-4"
                 />
                 {sol.title}
               </h3>
-              <p className="font-light text-2xl mt-2 text-white">{sol.description}</p>
+              <p className="font-light text-2xl mt-2 text-white">
+                {sol.description}
+              </p>
             </div>
           ))}
         </div>

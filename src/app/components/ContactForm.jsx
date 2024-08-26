@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { GradientButton, MainButton, OutlinedButton } from "@/app/components/Buttons";
+import { OutlinedButton } from "@/app/components/Buttons";
 import { Modal } from "./Modal";
 import useEaseIn from "../hooks/useEaseIn";
 
@@ -46,15 +46,12 @@ export const ContactForm = () => {
   };
 
   const closeModal = () => {
-   
     setName("");
     setEmail("");
     setSubject("");
     setMessage("");
     document.getElementById("my_modal_1").close();
   };
-
- 
 
   return (
     <section
@@ -65,28 +62,40 @@ export const ContactForm = () => {
         backgroundImage: "url('/Assets/SalmonGradientBg.webp')",
         backgroundSize: "cover",
         backgroundBlendMode: "overlay",
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '40%',
-      }} 
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "40%",
+      }}
     >
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-400 via-red-100 to-transparent rounded-full h-[300px] w-[300px] blur-xl absolute bottom-[350px] left-40 transform translate-x-1/4 translate-y-1/2 opacity-50 z-20"></div> 
-     
-      <div className="absolute inset-0 bg-light-pink opacity-60 z-0 rounded-lg m-24" style={{ borderTopLeftRadius: '20%' }}></div>
-  
+      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-400 via-red-100 to-transparent rounded-full h-[300px] w-[300px] blur-xl absolute bottom-[350px] left-40 transform translate-x-1/4 translate-y-1/2 opacity-50 z-20"></div>
+
+      <div
+        className="absolute inset-0 bg-light-pink opacity-60 z-0 rounded-lg m-24"
+        style={{ borderTopLeftRadius: "20%" }}
+      ></div>
+
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center z-10 m-24">
-
-        <div className="flex flex-col w-full p-8 bg-zinc-900 bg-opacity-80 gap-8 rounded-lg h-full justify-center" style={{ borderTopLeftRadius: '30%' }}>
-          <p className="text-5xl sm:text-5xl lg:text-7xl font-bold lg:leading-normal  text-white ">Contact Us</p>
-          <p className="font-light text-3xl leading-8 text-white mb-4 ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit error architecto eveniet corporis vel! 
+        <div
+          className="flex flex-col w-full p-8 bg-zinc-900 bg-opacity-80 gap-8 rounded-lg h-full justify-center"
+          style={{ borderTopLeftRadius: "30%" }}
+        >
+          <p className="text-5xl sm:text-5xl lg:text-7xl font-bold lg:leading-normal  text-white ">
+            Contact Us
           </p>
-
+          <p className="font-light text-3xl leading-8 text-white mb-4 ">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit error
+            architecto eveniet corporis vel!
+          </p>
         </div>
-  
+
         <div className="w-full p-8 bg-transparent rounded-lg">
           <form onSubmit={handleSubmit} className="relative z-20">
             <div className="mb-6">
-              <label htmlFor="name" className="text-2xl text-white font-semibold">Name</label>
+              <label
+                htmlFor="name"
+                className="text-2xl text-white font-semibold"
+              >
+                Name
+              </label>
               <input
                 name="name"
                 type="text"
@@ -100,81 +109,110 @@ export const ContactForm = () => {
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="email" className="text-2xl text-white font-semibold">Email</label>
+              <label
+                htmlFor="email"
+                className="text-2xl text-white font-semibold"
+              >
+                Email
+              </label>
               <input
                 name="email"
                 type="email"
                 id="email"
                 required
-                className={`w-full p-4 mt-2 ${emailError && "border-red-600"} bg-slate-900 rounded-full text-lg text-white`}
+                className={`w-full p-4 mt-2 ${
+                  emailError && "border-red-600"
+                } bg-slate-900 rounded-full text-lg text-white`}
                 placeholder="email@google.com"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
               />
-              {emailError && <p className="text-red-600 text-sm mt-1">{emailError}</p>}
+              {emailError && (
+                <p className="text-red-600 text-sm mt-1">{emailError}</p>
+              )}
             </div>
             <div className="mb-6">
-              <label htmlFor="subject" className="text-2xl text-white font-semibold">Subject</label>
+              <label
+                htmlFor="subject"
+                className="text-2xl text-white font-semibold"
+              >
+                Subject
+              </label>
               <input
                 name="subject"
                 type="text"
                 id="subject"
                 required
-                className={`w-full p-4 mt-2 border ${subjectError && "border-red-600"} bg-slate-900 rounded-full text-lg text-white`}
+                className={`w-full p-4 mt-2 border ${
+                  subjectError && "border-red-600"
+                } bg-slate-900 rounded-full text-lg text-white`}
                 placeholder="Topic of conversation"
                 value={subject}
                 onChange={(e) => {
                   setSubject(e.target.value);
                 }}
               />
-              {subjectError && <p className="text-red-600 text-sm mt-1">{subjectError}</p>}
+              {subjectError && (
+                <p className="text-red-600 text-sm mt-1">{subjectError}</p>
+              )}
             </div>
             <div className="mb-6">
-              <label htmlFor="message" className="text-2xl text-white font-semibold">Message</label>
+              <label
+                htmlFor="message"
+                className="text-2xl text-white font-semibold"
+              >
+                Message
+              </label>
               <textarea
                 name="message"
                 id="message"
                 required
-                className={`w-full p-4 mt-2 border ${messageError && "border-red-600"} bg-slate-900 rounded-full text-lg text-white`}
+                className={`w-full p-4 mt-2 border ${
+                  messageError && "border-red-600"
+                } bg-slate-900 rounded-full text-lg text-white`}
                 placeholder="How can we help you thrive?"
                 value={message}
                 onChange={(e) => {
                   setMessage(e.target.value);
                 }}
               />
-              {messageError && <p className="text-red-600 text-sm mt-1">{messageError}</p>}
+              {messageError && (
+                <p className="text-red-600 text-sm mt-1">{messageError}</p>
+              )}
             </div>
             <div className="flex w-full justify-center">
-            <OutlinedButton name='Submit' onSubmit={handleSubmit}/>
+              <OutlinedButton name="Submit" onSubmit={handleSubmit} />
             </div>
-         
-           
+
             <div className="flex flex-row space-x-4 justify-center mt-6">
-            <Image
-            src='/Assets/Google.png'
-            alt="Google"
-            width={50}
-            height={50}
-            priority
-            className="rounded-full"
-            />
-             <Image
-            src='/Assets/Github.png'
-            alt="Google"
-            width={50}
-            height={50}
-            priority
-            className="rounded-full bg-white p-2"
-            />
+              <Image
+                src="/Assets/Google.png"
+                alt="Google"
+                width={50}
+                height={50}
+                priority
+                className="rounded-full"
+              />
+              <Image
+                src="/Assets/Github.png"
+                alt="Google"
+                width={50}
+                height={50}
+                priority
+                className="rounded-full bg-white p-2"
+              />
             </div>
-            
           </form>
         </div>
       </div>
-  
-      <Modal title='Thank you for contacting us!' message='We will get back to you asap.' onClose={closeModal} />
+
+      <Modal
+        title="Thank you for contacting us!"
+        message="We will get back to you asap."
+        onClose={closeModal}
+      />
     </section>
   );
-}  
+};

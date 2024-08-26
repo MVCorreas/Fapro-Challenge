@@ -1,8 +1,8 @@
 import { BarChartComponent } from "./BarChartComponent";
 import { Stats } from "./Stats";
-import { ArtChartComponent } from './ArtChartComponent';
+import { ArtChartComponent } from "./ArtChartComponent";
 import { TableContent } from "./TableContent";
-import { UsersListCard } from "./UsersListCard";
+import { NewsListCard } from "./NewsListCard";
 import { DonutChartComponent } from "./DonutChartComponent";
 
 export const MainScreen = () => {
@@ -22,8 +22,12 @@ export const MainScreen = () => {
           <h2>Overview</h2>
           <div className="breadcrumbs text-sm">
             <ul className="flex space-x-2 text-xs">
-              <li><a>Home</a></li>
-              <li><a>Dashboard</a></li>
+              <li>
+                <a>Home</a>
+              </li>
+              <li>
+                <a>Dashboard</a>
+              </li>
               <li className="font-bold">Overview</li>
             </ul>
           </div>
@@ -43,7 +47,7 @@ export const MainScreen = () => {
             <DonutChartComponent />
           </div>
           <div className="col-span-1 md:col-span-1 lg:col-span-1">
-            <UsersListCard />
+            <NewsListCard />
           </div>
           <div className="col-span-1 md:col-span-2 lg:col-span-2">
             <TableContent />

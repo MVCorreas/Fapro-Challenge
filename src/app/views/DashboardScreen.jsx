@@ -1,15 +1,11 @@
-import { LeftPanel } from "../components/LeftPanel"
-import { NavBarDashboard } from "../components/NavBar"
-import { MainScreen } from "../components/Main"
+import { LeftPanel } from "../components/LeftPanel";
+import { NavBarDashboard } from "../components/NavBar";
+import { MainScreen } from "../components/Main";
 
 export const DashBoardScreen = () => {
-    return (
+  return (
     <div className="flex min-h-screen h-full mx-auto overflow-auto ">
-   
-     <LeftPanel />
-  
-       
-     
+      <LeftPanel />
       <div className="flex flex-col w-full">
         <div className="w-full">
           <NavBarDashboard />
@@ -19,5 +15,5 @@ export const DashBoardScreen = () => {
         </div>
       </div>
     </div>
-    )
-}
+  );
+};

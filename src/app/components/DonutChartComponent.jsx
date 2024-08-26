@@ -1,38 +1,37 @@
-'use client';
+"use client";
 
-import { Card, List, ListItem } from '@tremor/react';
-import { PieChart } from './PieChart';
-
+import { Card, List, ListItem } from "@tremor/react";
+import { PieChart } from "./PieChart";
 
 const data = [
   {
-    name: 'Travel',
+    name: "Travel",
     amount: 6730,
-    share: '32.1%',
-    color: 'rgba(173, 216, 230, 0.7)', 
+    share: "32.1%",
+    color: "rgba(173, 216, 230, 0.7)",
   },
   {
-    name: 'IT & equipment',
+    name: "IT & equipment",
     amount: 4120,
-    share: '19.6%',
-    color: 'rgba(135, 206, 250, 0.7)',
+    share: "19.6%",
+    color: "rgba(135, 206, 250, 0.7)",
   },
   {
-    name: 'Office supplies',
+    name: "Office supplies",
     amount: 3210,
-    share: '15.3%',
-    color: 'rgba(221, 160, 221, 0.7)', 
+    share: "15.3%",
+    color: "rgba(221, 160, 221, 0.7)",
   },
   {
-    name: 'Communication',
+    name: "Communication",
     amount: 3010,
-    share: '14.3%',
-    color: 'rgba(255, 182, 193, 0.7)',
+    share: "14.3%",
+    color: "rgba(255, 182, 193, 0.7)",
   },
 ];
 
 const currencyFormatter = (number) => {
-  return '$' + Intl.NumberFormat('us').format(number).toString();
+  return "$" + Intl.NumberFormat("us").format(number).toString();
 };
 
 export const DonutChartComponent = () => {
@@ -42,12 +41,12 @@ export const DonutChartComponent = () => {
         <h3 className="text-sm font-bold text-tremor-content-strong dark:text-dark-tremor-content-strong">
           Total expenses by category
         </h3>
-        <PieChart data={data} /> 
+        <PieChart data={data} />
         <p className="mt-2 flex items-center justify-between text-xs text-tremor-content dark:text-dark-tremor-content truncate">
           <span className="truncate">Category</span>
           <span className="truncate">Amount / Share</span>
         </p>
-        <List className="mt-1 overflow-auto"> 
+        <List className="mt-1 overflow-auto">
           {data.map((item) => (
             <ListItem key={item.name} className="space-x-2">
               <div className="flex items-center space-x-1.5 truncate">

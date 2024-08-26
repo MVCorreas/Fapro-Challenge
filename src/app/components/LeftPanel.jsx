@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   EcommerceIcon,
@@ -12,18 +12,20 @@ import { MainButton } from "./Buttons";
 import { useRouter } from "next/navigation";
 
 export const LeftPanel = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const handleGoBack = () => {
-    router.push('/dashboard')
-  }
-
+    router.push("/dashboard");
+  };
 
   return (
     <div className="fixed relative top-0 left-0 min-h-screen w-[12.5%] bg-dark-teal text-white flex flex-col py-4">
       <div className="flex flex-col justify-center items-center mt-24 md:mt-32 lg:mt-24">
         <div className="flex justify-center mb-4">
-          <button className="btn text-md btn-active text-white bg-medium-pink w-lg rounded-full" onClick={handleGoBack}>
+          <button
+            className="btn text-md btn-active text-white bg-medium-pink w-lg rounded-full"
+            onClick={handleGoBack}
+          >
             <DashboardIcon className="w-4 h-4" />
             Dashboard
           </button>
@@ -39,12 +41,24 @@ export const LeftPanel = () => {
                 Ecommerce
               </summary>
               <ul>
-                <li><a>Orders</a></li>
-                <li><a>Order Details</a></li>
-                <li><a>Products</a></li>
-                <li><a>Sellers</a></li>
-                <li><a>Customers</a></li>
-                <li><a>Shops</a></li>
+                <li>
+                  <a>Orders</a>
+                </li>
+                <li>
+                  <a>Order Details</a>
+                </li>
+                <li>
+                  <a>Products</a>
+                </li>
+                <li>
+                  <a>Sellers</a>
+                </li>
+                <li>
+                  <a>Customers</a>
+                </li>
+                <li>
+                  <a>Shops</a>
+                </li>
               </ul>
             </details>
           </li>
@@ -72,10 +86,18 @@ export const LeftPanel = () => {
                 Auth
               </summary>
               <ul>
-                <li><a>Login</a></li>
-                <li><a>Register</a></li>
-                <li><a>Forgot Password</a></li>
-                <li><a>Reset Password</a></li>
+                <li>
+                  <a>Login</a>
+                </li>
+                <li>
+                  <a>Register</a>
+                </li>
+                <li>
+                  <a>Forgot Password</a>
+                </li>
+                <li>
+                  <a>Reset Password</a>
+                </li>
               </ul>
             </details>
           </li>
@@ -95,7 +117,7 @@ export const LeftPanel = () => {
           <p className="text-md font-bold">Need Premium?</p>
           <p>Access all features with single time purchase</p>
           <div className="card-actions mt-2">
-            <MainButton name='Purchase'/>
+            <MainButton name="Purchase" />
           </div>
         </div>
       </div>

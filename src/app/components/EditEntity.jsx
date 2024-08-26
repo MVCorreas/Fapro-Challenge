@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { EditIcon, CloseIcon } from "../../../public/Icons";
 import { MainButton } from "./Buttons";
 
@@ -29,7 +28,7 @@ export const EditEntity = ({ entityId }) => {
 
   useEffect(() => {
     const fetchEntity = async () => {
-      const token = localStorage.getItem("token"); // Access inside useEffect
+      const token = localStorage.getItem("token");
       if (!token) {
         setError("No token found");
         return;
@@ -55,7 +54,6 @@ export const EditEntity = ({ entityId }) => {
             is_enabled: entity.is_enabled ?? false,
           });
 
-          // Fetch additional data from localStorage
           const storedAdditionalData = localStorage.getItem(
             `entity_${entityId}_additional_data`
           );
@@ -122,7 +120,7 @@ export const EditEntity = ({ entityId }) => {
       );
 
       setSuccess("Entity updated successfully!");
-      setIsEditing(false); // Exit edit mode after successful update
+      setIsEditing(false);
       router.push("/dashboard");
     } catch (error) {
       setError("Error updating entity");
@@ -148,13 +146,11 @@ export const EditEntity = ({ entityId }) => {
           backgroundPosition: "center",
         }}
       ></div>
-  
       <div className="relative flex items-center justify-center z-10 m-24 h-full">
         <div className="flex flex-col text-white items-center justify-center bg-dark-teal opacity-70 p-8 rounded-lg shadow-lg max-w-full w-[65%] max-h-full h-[75%] overflow-auto relative">
           <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-center text-3xl p-4 z-10 mt-4">
             <h1>{formData.business_name}</h1>
           </div>
-  
           <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-100">
             {!isEditing ? (
               <>
@@ -180,12 +176,15 @@ export const EditEntity = ({ entityId }) => {
               </button>
             )}
           </div>
-  
+
           <div className="mt-16 w-full flex justify-center opacity-100 mt-[20%]">
             {error && <div className="error">{error}</div>}
             {success && <div className="success">{success}</div>}
             {isEditing ? (
-              <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md mx-auto">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4 w-full max-w-md mx-auto"
+              >
                 <div>
                   <label htmlFor="business_name" className="block">
                     Business Name:
@@ -288,7 +287,7 @@ export const EditEntity = ({ entityId }) => {
                   />
                 </div>
                 <div className="my-4 flex justify-center">
-                <MainButton name='Update Entity'/>
+                  <MainButton name="Update Entity" />
                 </div>
               </form>
             ) : (
@@ -324,4 +323,4 @@ export const EditEntity = ({ entityId }) => {
       </div>
     </div>
   );
-}  
+};

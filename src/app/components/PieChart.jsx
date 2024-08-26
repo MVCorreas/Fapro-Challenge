@@ -4,7 +4,6 @@ import Chart from "chart.js/auto";
 export const PieChart = ({ data }) => {
   const chartRef = useRef(null);
 
-
   useEffect(() => {
     if (chartRef.current) {
       if (chartRef.current.chart) {
@@ -35,7 +34,10 @@ export const PieChart = ({ data }) => {
                 label: function (tooltipItem) {
                   const { label, raw } = tooltipItem;
                   const dataset = tooltipItem.dataset;
-                  const total = dataset.data.reduce((sum, value) => sum + value, 0);
+                  const total = dataset.data.reduce(
+                    (sum, value) => sum + value,
+                    0
+                  );
                   const percentage = ((raw / total) * 100).toFixed(1);
                   return `${label}: $${raw.toLocaleString()} (${percentage}%)`;
                 },

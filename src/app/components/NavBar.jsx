@@ -42,7 +42,6 @@ export const NavBarLanding = () => {
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden ">
             <HamburgerIcon />
           </div>
-
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-dark-teal rounded-box z-[1] mt-3 w-52 p-2 shadow text-lg"
@@ -86,7 +85,14 @@ export const NavBarLanding = () => {
       </div>
       <div className="navbar-end gap-4">
         <MainButton onClick={logIn} name="Sign In" />
-        <OutlinedButton onClick={signUp} name="Sign Up" textColor="text-light-pink" hoverColor="hover:bg-light-pink" hoverText="hover:text-dark-pink" borderColor="border-light-pink"/>
+        <OutlinedButton
+          onClick={signUp}
+          name="Sign Up"
+          textColor="text-light-pink"
+          hoverColor="hover:bg-light-pink"
+          hoverText="hover:text-dark-pink"
+          borderColor="border-light-pink"
+        />
       </div>
     </div>
   );
@@ -110,21 +116,20 @@ export const NavBarForms = () => {
     router.push("/");
   };
 
-
   return (
     <div className="navbar fixed top-0 left-0 right-0 z-50 bg-medium-pink bg-opacity-90 h-24 flex items-center px-6">
-    <div className="navbar-start flex-1">
-    <Image
+      <div className="navbar-start flex-1">
+        <Image
           src="/Assets/TealLogo.png"
           alt="logo"
           width={200}
           height={200}
-          style={{ borderRadius: "10px", cursor: 'pointer' }}
+          style={{ borderRadius: "10px", cursor: "pointer" }}
           onClick={navigateHome}
           priority
         />
-    </div>
-    <div className="navbar-end">
+      </div>
+      <div className="navbar-end">
         {pathname === "/signin" ? (
           <OutlinedButton onClick={signUp} name="Sign Up" />
         ) : (
@@ -135,23 +140,23 @@ export const NavBarForms = () => {
   );
 };
 
-
 export const NavBarDashboard = () => {
   const router = useRouter();
 
-  const firstName = typeof window !== "undefined" ? localStorage.getItem("UserName") : null;
+  const firstName =
+    typeof window !== "undefined" ? localStorage.getItem("UserName") : null;
   const navigateHome = () => {
     router.push("/");
   };
 
   const navigateProfile = () => {
-    router.push('/profile')
-  }
+    router.push("/profile");
+  };
 
   const navigateSettings = () => {
-    router.push('/settings')
-  }
-  
+    router.push("/settings");
+  };
+
   return (
     <div className="navbar fixed top-0 left-0 right-0 z-50 bg-medium-pink bg-opacity-90 h-24 flex items-center">
       <div className="flex-1">
@@ -174,14 +179,13 @@ export const NavBarDashboard = () => {
             className="input input-bordered w-24 md:w-auto h-8 text-sm pl-8"
           />
         </div>
-  
-        <div className="flex items-center">
 
+        <div className="flex items-center">
           <BellIcon />
-        </div> 
-  
+        </div>
+
         <div className="dropdown dropdown-end flex items-center">
-        <div
+          <div
             tabIndex={0}
             role="button"
             className="btn btn-ghost btn-circle avatar"
@@ -197,12 +201,9 @@ export const NavBarDashboard = () => {
             </div>
             <span className="text-dark-teal text-md mr-1">{firstName}</span>
           </div>
-         
-           
           <button className="btn btn-square btn-ghost ml-2">
             <DropDownIcon />
           </button>
-  
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
@@ -224,4 +225,4 @@ export const NavBarDashboard = () => {
       </div>
     </div>
   );
-}  
+};

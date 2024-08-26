@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
-import { MainButton, OutlinedButton } from "./Buttons";
+
+import { MainButton } from "./Buttons";
 import { useRouter } from "next/navigation";
 
 export const UnderConstruction = () => {

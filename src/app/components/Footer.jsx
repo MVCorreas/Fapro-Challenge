@@ -4,14 +4,14 @@ import { FacebookIcon, TwitterIcon, YoutubeIcon } from "../../../public/Icons";
 export const Footer = () => {
   return (
     <footer className="footer footer-center bg-dark-teal text-white ">
-       <Image
-          src="/Assets/PinkLogo.png"
-          alt="logo"
-          width={200}
-          height={200}
-          style={{ borderRadius: "10px" }}
-          priority
-        />
+      <Image
+        src="/Assets/PinkLogo.png"
+        alt="logo"
+        width={200}
+        height={200}
+        style={{ borderRadius: "10px" }}
+        priority
+      />
       <nav className="grid grid-flow-col gap-4">
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>

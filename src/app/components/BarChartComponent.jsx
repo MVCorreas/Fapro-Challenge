@@ -1,11 +1,9 @@
-'use client';
+"use client";
 
 import { Card, Divider, Switch } from "@tremor/react";
-import { BarChart } from './BarChart'
+import { BarChart } from "./BarChart";
 
 export const BarChartComponent = () => {
-  
-
   return (
     <div className="flex flex-row m-2 w-full justify-center">
       <Card className="sm:max-w-2xl bg-white shadow-2xl rounded-sm m-1 p-3 overflow-hidden">
@@ -37,8 +35,7 @@ export const BarChartComponent = () => {
           Total income in this year
         </p>
         <div className="text-xs overflow-x-auto h-40">
-          <BarChart/>
-          
+          <BarChart />
         </div>
       </Card>
     </div>

@@ -2,11 +2,6 @@
 
 import { AreaChart, Card, List, ListItem } from "@tremor/react";
 import { RiArrowDownLine, RiArrowUpLine } from "@remixicon/react";
-import { XAxis } from "recharts";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 const defaulData = [
   {
@@ -82,9 +77,6 @@ const summary = [
   },
 ];
 
-const valueFormatter = (number) =>
-  `${Intl.NumberFormat("us").format(number).toString()}`;
-
 const statusColor = {
   Organic: "bg-blue-500",
   Sponsored: "bg-violet-500",
@@ -114,7 +106,7 @@ const artChartBadge = [
   },
 ];
 
-export const ArtChartComponent = ({data = defaulData}) => {
+export const ArtChartComponent = ({ data = defaulData }) => {
   return (
     <div className=" flex flex-row justify-center m-2 w-full">
       <Card className=" w-full sm:max-w-2xl bg-white shadow-2xl rounded-sm m-1 p-2">
@@ -129,9 +121,7 @@ export const ArtChartComponent = ({data = defaulData}) => {
                 <div className="stat-value text-[20px]">{number}</div>
                 <div
                   className={` text-xs px-1 py-0.5 text-tremor-label font-semibold relative top-[-4px] ml-2 w-auto ${
-                    increase
-                      ? " text-green-500 "
-                      : " text-red-800 "
+                    increase ? " text-green-500 " : " text-red-800 "
                   }`}
                 >
                   {increase ? (
@@ -151,7 +141,6 @@ export const ArtChartComponent = ({data = defaulData}) => {
             )
           )}
         </div>
-
         <div className="text-xs">
           <AreaChart
             data={data}

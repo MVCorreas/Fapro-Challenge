@@ -31,12 +31,12 @@ export const RegisterForm = () => {
 
   const onSubmit = async (data) => {
     const { firstName, lastName, email, password, repeatPassword } = data;
-  
+
     if (password !== repeatPassword) {
       toast.error("Passwords do not match");
       return;
     }
-  
+
     try {
       const payload = {
         first_name: firstName,
@@ -45,7 +45,7 @@ export const RegisterForm = () => {
         password,
         repeat_password: repeatPassword,
       };
-  
+
       const response = await axios.post(
         `${apiUrl}/authentication/register`,
         payload,
@@ -56,17 +56,21 @@ export const RegisterForm = () => {
           },
         }
       );
-  
+
       console.log("Registration response:", response);
-  
+
       toast.success("User registered successfully!");
       router.push("/signin");
     } catch (error) {
-      console.error("Registration error:", error.response?.data || error.message);
+      console.error(
+        "Registration error:",
+        error.response?.data || error.message
+      );
 
       const errorData = error.response?.data;
       const errorCode = errorData?.errors?.[0]?.code;
-      const errorMessage = errorData?.context?.message || "Error registering user";
+      const errorMessage =
+        errorData?.context?.message || "Error registering user";
 
       if (errorCode === "user_exists") {
         setErrorMessage("A user with this email already exists.");
@@ -81,7 +85,7 @@ export const RegisterForm = () => {
   return (
     <div className="max-w-lg mx-auto card bg-light-teal bg-opacity-60 m-4 text-white p-10">
       <div className="card-body ">
-      <h1 className="card-title text-3xl justify-center">REGISTER</h1>
+        <h1 className="card-title text-3xl justify-center">REGISTER</h1>
         {errorMessage && (
           <div className="alert alert-error mb-4">{errorMessage}</div>
         )}
@@ -128,7 +132,7 @@ export const RegisterForm = () => {
                   message: "Email is invalid",
                 },
               })}
-              className="input input-bordered w-full max-w-sm text-black rounded-full" 
+              className="input input-bordered w-full max-w-sm text-black rounded-full"
             />
             {errors.email && (
               <div className="text-error">{errors.email.message}</div>
@@ -174,8 +178,8 @@ export const RegisterForm = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className=" btn btn-ghost w-32 bg-dark-pink hover:bg-light-pink  text-white rounded-full">
-            
+              className=" btn btn-ghost w-32 bg-dark-pink hover:bg-light-pink  text-white rounded-full"
+            >
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
               )}
@@ -183,8 +187,6 @@ export const RegisterForm = () => {
             </button>
           </div>
         </form>
-
-       
         <div>
           Already have an account?{" "}
           <Link className="link" href={`/signin?callbackUrl=${callbackUrl}`}>
