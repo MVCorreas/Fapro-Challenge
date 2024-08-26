@@ -46,7 +46,7 @@ export const Reviews = () => {
                   width={100}
                   height={100}
                   alt={`Image of ${review.name}`}
-                  className="rounded-full mb-4"
+                  className="rounded-full mb-4 w-auto"
                 />
 
                 <p className="font-light text-md text-center mb-4">

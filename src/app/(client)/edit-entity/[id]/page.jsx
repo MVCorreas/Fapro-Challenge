@@ -11,16 +11,7 @@ const EditEntityPage = ({ params }) => {
         <div className="w-full">
           <NavBarDashboard />
         </div>
-        <div
-          className="flex-1 "
-          style={{
-            backgroundImage: "url('/PurpleBackground.png')",
-            backgroundSize: "cover",
-            backgroundBlendMode: "overlay",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "40%",
-          }}
-        >
+        <div className="flex-1 ">
           <EditEntity entityId={id} />
         </div>
       </div>
