@@ -9,7 +9,7 @@ import { CloseIcon } from "../../../public/Icons";
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const CreateEntity = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({ //input fields, either form the server or additional
     business_name: "",
     credential: "",
     industry_type: "",
@@ -19,7 +19,7 @@ export const CreateEntity = () => {
   });
   const [status, setStatus] = useState({ error: "", success: "" });
   const [errors, setErrors] = useState({});
-  const [dashboardId, setDashboardId] = useState(null);
+  const [dashboardId, setDashboardId] = useState(null); //stores the ID of created entity to redirect
   const router = useRouter();
 
   useEffect(() => {
@@ -47,18 +47,18 @@ export const CreateEntity = () => {
       newErrors.credential = "Credential must be exactly 6 digits";
     }
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return Object.keys(newErrors).length === 0; //if this is true, it means no error messages added to errors.
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); //commonly used on forms, to prevent default behaviour of submitting
 
     if (!validate()) {
       return;
     }
 
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("token"); //check for localStorage token again, because we are making an API request that needs authorization
 
       if (!token) {
         setStatus({ error: "No token found", success: "" });

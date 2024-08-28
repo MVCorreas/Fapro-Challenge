@@ -12,17 +12,19 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const RegisterForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
-  const { data: session } = useSession() || {};
+  const { data: session } = useSession() || {}; //the current user's session data
   const router = useRouter();
-  const params = useSearchParams();
+  const params = useSearchParams(); //access the query parameters in the URL (parameters after the ?)
   const callbackUrl = params.get("callbackUrl") || "/";
 
+  //initializes the form and provides fx to register and submit, and objects for erros and isSubmitting
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
 
+  //This effect checks if the user is already logged in (i.e., a session exists). If they are, it redirects them to the callbackUrl or home page.
   useEffect(() => {
     if (session && session.user) {
       router.push(callbackUrl);
@@ -37,6 +39,7 @@ export const RegisterForm = () => {
       return;
     }
 
+    //here I modify the names of the variables from the back to fit the client
     try {
       const payload = {
         first_name: firstName,
@@ -67,6 +70,22 @@ export const RegisterForm = () => {
         error.response?.data || error.message
       );
 
+      //optional chaining operator --> It’s a feature in JavaScript
+      //that allows you to safely access deeply nested properties of an object
+      // without having to check each level for null or undefined
+      //Without optional chaining, accessing data on an undefined error.response would result in a runtime error.
+
+      //this allows for simpler and straightforward code, otherwise it would be:
+      // let errorData;
+      // if (error.response) {
+      //   errorData = error.response.data;
+      // }
+
+      // let errorCode;
+      // if (errorData && errorData.errors && errorData.errors.length > 0) {
+      //   errorCode = errorData.errors[0].code;
+      // }
+
       const errorData = error.response?.data;
       const errorCode = errorData?.errors?.[0]?.code;
       const errorMessage =
@@ -91,6 +110,7 @@ export const RegisterForm = () => {
         )}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="my-2">
+            {/* htmlFor used to access the id */}
             <label className="label" htmlFor="firstName">
               First Name
             </label>

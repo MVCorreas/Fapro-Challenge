@@ -44,7 +44,7 @@ export const EditEntity = ({ entityId }) => {
 
         const entities = response.data.data;
         const entity = entities.find(
-          (item) => item.id === parseInt(entityId, 10)
+          (item) => item.id === parseInt(entityId, 10) //parseINT, turns strings into integers, 10 is the radix that inteprets strings as decimals
         );
 
         if (entity) {

@@ -53,7 +53,7 @@ export const TableContent = () => {
       console.error("Error fetching entities:", error);
     }
   };
-
+//fetchEntities fx logic outside the useEffects make it reusable elsewhere in the component (e.g. removeEntity fx)
   useEffect(() => {
     fetchEntities();
   }, []);
