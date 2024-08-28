@@ -1,5 +1,6 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 import { DropDownIcon, HamburgerIcon, BellIcon } from "../../../public/Icons";
 import Image from "next/image";
 import { MainButton, OutlinedButton } from "./Buttons";
@@ -142,9 +143,16 @@ export const NavBarForms = () => {
 
 export const NavBarDashboard = () => {
   const router = useRouter();
+  const [firstName, setFirstName] = useState("");
 
-  const firstName =
-    typeof window !== "undefined" ? localStorage.getItem("UserName") : null;
+  useEffect(() => {
+    // This code runs only on the client side, and prevents hydration error when name doesnt match server
+    const storedName = localStorage.getItem("UserName");
+    if (storedName) {
+      setFirstName(storedName);
+    }
+  }, []);
+
   const navigateHome = () => {
     router.push("/");
   };
